@@ -10,6 +10,8 @@ import {ReactiveFormsModule} from '@angular/forms';
 import {MdDynamicFieldDirective} from './md-dynamic-field.directive';
 import {CommonModule} from '@angular/common';
 import {MaterialModule} from './material.module';
+import {COMPONENT_SET} from './model/component-set';
+import {STANDARD_COMPONENT_SET} from './model/standard-component-set';
 
 
 
@@ -29,6 +31,7 @@ import {MaterialModule} from './material.module';
     CommonModule,
     MaterialModule,
   ],
+  providers: [{provide: COMPONENT_SET, useValue: STANDARD_COMPONENT_SET}],
   exports: [MdDynamicFormsComponent],
 })
 export class MdDynamicFormsModule { }

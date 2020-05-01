@@ -1,8 +1,5 @@
-export interface Validator {
-  name: string;
-  validator: any;
-  message: string;
-}
+import {Validator} from './validator.interface';
+
 export interface FieldConfig {
   label?: string;
   name?: string;

@@ -17,7 +17,6 @@
     ],
     "paths": {
       "md-dynamic-forms": [
-        "dist/md-dynamic-forms/md-dynamic-forms",
         "dist/md-dynamic-forms"
       ]
     }
