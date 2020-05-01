@@ -12,6 +12,8 @@ import {CommonModule} from '@angular/common';
 import {MaterialModule} from './material.module';
 import {COMPONENT_SET} from './model/component-set';
 import {STANDARD_COMPONENT_SET} from './model/standard-component-set';
+import { GroupComponent } from './components/group/group.component';
+import { ListComponent } from './components/list/list.component';
 
 
 
@@ -25,6 +27,8 @@ import {STANDARD_COMPONENT_SET} from './model/standard-component-set';
     RadiobuttonComponent,
     SelectComponent,
     MdDynamicFieldDirective,
+    GroupComponent,
+    ListComponent,
   ],
   imports: [
     ReactiveFormsModule,
