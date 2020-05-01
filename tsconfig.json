@@ -14,7 +14,13 @@
     "lib": [
       "es2018",
       "dom"
-    ]
+    ],
+    "paths": {
+      "md-dynamic-forms": [
+        "dist/md-dynamic-forms/md-dynamic-forms",
+        "dist/md-dynamic-forms"
+      ]
+    }
   },
   "angularCompilerOptions": {
     "fullTemplateTypeCheck": true,
