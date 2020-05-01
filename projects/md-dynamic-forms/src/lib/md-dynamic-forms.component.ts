@@ -21,23 +21,20 @@ import {FieldConfig} from '@lib/model/field-config.interface';
 export class MdDynamicFormsComponent implements OnInit {
   @Input() config: FieldConfig = null;
 
+  @Input() value: any = null;
+
   @Output() submit: EventEmitter<any> = new EventEmitter<any>();
 
   form: FormGroup;
 
-  get value() {
-    return this.form.value;
-  }
-
-  constructor(private fb: FormBuilder) {
-  }
+  constructor(private fb: FormBuilder) {}
 
   ngOnInit() {
-    const value = {name: 'Test', adress: {street: 'Musterweg', city: 'Nürnberg'}, kunden: [{test: 'test', abc: 'def'}, {test: 'def', abc: 'test'}]};
-    this.form = this.createGroup(this.config, value);
+    this.value = {name: 'Test', adress: {street: 'Musterweg', city: 'Nürnberg'}, kunden: [{test: 'test', abc: 'def'}, {test: 'def', abc: 'test'}]};
+    this.form = this.createGroup(this.config, this.value);
   }
 
-  onSubmit(event: Event) {
+  onSubmit(event: Event): void {
     event.preventDefault();
     event.stopPropagation();
     if (this.form.valid) {
@@ -47,7 +44,7 @@ export class MdDynamicFormsComponent implements OnInit {
     }
   }
 
-  createGroup(config: FieldConfig, value: any) {
+  createGroup(config: FieldConfig, value: any): FormGroup {
     const group = this.fb.group({}, {validators: this.bindValidations(config.validations || [])});
     config.children.forEach(field => {
       if (field.type === 'button') {
@@ -86,7 +83,7 @@ export class MdDynamicFormsComponent implements OnInit {
     );
   }
 
-  bindValidations(validations: any) {
+  bindValidations(validations: Validator[]): ValidatorFn {
     if (validations.length > 0) {
       const validList = [];
       validations.forEach(valid => {
@@ -97,7 +94,7 @@ export class MdDynamicFormsComponent implements OnInit {
     return null;
   }
 
-  validateAllFormFields(formGroup: FormGroup) {
+  validateAllFormFields(formGroup: FormGroup): void {
     Object.keys(formGroup.controls).forEach(field => {
       const control = formGroup.get(field);
       control.markAsTouched({onlySelf: true});
