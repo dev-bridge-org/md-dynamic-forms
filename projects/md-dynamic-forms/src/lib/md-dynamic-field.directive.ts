@@ -8,7 +8,7 @@ import {
 } from '@angular/core';
 import {FormGroup} from '@angular/forms';
 import {FieldConfig} from './model/field-config.interface';
-import {COMPONENT_SET, ComponentSet} from './model/component-set';
+import {COMPONENT_SET} from './model/component-set';
 
 @Directive({
   selector: '[mdDynamicField]'
@@ -21,7 +21,7 @@ export class MdDynamicFieldDirective implements OnInit {
   constructor(
     private resolver: ComponentFactoryResolver,
     private container: ViewContainerRef,
-    @Inject(COMPONENT_SET) public componentSet: ComponentSet,
+    @Inject(COMPONENT_SET) public componentSet,
   ) {
   }
 

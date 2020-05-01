@@ -4,13 +4,16 @@ import {SelectComponent} from '../components/select/select.component';
 import {DateComponent} from '../components/date/date.component';
 import {RadiobuttonComponent} from '../components/radiobutton/radiobutton.component';
 import {CheckboxComponent} from '../components/checkbox/checkbox.component';
-import {ComponentSet} from './component-set';
+import {GroupComponent} from '../components/group/group.component';
+import {ListComponent} from '../components/list/list.component';
 
-export const STANDARD_COMPONENT_SET: ComponentSet = {
+export const STANDARD_COMPONENT_SET = {
   input: InputComponent,
   button: ButtonComponent,
   select: SelectComponent,
   date: DateComponent,
   radiobutton: RadiobuttonComponent,
   checkbox: CheckboxComponent,
+  group: GroupComponent,
+  list: ListComponent,
 };
