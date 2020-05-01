@@ -1,6 +1,6 @@
 import {Component, OnInit} from '@angular/core';
 import {FormGroup} from '@angular/forms';
-import {FieldConfig} from '@lib/model/field-config.interface';
+import {FieldConfig} from '../../model/field-config.interface';
 @Component({
   selector: 'md-radiobutton',
   template: `

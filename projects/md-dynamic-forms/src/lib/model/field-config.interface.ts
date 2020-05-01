@@ -1,4 +1,4 @@
-import {Validator} from '@lib/model/validator.interface';
+import {Validator} from './validator.interface';
 
 export interface FieldConfig {
   label?: string;

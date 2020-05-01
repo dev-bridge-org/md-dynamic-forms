@@ -1,7 +1,14 @@
-import {ComponentFactoryResolver, Directive, Inject, Input, OnInit, ViewContainerRef} from '@angular/core';
+import {
+  ComponentFactoryResolver,
+  ComponentRef,
+  Directive, Inject,
+  Input,
+  OnInit,
+  ViewContainerRef
+} from '@angular/core';
 import {FormGroup} from '@angular/forms';
-import {FieldConfig} from '@lib/model/field-config.interface';
-import {COMPONENT_SET} from '@lib/model/component-set';
+import {FieldConfig} from './model/field-config.interface';
+import {COMPONENT_SET} from './model/component-set';
 
 @Directive({
   selector: '[mdDynamicField]'
