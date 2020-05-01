@@ -7,6 +7,9 @@ export interface FieldConfig {
   options?: string[];
   collections?: any;
   type: string;
+  formType: string;
+  children: FieldConfig[];
+  listItem?: FieldConfig;
   value?: any;
   validations?: Validator[];
 }

@@ -1,19 +1,24 @@
 import {Component, EventEmitter, Input, OnInit, Output} from '@angular/core';
 import {FieldConfig} from './model/field-config.interface';
-import {FormBuilder, FormGroup, Validators} from '@angular/forms';
+import {FormArray, FormBuilder, FormControl, FormGroup, Validators} from '@angular/forms';
 
 @Component({
   selector: 'md-dynamic-forms',
   template: `
       <form class="dynamic-form" [formGroup]="form" (submit)="onSubmit($event)">
-          <ng-container *ngFor="let field of fields;" mdDynamicField [field]="field" [group]="form">
+          <ng-container *ngFor="let field of config.children;" mdDynamicField [field]="field" [group]="form">
           </ng-container>
       </form>
   `,
-  styles: []
+  styles: [`
+    .dynamic-form {
+        display: flex;
+        flex-direction: column;
+    }
+  `]
 })
 export class MdDynamicFormsComponent implements OnInit {
-  @Input() fields: FieldConfig[] = [];
+  @Input() config: FieldConfig = null;
 
   @Output() submit: EventEmitter<any> = new EventEmitter<any>();
 
@@ -27,7 +32,8 @@ export class MdDynamicFormsComponent implements OnInit {
   }
 
   ngOnInit() {
-    this.form = this.createControl();
+    const value = {name: 'Test', adress: {street: 'Musterweg', city: 'Nürnberg'}, kunden: [{test: 'test', abc: 'def'}, {test: 'def', abc: 'test'}]};
+    this.form = this.createGroup(this.config, value);
   }
 
   onSubmit(event: Event) {
@@ -40,19 +46,43 @@ export class MdDynamicFormsComponent implements OnInit {
     }
   }
 
-  createControl() {
-    const group = this.fb.group({});
-    this.fields.forEach(field => {
+  createGroup(config: FieldConfig, value: any) {
+    const group = this.fb.group({}, {validators: this.bindValidations(config.validations || [])});
+    config.children.forEach(field => {
       if (field.type === 'button') {
         return;
       }
-      const control = this.fb.control(
-        field.value,
-        this.bindValidations(field.validations || [])
-      );
+      let control = null;
+      switch (field.formType) {
+        case 'group':
+          control = this.createGroup(field, value[field.name]);
+          break;
+        case 'array':
+          control = this.createArray(field, value[field.name]);
+          break;
+        case 'control':
+          control = this.createControl(field, value[field.name]);
+          break;
+      }
       group.addControl(field.name, control);
     });
     return group;
+  }
+
+  createArray(config: FieldConfig, value: any): FormArray {
+    const array = this.fb.array([], {validators: this.bindValidations(config.validations || [])});
+    for (let i = 0; i < value.length; i++) {
+      const control = this.createGroup(config.listItem, value[i]);
+      array.push(control);
+    }
+    return array;
+  }
+
+  createControl(config: FieldConfig, value: any): FormControl {
+    return this.fb.control(
+      value,
+      this.bindValidations(config.validations || [])
+    );
   }
 
   bindValidations(validations: any) {

@@ -31,6 +31,10 @@ export class MdDynamicFieldDirective implements OnInit {
     );
     this.componentRef = this.container.createComponent(factory);
     this.componentRef.instance.field = this.field;
-    this.componentRef.instance.group = this.group;
+    if (this.field.formType === 'group') {
+      this.componentRef.instance.group = this.group.get(this.field.name);
+    } else {
+      this.componentRef.instance.group = this.group;
+    }
   }
 }
