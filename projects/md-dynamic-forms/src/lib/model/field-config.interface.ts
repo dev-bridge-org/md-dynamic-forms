@@ -1,4 +1,5 @@
 import {Validator} from './validator.interface';
+import {AsyncValidator} from './async-validator.interface';
 
 export interface FieldConfig {
   label?: string;
@@ -12,4 +13,5 @@ export interface FieldConfig {
   listItem?: FieldConfig;
   value?: any;
   validations?: Validator[];
+  asyncValidations?: AsyncValidator[];
 }
