@@ -5,6 +5,7 @@ import { AppComponent } from './app.component';
 import {MdDynamicFormsModule} from 'md-dynamic-forms';
 import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
 import { LoggerModule, NgxLoggerLevel } from 'ngx-logger';
+import {HttpClientModule} from '@angular/common/http';
 
 @NgModule({
   declarations: [
@@ -14,7 +15,8 @@ import { LoggerModule, NgxLoggerLevel } from 'ngx-logger';
     BrowserModule,
     BrowserAnimationsModule,
     MdDynamicFormsModule,
-    LoggerModule.forRoot({serverLoggingUrl: '', serverLogLevel: NgxLoggerLevel.OFF, level: NgxLoggerLevel.DEBUG})
+    HttpClientModule,
+    LoggerModule.forRoot({level: NgxLoggerLevel.DEBUG})
   ],
   providers: [],
   bootstrap: [AppComponent]
