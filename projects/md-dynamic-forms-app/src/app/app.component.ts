@@ -1,6 +1,7 @@
 import {Component, Inject, OnInit, ViewChild} from '@angular/core';
 import {Validators} from '@angular/forms';
 import {FieldConfig, MdDynamicFormsComponent} from 'md-dynamic-forms';
+import {CustomValidators} from './custom-validators';
 
 @Component({
   selector: 'app-root',
@@ -107,7 +108,10 @@ export class AppComponent implements OnInit{
         type: 'input',
         children: [],
         formType: 'control',
-        name: 'name'
+        name: 'name',
+        validations: [
+          {name: 'required', message: 'Name ist ein Pflichtfeld', validator: Validators.required}
+        ]
       },
       {
         type: 'list',
@@ -151,7 +155,18 @@ export class AppComponent implements OnInit{
             name: 'city'
           },
         ],
-        name: 'adress',
+        name: 'adress'
+      },
+      {
+        name: 'gender',
+        type: 'select',
+        formType: 'control',
+        children: [],
+        label: 'Gender',
+        options: ['Male', 'Female'],
+        validations: [
+          {name: 'required', message: 'Gender is required', validator: Validators.required}
+        ]
       }
     ]
   };
