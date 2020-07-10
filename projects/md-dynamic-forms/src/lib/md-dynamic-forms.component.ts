@@ -2,6 +2,7 @@ import {Component, EventEmitter, Input, OnInit, Output} from '@angular/core';
 import {FieldConfig} from './model/field-config.interface';
 import {FormArray, FormBuilder, FormControl, FormGroup, ValidatorFn, Validators} from '@angular/forms';
 import {Validator} from './model/validator.interface';
+import {NGXLogger} from 'ngx-logger';
 
 @Component({
   selector: 'md-dynamic-forms',
@@ -27,11 +28,11 @@ export class MdDynamicFormsComponent implements OnInit {
 
   form: FormGroup;
 
-  constructor(private fb: FormBuilder) {}
+  constructor(private fb: FormBuilder, private logger: NGXLogger) {}
 
   ngOnInit() {
-    this.value = {name: 'Test', adress: {street: 'Musterweg', city: 'Nürnberg'}, kunden: [{test: 'test', abc: 'def'}, {test: 'def', abc: 'test'}]};
     this.form = this.createGroup(this.config, this.value);
+    this.logger.info('Form: ', this.form);
   }
 
   onSubmit(event: Event): void {

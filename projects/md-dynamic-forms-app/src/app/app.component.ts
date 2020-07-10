@@ -156,9 +156,12 @@ export class AppComponent implements OnInit{
     ]
   };
 
+  public value;
+
   constructor() {}
 
   ngOnInit(): void {
+    this.value = {name: 'Test', adress: {}, kunden: [{test: 'test', abc: 'def'}, {test: 'def', abc: 'test'}]};
   }
 
   submit(value: any) {
