@@ -1,27 +1,22 @@
-import { Component, OnInit } from '@angular/core';
-import {FieldConfig} from '../../model/field-config.interface';
-import {AbstractControl, FormArray, FormGroup} from '@angular/forms';
+import {Component} from '@angular/core';
+import {FormArray} from '@angular/forms';
+import {BaseElement} from '../base-element';
 
 @Component({
   selector: 'md-list',
   template: `
       <ol>
-          <li *ngFor="let item of getFormArray(group.get(field.name)).getRawValue()">{{item | json}}</li>
+          <li *ngFor="let item of formArray.getRawValue()">{{item | json}}</li>
       </ol>
   `,
   styles: []
 })
-export class ListComponent implements OnInit {
-
-  field: FieldConfig;
-  group: FormGroup;
-  constructor() { }
-
-  ngOnInit(): void {
+export class ListComponent extends BaseElement {
+  constructor() {
+    super();
   }
 
-
-  getFormArray(control: AbstractControl): FormArray {
-    return control as FormArray;
+  get formArray(): FormArray {
+    return this.group.get(this.field.name) as FormArray;
   }
 }

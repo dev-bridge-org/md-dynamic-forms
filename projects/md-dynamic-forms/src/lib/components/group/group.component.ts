@@ -1,6 +1,5 @@
-import { Component, OnInit } from '@angular/core';
-import {FieldConfig} from '../../model/field-config.interface';
-import {FormGroup} from '@angular/forms';
+import {Component} from '@angular/core';
+import {BaseElement} from '../base-element';
 
 @Component({
   selector: 'md-group',
@@ -19,12 +18,8 @@ import {FormGroup} from '@angular/forms';
     `
   ]
 })
-export class GroupComponent implements OnInit {
-  field: FieldConfig;
-  group: FormGroup;
-  constructor() { }
-
-  ngOnInit(): void {
+export class GroupComponent extends BaseElement {
+  constructor() {
+    super();
   }
-
 }
