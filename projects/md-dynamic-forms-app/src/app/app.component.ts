@@ -167,7 +167,17 @@ export class AppComponent implements OnInit{
         validations: [
           {name: 'required', message: 'Gender is required', validator: Validators.required}
         ]
-      }
+      },
+      {
+        name: 'term',
+        type: 'checkbox',
+        formType: 'control',
+        children: [],
+        label: 'Accept Terms',
+        validations: [
+          {name: 'required', message: 'Terms need to be Accepted', validator: Validators.required}
+        ]
+      },
     ]
   };
 
