@@ -2,6 +2,7 @@ import {Component, Inject, OnInit, ViewChild} from '@angular/core';
 import {Validators} from '@angular/forms';
 import {FieldConfig, MdDynamicFormsComponent} from 'md-dynamic-forms';
 import {CustomValidators} from './custom-validators';
+import {TestService} from './test.service';
 
 @Component({
   selector: 'app-root',
@@ -103,6 +104,9 @@ export class AppComponent implements OnInit{
     type: 'form',
     name: 'testform',
     formType: 'form',
+    validations: [
+      // {name: 'test', message: '', validator: CustomValidators.test}
+    ],
     children: [
       {
         type: 'input',
@@ -169,6 +173,28 @@ export class AppComponent implements OnInit{
         ]
       },
       {
+        name: 'dob',
+        formType: 'control',
+        type: 'date',
+        children: [],
+        label: 'DOB',
+        validations: [
+          {
+            name: 'required',
+            validator: Validators.required,
+            message: 'Date of Birth Required'
+          },
+          {
+            name: 'test',
+            validator: null,
+            message: 'Test Validation'
+          }
+        ],
+        asyncValidations: [
+          {name: 'asyncTest', validator: CustomValidators.asyncTest(this.service), message: 'ABC'}
+        ]
+      },
+      {
         name: 'term',
         type: 'checkbox',
         formType: 'control',
@@ -183,10 +209,10 @@ export class AppComponent implements OnInit{
 
   public value;
 
-  constructor() {}
+  constructor(private service: TestService) {}
 
   ngOnInit(): void {
-    this.value = {name: 'Test', adress: {}, kunden: [{test: 'test', abc: 'def'}, {test: 'def', abc: 'test'}]};
+    this.value = {name: 'Test', adress: {}, kunden: [{test: 'test', abc: 'def'}, {test: 'def', abc: 'test'}], dob: '7/8/2020'};
   }
 
   submit(value: any) {
