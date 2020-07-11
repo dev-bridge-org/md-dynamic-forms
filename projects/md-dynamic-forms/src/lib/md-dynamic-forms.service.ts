@@ -20,13 +20,13 @@ export class MdDynamicFormsService {
       let control = null;
       switch (field.formType) {
         case 'group':
-          control = this.createGroup(field, value[field.name]);
+          control = this.createGroup(field, value ? value[field.name] : null);
           break;
         case 'array':
-          control = this.createArray(field, value[field.name]);
+          control = this.createArray(field, value ? value[field.name] : null);
           break;
         case 'control':
-          control = this.createControl(field, value[field.name]);
+          control = this.createControl(field, value ? value[field.name] : null);
           break;
       }
       group.addControl(field.name, control);

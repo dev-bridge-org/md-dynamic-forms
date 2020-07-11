@@ -36,6 +36,6 @@ import { ListComponent } from './components/list/list.component';
     MaterialModule,
   ],
   providers: [{provide: COMPONENT_SET, useValue: STANDARD_COMPONENT_SET}],
-  exports: [MdDynamicFormsComponent],
+  exports: [MdDynamicFormsComponent, MdDynamicFieldDirective],
 })
 export class MdDynamicFormsModule { }
