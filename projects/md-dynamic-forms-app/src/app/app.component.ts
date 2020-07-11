@@ -3,6 +3,7 @@ import {Validators} from '@angular/forms';
 import {FieldConfig, MdDynamicFormsComponent} from 'md-dynamic-forms';
 import {CustomValidators} from './custom-validators';
 import {TestService} from './test.service';
+import {of} from 'rxjs';
 
 @Component({
   selector: 'app-root',
@@ -131,12 +132,14 @@ export class AppComponent implements OnInit{
               formType: 'control',
               children: [],
               name: 'test',
+              label: 'Test',
             },
             {
               type: 'input',
               formType: 'control',
               children: [],
               name: 'abc',
+              label: 'Abc',
             },
           ],
           name: 'kunde'
@@ -167,7 +170,7 @@ export class AppComponent implements OnInit{
         formType: 'control',
         children: [],
         label: 'Gender',
-        options: ['Male', 'Female'],
+        options: () => of(['Male', 'Female']),
         validations: [
           {name: 'required', message: 'Gender is required', validator: Validators.required}
         ]

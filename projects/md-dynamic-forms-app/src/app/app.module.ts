@@ -17,8 +17,7 @@ import {CustomFormSetModule} from './custom-form-set/custom-form-set.module';
     BrowserAnimationsModule,
     MdDynamicFormsModule,
     HttpClientModule,
-    LoggerModule.forRoot({level: NgxLoggerLevel.DEBUG}),
-    CustomFormSetModule,
+    LoggerModule.forRoot({level: NgxLoggerLevel.DEBUG})
   ],
   providers: [],
   bootstrap: [AppComponent]
