@@ -1,0 +1,52 @@
+:host {
+  display: flex;
+  flex-flow: row nowrap;
+}
+
+label {
+  text-align: right;
+  justify-self: right;
+  font-size: 1rem;
+  color: #555;
+}
+
+p {
+  margin: unset;
+  font-size: 1rem;
+}
+
+.icon-container {
+  display: flex;
+  justify-content: center;
+  flex: 0 0 24px;
+  position: relative;
+  top: 2px;
+}
+
+.invalid {
+  color: #cc0000;
+}
+
+label.form-label {
+  color: #757575;
+  font-size: 1rem;
+  font-weight: normal;
+  flex: 0 1 250px;  // TODO: Größenverhalten parametrisieren
+  padding: 5px 12px 5px 0;
+}
+
+::ng-deep app-form-control-input{
+  flex: 0 1 250px;  // TODO: Größenverhalten parametrisieren
+  padding: 2px 0;
+  p.readonly {
+    padding: 3px 6px;
+    width: fit-content;
+  }
+}
+::ng-deep p {
+  &.form-component-error,
+  &.form-component-warning {
+    padding: 5px 0 5px 10px;
+    flex: 1 1 250px;
+  }
+}

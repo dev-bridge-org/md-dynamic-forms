@@ -1,0 +1,6 @@
+<label [for]="field.name" class="form-label">{{field.label}}</label>
+<app-form-control-input [group]="group" [controlname]="field.name" [label]="field.label" [type]="field.inputType"></app-form-control-input>
+<div class="icon-container">
+  <mat-icon *ngIf="group.get(field.name).invalid">error</mat-icon>
+</div>
+<p class="align-start form-component-error" *ngIf="group.get(field.name).invalid"></p>

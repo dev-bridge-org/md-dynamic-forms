@@ -6,6 +6,7 @@ import {MdDynamicFormsModule} from 'md-dynamic-forms';
 import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
 import { LoggerModule, NgxLoggerLevel } from 'ngx-logger';
 import {HttpClientModule} from '@angular/common/http';
+import {CustomFormSetModule} from './custom-form-set/custom-form-set.module';
 
 @NgModule({
   declarations: [
@@ -16,7 +17,8 @@ import {HttpClientModule} from '@angular/common/http';
     BrowserAnimationsModule,
     MdDynamicFormsModule,
     HttpClientModule,
-    LoggerModule.forRoot({level: NgxLoggerLevel.DEBUG})
+    LoggerModule.forRoot({level: NgxLoggerLevel.DEBUG}),
+    CustomFormSetModule,
   ],
   providers: [],
   bootstrap: [AppComponent]

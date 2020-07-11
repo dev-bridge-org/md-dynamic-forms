@@ -1,0 +1,3 @@
+<ng-container *ngIf="group">
+  <ng-container *ngFor="let child of field.children" mdDynamicField [group]="group" [field]="child"></ng-container>
+</ng-container>
