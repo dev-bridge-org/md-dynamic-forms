@@ -39,7 +39,7 @@ export class MdDynamicFormsService {
   createArray(config: FieldConfig, value: any): FormArray {
     const array = this.fb.array([]);
     for (const item of value) {
-      const group = this.createGroup(config.listItem, item);
+      const group = this.createGroup(config.listConfig.listItem, item);
       array.push(group);
     }
     array.setValidators(this.bindValidations(config.validations || []));

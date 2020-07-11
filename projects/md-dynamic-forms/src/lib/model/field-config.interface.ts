@@ -1,6 +1,7 @@
 import {Validator} from './validator.interface';
 import {AsyncValidator} from './async-validator.interface';
 import {Observable} from 'rxjs';
+import {ListConfig} from './list-config.interface';
 
 export interface FieldConfig {
   label?: string;
@@ -11,7 +12,7 @@ export interface FieldConfig {
   type: string;
   formType: string;
   children: FieldConfig[];
-  listItem?: FieldConfig;
+  listConfig?: ListConfig;
   value?: any;
   validations?: Validator[];
   asyncValidations?: AsyncValidator[];
