@@ -6,6 +6,7 @@ import {RadiobuttonComponent} from '../components/radiobutton/radiobutton.compon
 import {CheckboxComponent} from '../components/checkbox/checkbox.component';
 import {GroupComponent} from '../components/group/group.component';
 import {ListComponent} from '../components/list/list.component';
+import {TableComponent} from '../components/table/table.component';
 
 export const STANDARD_COMPONENT_SET = {
   input: InputComponent,
@@ -16,4 +17,5 @@ export const STANDARD_COMPONENT_SET = {
   checkbox: CheckboxComponent,
   group: GroupComponent,
   list: ListComponent,
+  table: TableComponent,
 };

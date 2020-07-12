@@ -119,30 +119,39 @@ export class AppComponent implements OnInit{
         ]
       },
       {
-        type: 'list',
+        type: 'table',
         children: [],
         formType: 'array',
         name: 'kunden',
-        listItem: {
-          type: 'group',
-          formType: 'group',
-          children: [
-            {
-              type: 'input',
-              formType: 'control',
-              children: [],
-              name: 'test',
-              label: 'Test',
-            },
-            {
-              type: 'input',
-              formType: 'control',
-              children: [],
-              name: 'abc',
-              label: 'Abc',
-            },
-          ],
-          name: 'kunde'
+        listConfig: {
+          listItem: {
+            type: 'group',
+            formType: 'group',
+            children: [
+              {
+                type: 'input',
+                formType: 'control',
+                children: [],
+                name: 'test',
+                label: 'Test',
+              },
+              {
+                type: 'input',
+                formType: 'control',
+                children: [],
+                name: 'abc',
+                label: 'Abc',
+              },
+            ],
+            name: 'kunde'
+          },
+          config: {
+            width: 75,
+            columns: [
+              {name: 'test', width: 50},
+              {name: 'abc', width: 50}
+            ]
+          }
         }
       },
       {

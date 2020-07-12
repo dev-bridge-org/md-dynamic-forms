@@ -1,7 +1,7 @@
 import {FieldConfig} from './field-config.interface';
-import {ColumnConfig} from './column-config.interface';
+import {TableConfig} from './table/table-config.interface';
 
 export interface ListConfig {
   listItem: FieldConfig;
-  columnConfigs: ColumnConfig[];
+  config: TableConfig;
 }

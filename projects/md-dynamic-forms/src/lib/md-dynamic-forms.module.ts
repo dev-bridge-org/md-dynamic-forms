@@ -14,6 +14,10 @@ import {COMPONENT_SET} from './model/component-set';
 import {STANDARD_COMPONENT_SET} from './model/standard-component-set';
 import { GroupComponent } from './components/group/group.component';
 import { ListComponent } from './components/list/list.component';
+import { TableComponent } from './components/table/table.component';
+import { MatTableModule } from '@angular/material/table';
+import { MatPaginatorModule } from '@angular/material/paginator';
+import { MatSortModule } from '@angular/material/sort';
 
 
 
@@ -29,11 +33,15 @@ import { ListComponent } from './components/list/list.component';
     MdDynamicFieldDirective,
     GroupComponent,
     ListComponent,
+    TableComponent,
   ],
   imports: [
     ReactiveFormsModule,
     CommonModule,
     MaterialModule,
+    MatTableModule,
+    MatPaginatorModule,
+    MatSortModule,
   ],
   providers: [{provide: COMPONENT_SET, useValue: STANDARD_COMPONENT_SET}],
   exports: [MdDynamicFormsComponent, MdDynamicFieldDirective],

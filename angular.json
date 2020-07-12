@@ -7,7 +7,7 @@
       "projectType": "library",
       "root": "projects/md-dynamic-forms",
       "sourceRoot": "projects/md-dynamic-forms/src",
-      "prefix": "lib",
+      "prefix": "md",
       "architect": {
         "build": {
           "builder": "@angular-devkit/build-ng-packagr:build",
