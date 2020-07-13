@@ -5,16 +5,17 @@ import { MatTable } from '@angular/material/table';
 import { TableDataSource } from './table-datasource';
 import {FormArray, FormGroup} from '@angular/forms';
 import {BaseElement} from '../base-element';
-import {TableColumnConfig} from '../../model/table-column-config.interface';
+import {TableColumnConfig} from '../../model/table/table-column-config.interface';
 import {ColumnConfig} from '../../model/table/column-config.interface';
 import {TableConfig} from '../../model/table/table-config.interface';
+import {FieldTable} from '../../model/form/array/field-table';
 
 @Component({
   selector: 'md-table',
   templateUrl: './table.component.html',
   styleUrls: ['./table.component.css']
 })
-export class TableComponent extends BaseElement implements AfterViewInit, OnInit {
+export class TableComponent extends BaseElement<FieldTable> implements AfterViewInit, OnInit {
   @ViewChild(MatPaginator) paginator: MatPaginator;
   @ViewChild(MatSort) sort: MatSort;
   @ViewChild(MatTable) table: MatTable<FormGroup>;
@@ -49,7 +50,7 @@ export class TableComponent extends BaseElement implements AfterViewInit, OnInit
   }
 
   get tableConfig(): TableConfig {
-    return this.field.listConfig.config;
+    return this.field.config;
   }
 
   private setupColumns() {
@@ -57,7 +58,7 @@ export class TableComponent extends BaseElement implements AfterViewInit, OnInit
   }
 
   private setupColumnConfigs() {
-    const listConfig = this.field.listConfig;
+    const listConfig = this.field;
     this.currentColumnConfigs = this.columnConfigs.map((config) => {
       const fieldsOfGroup = listConfig.listItem.children;
       const fieldOfConfig = fieldsOfGroup.find((field) => field.name === config.name);

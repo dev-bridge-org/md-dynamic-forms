@@ -3,6 +3,7 @@ import {FieldConfig} from './model/field-config.interface';
 import {FormGroup} from '@angular/forms';
 import {NGXLogger} from 'ngx-logger';
 import {MdDynamicFormsService} from './md-dynamic-forms.service';
+import {FieldGroup} from './model/form/group/field-group';
 
 @Component({
   selector: 'md-dynamic-forms',
@@ -20,7 +21,7 @@ import {MdDynamicFormsService} from './md-dynamic-forms.service';
   `]
 })
 export class MdDynamicFormsComponent implements OnInit {
-  @Input() config: FieldConfig = null;
+  @Input() config: FieldGroup = null;
 
   @Input() value: any = null;
 

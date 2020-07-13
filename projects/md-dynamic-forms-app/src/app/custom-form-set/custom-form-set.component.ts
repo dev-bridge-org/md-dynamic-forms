@@ -1,6 +1,6 @@
 import {Component, Input, OnInit} from '@angular/core';
 import {FormGroup} from '@angular/forms';
-import {FieldConfig, MdDynamicFormsService} from 'md-dynamic-forms';
+import {FieldGroup, FieldInput, MdDynamicFormsService} from 'md-dynamic-forms';
 
 @Component({
   selector: 'app-custom-form-set',
@@ -9,21 +9,18 @@ import {FieldConfig, MdDynamicFormsService} from 'md-dynamic-forms';
 })
 export class CustomFormSetComponent implements OnInit {
   public group: FormGroup;
-  public field: FieldConfig = {
+  public field: FieldGroup = new FieldGroup({
     name: 'form',
-    type: 'form',
-    formType: 'group',
     children: [
-      {
+      new FieldGroup({
         name: 'test',
-        type: 'form-group-view',
-        formType: 'group',
+        component: 'form-group-view',
         children: [
-          {name: 'testControl', type: 'input', formType: 'control', children: []}
+          new FieldInput({name: 'testControl', inputType: 'text'})
         ]
-      }
+      })
     ]
-  };
+  });
 
   constructor(private dynamicFormsService: MdDynamicFormsService) { }
 

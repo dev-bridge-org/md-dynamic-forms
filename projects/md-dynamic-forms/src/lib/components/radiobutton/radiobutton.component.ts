@@ -1,5 +1,6 @@
 import {Component} from '@angular/core';
 import {BaseElement} from '../base-element';
+import {FieldRadio} from '../../model/form/control/field-radio';
 
 @Component({
   selector: 'md-radiobutton',
@@ -7,7 +8,7 @@ import {BaseElement} from '../base-element';
       <div class="demo-full-width margin-top" [formGroup]="group">
           <label class="radio-label-padding">{{field.label}}:</label>
           <mat-radio-group [formControlName]="field.name">
-              <mat-radio-button *ngFor="let item of field.options" [value]="item">{{item}}</mat-radio-button>
+              <mat-radio-button *ngFor="let item of field.options() | async" [value]="item">{{item}}</mat-radio-button>
           </mat-radio-group>
         <ng-container *ngFor="let validation of field.validations;" ngProjectAs="mat-error">
           <mat-error *ngIf="group.get(field.name).hasError(validation.name)">{{validation.message}}</mat-error>
@@ -16,7 +17,7 @@ import {BaseElement} from '../base-element';
   `,
   styles: []
 })
-export class RadiobuttonComponent extends BaseElement {
+export class RadiobuttonComponent extends BaseElement<FieldRadio> {
   constructor() {
     super();
   }

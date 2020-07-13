@@ -1,6 +1,6 @@
 import {Component, Inject, OnInit, ViewChild} from '@angular/core';
 import {Validators} from '@angular/forms';
-import {FieldConfig, MdDynamicFormsComponent} from 'md-dynamic-forms';
+import {FieldCheckbox, FieldDatepicker, FieldGroup, FieldInput, FieldSelect, FieldTable, MdDynamicFormsComponent} from 'md-dynamic-forms';
 import {CustomValidators} from './custom-validators';
 import {TestService} from './test.service';
 import {of} from 'rxjs';
@@ -101,95 +101,69 @@ export class AppComponent implements OnInit{
   //     label: 'Save'
   //   }
   // ];
-  regConfig: FieldConfig = {
-    type: 'form',
+  regConfig: FieldGroup = new FieldGroup({
     name: 'testform',
-    formType: 'form',
     validations: [
       // {name: 'test', message: '', validator: CustomValidators.test}
     ],
     children: [
-      {
-        type: 'input',
-        children: [],
-        formType: 'control',
+      new FieldInput({
         name: 'name',
+        inputType: 'text',
         validations: [
           {name: 'required', message: 'Name ist ein Pflichtfeld', validator: Validators.required}
         ]
-      },
-      {
-        type: 'table',
-        children: [],
-        formType: 'array',
+      }),
+      new FieldTable({
         name: 'kunden',
-        listConfig: {
-          listItem: {
-            type: 'group',
-            formType: 'group',
-            children: [
-              {
-                type: 'input',
-                formType: 'control',
-                children: [],
-                name: 'test',
-                label: 'Test',
-              },
-              {
-                type: 'input',
-                formType: 'control',
-                children: [],
-                name: 'abc',
-                label: 'Abc',
-              },
-            ],
-            name: 'kunde'
-          },
-          config: {
-            width: 75,
-            columns: [
-              {name: 'test', width: 50},
-              {name: 'abc', width: 50}
-            ]
-          }
+        listItem: new FieldGroup({
+          children: [
+            new FieldInput({
+              name: 'test',
+              label: 'Test',
+              inputType: 'text'
+            }),
+            new FieldInput({
+              name: 'abc',
+              label: 'Abc',
+              inputType: 'text'
+            }),
+          ],
+          name: 'kunde'
+        }),
+        config: {
+          width: 75,
+          columns: [
+            {name: 'test', width: 50},
+            {name: 'abc', width: 50}
+          ]
         }
-      },
-      {
-        type: 'group',
-        formType: 'group',
+      }),
+      new FieldGroup({
         children: [
-          {
-            type: 'input',
-            children: [],
-            formType: 'control',
-            name: 'street'
-          },
-          {
-            type: 'input',
-            children: [],
-            formType: 'control',
-            name: 'city'
-          },
+          new FieldInput({
+            name: 'street',
+            inputType: 'text'
+          }),
+          new FieldInput({
+            name: 'city',
+            inputType: 'text'
+          }),
         ],
         name: 'adress'
-      },
-      {
+      }),
+      new FieldSelect({
         name: 'gender',
-        type: 'select',
-        formType: 'control',
-        children: [],
         label: 'Gender',
         options: () => of(['Male', 'Female']),
         validations: [
           {name: 'required', message: 'Gender is required', validator: Validators.required}
         ]
-      },
-      {
+      }),
+      new FieldDatepicker({
         name: 'dob',
-        formType: 'control',
-        type: 'date',
-        children: [],
         label: 'DOB',
+        inputType: 'date',
         validations: [
           {
             name: 'required',
@@ -205,19 +179,17 @@ export class AppComponent implements OnInit{
         asyncValidations: [
           {name: 'asyncTest', validator: CustomValidators.asyncTest(this.service), message: 'ABC'}
         ]
-      },
-      {
+      }),
+      new FieldCheckbox({
         name: 'term',
-        type: 'checkbox',
-        formType: 'control',
-        children: [],
         label: 'Accept Terms',
+        inputType: 'checkbox',
         validations: [
           {name: 'required', message: 'Terms need to be Accepted', validator: Validators.required}
         ]
-      },
+      }),
     ]
-  };
+  });
 
   public value;
 

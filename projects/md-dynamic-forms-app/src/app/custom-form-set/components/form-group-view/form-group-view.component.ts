@@ -1,6 +1,6 @@
 import {Component, Input, OnInit} from '@angular/core';
 import {FormGroup} from '@angular/forms';
-import {FieldConfig} from 'md-dynamic-forms';
+import {FieldGroup} from 'md-dynamic-forms';
 
 @Component({
   selector: 'app-form-group-view',
@@ -9,7 +9,7 @@ import {FieldConfig} from 'md-dynamic-forms';
 })
 export class FormGroupViewComponent implements OnInit {
   @Input() public group: FormGroup;
-  @Input() public field: FieldConfig;
+  @Input() public field: FieldGroup;
 
   constructor() { }
 

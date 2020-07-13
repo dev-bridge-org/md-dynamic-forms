@@ -1,20 +1,19 @@
 import {
   ComponentFactoryResolver,
-  ComponentRef,
   Directive, Inject,
   Input,
   OnInit,
   ViewContainerRef
 } from '@angular/core';
 import {FormGroup} from '@angular/forms';
-import {FieldConfig} from './model/field-config.interface';
 import {COMPONENT_SET} from './model/component-set';
+import {BaseField} from './model/form/base-field';
 
 @Directive({
   selector: '[mdDynamicField]'
 })
 export class MdDynamicFieldDirective implements OnInit {
-  @Input() field: FieldConfig;
+  @Input() field: BaseField;
   @Input() group: FormGroup;
   componentRef: any;
 
@@ -27,11 +26,11 @@ export class MdDynamicFieldDirective implements OnInit {
 
   ngOnInit() {
     const factory = this.resolver.resolveComponentFactory(
-      this.componentSet[this.field.type]
+      this.componentSet[this.field.componentOfConfig]
     );
     this.componentRef = this.container.createComponent(factory);
     this.componentRef.instance.field = this.field;
-    if (this.field.formType === 'group') {
+    if (this.field.typeOfFormField === 'group') {
       this.componentRef.instance.group = this.group.get(this.field.name);
     } else {
       this.componentRef.instance.group = this.group;

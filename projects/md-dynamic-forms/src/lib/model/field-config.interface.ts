@@ -1,5 +1,5 @@
-import {Validator} from './validator.interface';
-import {AsyncValidator} from './async-validator.interface';
+import {Validator} from './validation/validator.interface';
+import {AsyncValidator} from './validation/async-validator.interface';
 import {Observable} from 'rxjs';
 import {ListConfig} from './list-config.interface';
 

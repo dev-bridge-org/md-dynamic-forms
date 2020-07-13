@@ -1,5 +1,6 @@
 import {Component} from '@angular/core';
 import {BaseElement} from '../base-element';
+import {FieldDatepicker} from '../../model/form/control/field-datepicker';
 
 @Component({
   selector: 'md-date',
@@ -16,7 +17,7 @@ import {BaseElement} from '../base-element';
   `,
   styles: []
 })
-export class DateComponent extends BaseElement {
+export class DateComponent extends BaseElement<FieldDatepicker> {
   constructor() {
     super();
   }

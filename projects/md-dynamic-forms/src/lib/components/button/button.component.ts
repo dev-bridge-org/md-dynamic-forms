@@ -1,5 +1,6 @@
 import {Component} from '@angular/core';
 import {BaseElement} from '../base-element';
+import {BaseField} from '../../model/form/base-field';
 
 @Component({
   selector: 'md-button',
@@ -10,7 +11,7 @@ import {BaseElement} from '../base-element';
   `,
   styles: []
 })
-export class ButtonComponent extends BaseElement {
+export class ButtonComponent extends BaseElement<BaseField> {
   constructor() {
     super();
   }

@@ -1,8 +1,11 @@
 import { Injectable } from '@angular/core';
 import {FieldConfig} from './model/field-config.interface';
 import {FormArray, FormBuilder, FormControl, FormGroup, ValidatorFn, Validators} from '@angular/forms';
-import {Validator} from './model/validator.interface';
-import {AsyncValidator} from './model/async-validator.interface';
+import {Validator} from './model/validation/validator.interface';
+import {AsyncValidator} from './model/validation/async-validator.interface';
+import {FieldGroup} from './model/form/group/field-group';
+import {FieldArray} from './model/form/array/field-array';
+import {BaseField} from './model/form/base-field';
 
 @Injectable({
   providedIn: 'root'
@@ -11,19 +14,19 @@ export class MdDynamicFormsService {
 
   constructor(private fb: FormBuilder) { }
 
-  createGroup(config: FieldConfig, value: any): FormGroup {
+  createGroup(config: FieldGroup, value: any): FormGroup {
     const group = this.fb.group({});
     config.children.forEach(field => {
-      if (field.type === 'button') {
-        return;
-      }
+      // if (field.type === 'button') {
+      //   return;
+      // }
       let control = null;
-      switch (field.formType) {
+      switch (field.typeOfFormField) {
         case 'group':
-          control = this.createGroup(field, value ? value[field.name] : null);
+          control = this.createGroup(field as FieldGroup, value ? value[field.name] : null);
           break;
         case 'array':
-          control = this.createArray(field, value ? value[field.name] : null);
+          control = this.createArray(field as FieldArray, value ? value[field.name] : null);
           break;
         case 'control':
           control = this.createControl(field, value ? value[field.name] : null);
@@ -36,10 +39,10 @@ export class MdDynamicFormsService {
     return group;
   }
 
-  createArray(config: FieldConfig, value: any): FormArray {
+  createArray(config: FieldArray, value: any): FormArray {
     const array = this.fb.array([]);
     for (const item of value) {
-      const group = this.createGroup(config.listConfig.listItem, item);
+      const group = this.createGroup(config.listItem, item);
       array.push(group);
     }
     array.setValidators(this.bindValidations(config.validations || []));
@@ -47,7 +50,7 @@ export class MdDynamicFormsService {
     return array;
   }
 
-  createControl(config: FieldConfig, value: any): FormControl {
+  createControl(config: BaseField, value: any): FormControl {
     return this.fb.control(
       value,
       this.bindValidations(config.validations || []),
@@ -55,18 +58,15 @@ export class MdDynamicFormsService {
     );
   }
 
-  bindValidations(validations: Validator[]): ValidatorFn {
+  private bindValidations(validations: Validator[]): ValidatorFn {
     if (validations.length > 0) {
-      const validList = [];
-      validations.forEach(valid => {
-        validList.push(valid.validator);
-      });
+      const validList = validations.map((validation) => validation.validator);
       return Validators.compose(validList);
     }
     return null;
   }
 
-  bindAsyncValidations(validations: AsyncValidator[]) {
+  private bindAsyncValidations(validations: AsyncValidator[]) {
     if (validations.length > 0) {
       return validations.map((value) => value.validator);
     }

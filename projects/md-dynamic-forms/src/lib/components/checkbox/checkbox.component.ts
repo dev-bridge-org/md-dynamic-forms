@@ -1,6 +1,8 @@
 import {Component} from '@angular/core';
 import {BaseElement} from '../base-element';
 import {FormControl} from '@angular/forms';
+import {BaseField} from '../../model/form/base-field';
+import {FieldCheckbox} from '../../model/form/control/field-checkbox';
 
 @Component({
   selector: 'md-checkbox',
@@ -14,7 +16,7 @@ import {FormControl} from '@angular/forms';
   `,
   styles: []
 })
-export class CheckboxComponent extends BaseElement {
+export class CheckboxComponent extends BaseElement<FieldCheckbox> {
   constructor() {
     super();
   }

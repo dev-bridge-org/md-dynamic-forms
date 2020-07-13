@@ -1,6 +1,7 @@
 import {Component} from '@angular/core';
 import {FormArray} from '@angular/forms';
 import {BaseElement} from '../base-element';
+import {FieldArray} from '../../model/form/array/field-array';
 
 @Component({
   selector: 'md-list',
@@ -11,7 +12,7 @@ import {BaseElement} from '../base-element';
   `,
   styles: []
 })
-export class ListComponent extends BaseElement {
+export class ListComponent extends BaseElement<FieldArray> {
   constructor() {
     super();
   }

@@ -1,5 +1,6 @@
 import {Component} from '@angular/core';
 import {BaseElement} from '../base-element';
+import {FieldSelect} from '../../model/form/control/field-select';
 
 @Component({
   selector: 'md-select',
@@ -15,7 +16,7 @@ import {BaseElement} from '../base-element';
   `,
   styles: []
 })
-export class SelectComponent extends BaseElement {
+export class SelectComponent extends BaseElement<FieldSelect> {
   constructor() {
     super();
   }

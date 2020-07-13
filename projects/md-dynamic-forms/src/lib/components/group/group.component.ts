@@ -1,5 +1,6 @@
 import {Component} from '@angular/core';
 import {BaseElement} from '../base-element';
+import {FieldGroup} from '../../model/form/group/field-group';
 
 @Component({
   selector: 'md-group',
@@ -18,7 +19,7 @@ import {BaseElement} from '../base-element';
     `
   ]
 })
-export class GroupComponent extends BaseElement {
+export class GroupComponent extends BaseElement<FieldGroup> {
   constructor() {
     super();
   }

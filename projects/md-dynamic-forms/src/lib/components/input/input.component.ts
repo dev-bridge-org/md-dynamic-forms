@@ -1,5 +1,6 @@
 import {Component} from '@angular/core';
 import {BaseElement} from '../base-element';
+import {FieldInput} from '../../model/form/control/field-input';
 
 @Component({
   selector: 'md-input',
@@ -13,7 +14,7 @@ import {BaseElement} from '../base-element';
   `,
   styles: []
 })
-export class InputComponent extends BaseElement {
+export class InputComponent extends BaseElement<FieldInput> {
   constructor() {
     super();
   }
