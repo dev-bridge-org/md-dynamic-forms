@@ -1,4 +1,3 @@
-import {BaseField, BaseFieldConfig} from '../base-field';
 import {TableConfig} from '../../table/table-config.interface';
 import {FieldArray, FieldArrayConfig} from './field-array';
 

@@ -1,5 +1,4 @@
 import {Component, EventEmitter, Input, OnInit, Output} from '@angular/core';
-import {FieldConfig} from './model/field-config.interface';
 import {FormGroup} from '@angular/forms';
 import {NGXLogger} from 'ngx-logger';
 import {MdDynamicFormsService} from './md-dynamic-forms.service';

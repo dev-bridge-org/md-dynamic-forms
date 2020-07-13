@@ -1,5 +1,4 @@
-import { Injectable } from '@angular/core';
-import {FieldConfig} from './model/field-config.interface';
+import {Injectable} from '@angular/core';
 import {FormArray, FormBuilder, FormControl, FormGroup, ValidatorFn, Validators} from '@angular/forms';
 import {Validator} from './model/validation/validator.interface';
 import {AsyncValidator} from './model/validation/async-validator.interface';

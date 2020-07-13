@@ -1,7 +1,5 @@
-
-import { MdDynamicFormsService } from './md-dynamic-forms.service';
+import {MdDynamicFormsService} from './md-dynamic-forms.service';
 import {createServiceFactory, SpectatorService} from '@ngneat/spectator';
-import {FieldConfig} from './model/field-config.interface';
 import {ReactiveFormsModule, Validators} from '@angular/forms';
 import {FieldGroup} from './model/form/group/field-group';
 import {FieldInput} from './model/form/control/field-input';
