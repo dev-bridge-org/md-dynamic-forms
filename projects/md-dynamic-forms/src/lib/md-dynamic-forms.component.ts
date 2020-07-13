@@ -7,7 +7,7 @@ import {FieldGroup} from './model/form/group/field-group';
 @Component({
   selector: 'md-dynamic-forms',
   template: `
-      <form class="dynamic-form" [formGroup]="form" (submit)="onSubmit($event)">
+      <form class="dynamic-form" *ngIf="form" [formGroup]="form" (submit)="onSubmit($event)">
           <ng-container *ngFor="let field of config.children;" mdDynamicField [field]="field" [group]="form">
           </ng-container>
       </form>
@@ -44,7 +44,7 @@ export class MdDynamicFormsComponent implements OnInit {
     }
   }
 
-  validateAllFormFields(formGroup: FormGroup): void {
+  private validateAllFormFields(formGroup: FormGroup): void {
     Object.keys(formGroup.controls).forEach(field => {
       const control = formGroup.get(field);
       control.markAsTouched({onlySelf: true});

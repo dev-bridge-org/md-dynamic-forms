@@ -34,7 +34,7 @@ export class TableComponent extends BaseElement<FieldTable> implements AfterView
   ngOnInit() {
     this.formArray = this.group.get(this.field.name) as FormArray;
     this.dataSource = new TableDataSource();
-    this.dataSource.data = this.formArray.controls as FormGroup[];
+    this.dataSource.data = this.formArray?.controls as FormGroup[] || [];
     this.setupColumns();
     this.setupColumnConfigs();
   }
