@@ -1,6 +1,15 @@
 import {Component, Inject, OnInit, ViewChild} from '@angular/core';
 import {Validators} from '@angular/forms';
-import {FieldCheckbox, FieldDatepicker, FieldGroup, FieldInput, FieldSelect, FieldTable, MdDynamicFormsComponent} from 'md-dynamic-forms';
+import {
+  FieldCheckbox,
+  FieldDatepicker,
+  FieldGroup,
+  FieldInput,
+  FieldRadio,
+  FieldSelect,
+  FieldTable,
+  MdDynamicFormsComponent
+} from 'md-dynamic-forms';
 import {CustomValidators} from './custom-validators';
 import {TestService} from './test.service';
 import {of} from 'rxjs';
@@ -110,6 +119,7 @@ export class AppComponent implements OnInit{
       new FieldInput({
         name: 'name',
         inputType: 'text',
+        label: 'Name',
         validations: [
           {name: 'required', message: 'Name ist ein Pflichtfeld', validator: Validators.required}
         ]
@@ -143,10 +153,12 @@ export class AppComponent implements OnInit{
         children: [
           new FieldInput({
             name: 'street',
-            inputType: 'text'
+            inputType: 'text',
+            label: 'Street',
           }),
           new FieldInput({
             name: 'city',
+            label: 'City',
             inputType: 'text'
           }),
         ],
@@ -185,9 +197,17 @@ export class AppComponent implements OnInit{
         label: 'Accept Terms',
         inputType: 'checkbox',
         validations: [
-          {name: 'required', message: 'Terms need to be Accepted', validator: Validators.required}
+          {name: 'required', message: 'Terms need to be Accepted', validator: Validators.requiredTrue}
         ]
       }),
+      new FieldRadio({
+        name: 'favColor',
+        label: 'Favorite Color',
+        options: () => of(['Red', 'Green', 'Blue']),
+        validations: [
+          {name: 'required', message: 'You must choose your favorite color', validator: Validators.required}
+        ]
+      })
     ]
   });
 
@@ -196,7 +216,7 @@ export class AppComponent implements OnInit{
   constructor(private service: TestService) {}
 
   ngOnInit(): void {
-    this.value = {name: 'Test', adress: {}, kunden: [{test: 'test', abc: 'def'}, {test: 'def', abc: 'test'}], dob: '7/8/2020'};
+    this.value = {name: '', adress: {}, kunden: [{test: 'test', abc: 'def'}, {test: 'def', abc: 'test'}], dob: '7/8/2020'};
   }
 
   submit(value: any) {

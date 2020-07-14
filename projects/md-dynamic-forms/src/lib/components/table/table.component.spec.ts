@@ -1,11 +1,10 @@
-import { async, ComponentFixture, TestBed } from '@angular/core/testing';
 import { NoopAnimationsModule } from '@angular/platform-browser/animations';
 import { MatPaginatorModule } from '@angular/material/paginator';
 import { MatSortModule } from '@angular/material/sort';
 import { MatTableModule } from '@angular/material/table';
 
 import { TableComponent } from './table.component';
-import {FormArray, FormGroup} from '@angular/forms';
+import {FormArray, FormControl, FormGroup} from '@angular/forms';
 import {FieldTable} from '../../model/form/array/field-table';
 import {FieldGroup} from '../../model/form/group/field-group';
 import {FieldInput} from '../../model/form/control/field-input';
@@ -25,14 +24,10 @@ describe('TableComponent', () => {
 
   beforeEach(() => {
     spectator = createComponent({detectChanges: false});
-  });
-
-  it('should compile', () => {
-    const component = spectator.component;
-    component.group = new FormGroup({
+    spectator.component.group = new FormGroup({
       array: new FormArray([]),
     });
-    component.field = new FieldTable({
+    spectator.component.field = new FieldTable({
       name: 'kunden',
       listItem: new FieldGroup({
         children: [
@@ -58,6 +53,27 @@ describe('TableComponent', () => {
       }
     });
     spectator.detectChanges();
-    expect(component).toBeTruthy();
+  });
+
+  it('should compile', () => {
+    expect(spectator.component).toBeTruthy();
+  });
+
+  it('should render 2 rows', () => {
+    const array: FormArray = new FormArray([
+      new FormGroup({
+        test: new FormControl(''),
+        abc: new FormControl(''),
+      }),
+      new FormGroup({
+        test: new FormControl(''),
+        abc: new FormControl(''),
+      })
+    ]);
+    spectator.component.dataSource.data = array.controls as FormGroup[];
+    spectator.component.table.dataSource = spectator.component.dataSource;
+    spectator.detectChanges();
+
+    expect(spectator.queryAll('tr.mat-row').length).toEqual(2);
   });
 });

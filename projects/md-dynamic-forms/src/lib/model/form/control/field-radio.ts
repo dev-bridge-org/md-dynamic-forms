@@ -10,8 +10,9 @@ export class FieldRadio extends BaseField {
 
   constructor(config: FieldRadioConfig) {
     super(config);
+    this.options = config.options;
 
-    this.component = 'radio';
+    this.component = 'radiobutton';
     this.formType = 'control';
   }
 }

@@ -6,6 +6,7 @@ export interface BaseFieldConfig {
   component?: string;
   validations?: Validator[];
   asyncValidations?: AsyncValidator[];
+  readonly?: boolean;
 }
 
 
@@ -14,6 +15,7 @@ export abstract class BaseField {
   name: string;
   validations?: Validator[];
   asyncValidations?: AsyncValidator[];
+  readonly?: boolean;
 
   protected formType: string;
   protected component: string;
@@ -23,6 +25,7 @@ export abstract class BaseField {
     this.name = config.name;
     this.validations = config.validations || [];
     this.asyncValidations = config.asyncValidations || [];
+    this.readonly = config.readonly || false;
   }
 
   get typeOfFormField() {
