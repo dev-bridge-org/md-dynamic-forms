@@ -1,16 +1,19 @@
 import {BaseField, BaseFieldConfig} from '../base-field';
-import {Observable} from 'rxjs';
+import {Observable, of} from 'rxjs';
 
 export interface FieldSelectConfig extends BaseFieldConfig {
   options: (...args) => Observable<any>;
+  display?: (...args) => string;
 }
 
 export class FieldSelect extends BaseField {
   options: (...args) => Observable<any>;
+  display: (...args) => string;
 
   constructor(config: FieldSelectConfig) {
     super(config);
     this.options = config.options;
+    this.display = config.display;
 
     this.formType = 'control';
     this.component = 'select';

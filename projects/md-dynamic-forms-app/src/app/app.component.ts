@@ -15,6 +15,15 @@ import {TestService} from './test.service';
 import {of} from 'rxjs';
 import {filter, flatMap, toArray} from 'rxjs/operators';
 
+class Stammdaten {
+  id: number;
+  bezeichnung: string;
+
+  constructor(init?: Partial<Stammdaten>) {
+    Object.assign(this, init);
+  }
+}
+
 @Component({
   selector: 'app-root',
   templateUrl: './app.component.html',
@@ -169,6 +178,17 @@ export class AppComponent implements OnInit{
         name: 'gender',
         label: 'Gender',
         options: () => of(['Male', 'Female']),
+        display: (value: string) => value,
+        validations: [
+          {name: 'required', message: 'Gender is required', validator: Validators.required}
+        ]
+      }),
+      new FieldSelect({
+        name: 'creditCardType',
+        label: 'Art der Kreditkarte',
+        options: () => of([new Stammdaten({id: 1, bezeichnung: 'Master Card'})]),
+        // options: () => of([1]),
+        display: (value: {id: number, bezeichnung: string}) => value.bezeichnung,
         validations: [
           {name: 'required', message: 'Gender is required', validator: Validators.required}
         ]
@@ -184,6 +204,7 @@ export class AppComponent implements OnInit{
               toArray()
             );
         },
+        display: (value: string) => value,
         dependencies: ['gender'],
         validations: [
           {name: 'required', message: 'Gender is required', validator: Validators.required}
