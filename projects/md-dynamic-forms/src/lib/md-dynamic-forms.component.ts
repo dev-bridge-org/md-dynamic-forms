@@ -26,12 +26,15 @@ export class MdDynamicFormsComponent implements OnInit {
 
   @Output() submit: EventEmitter<any> = new EventEmitter<any>();
 
+  @Output() formChange: EventEmitter<FormGroup> = new EventEmitter<FormGroup>();
+
   form: FormGroup;
 
   constructor(private dynamicFormsService: MdDynamicFormsService, private logger: NGXLogger) {}
 
   ngOnInit() {
     this.form = this.dynamicFormsService.createGroup(this.config, this.value);
+    this.formChange.emit(this.form);
   }
 
   onSubmit(event: Event): void {

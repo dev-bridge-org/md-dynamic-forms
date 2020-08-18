@@ -1,5 +1,5 @@
 import {Component, Inject, OnInit, ViewChild} from '@angular/core';
-import {Validators} from '@angular/forms';
+import {FormGroup, Validators} from '@angular/forms';
 import {
   FieldCheckbox,
   FieldDatepicker,
@@ -13,6 +13,7 @@ import {
 import {CustomValidators} from './custom-validators';
 import {TestService} from './test.service';
 import {of} from 'rxjs';
+import {filter, flatMap, toArray} from 'rxjs/operators';
 
 @Component({
   selector: 'app-root',
@@ -20,7 +21,6 @@ import {of} from 'rxjs';
   styleUrls: ['./app.component.css']
 })
 export class AppComponent implements OnInit{
-  @ViewChild(MdDynamicFormsComponent) form: MdDynamicFormsComponent;
   // regConfig: FieldConfig[] = [
   //   {
   //     type: 'input',
@@ -110,6 +110,7 @@ export class AppComponent implements OnInit{
   //     label: 'Save'
   //   }
   // ];
+  form: FormGroup;
   regConfig: FieldGroup = new FieldGroup({
     name: 'testform',
     validations: [
@@ -168,6 +169,22 @@ export class AppComponent implements OnInit{
         name: 'gender',
         label: 'Gender',
         options: () => of(['Male', 'Female']),
+        validations: [
+          {name: 'required', message: 'Gender is required', validator: Validators.required}
+        ]
+      }),
+      new FieldSelect({
+        name: 'gendering',
+        label: 'Gendering',
+        options: (gender: string) => {
+          return this.service.getGenderingOptions()
+            .pipe(
+              flatMap(gendering => gendering),
+              filter(gendering => gendering !== gender),
+              toArray()
+            );
+        },
+        dependencies: ['gender'],
         validations: [
           {name: 'required', message: 'Gender is required', validator: Validators.required}
         ]

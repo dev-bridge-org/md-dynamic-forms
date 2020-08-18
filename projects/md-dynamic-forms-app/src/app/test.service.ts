@@ -11,4 +11,8 @@ export class TestService {
   public test() {
     return of(true);
   }
+
+  public getGenderingOptions() {
+    return of(['Male', 'Female', 'Divers']);
+  }
 }
