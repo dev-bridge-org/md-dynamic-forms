@@ -7,7 +7,7 @@ import {BaseSelect} from '../base-select';
   template: `
     <mat-form-field class="demo-full-width margin-top" [formGroup]="group">
       <mat-select [placeholder]="field.label" [formControlName]="field.name">
-        <mat-option *ngFor="let item of options | async" [value]="item">{{field.display(item)}}</mat-option>
+        <mat-option *ngFor="let item of options | async" [value]="item">{{field.display(item) | async}}</mat-option>
       </mat-select>
       <ng-container *ngFor="let validation of field.validations;" ngProjectAs="mat-error">
         <mat-error *ngIf="group.get(field.name).hasError(validation.name)">{{validation.message}}</mat-error>

@@ -178,7 +178,7 @@ export class AppComponent implements OnInit{
         name: 'gender',
         label: 'Gender',
         options: () => of(['Male', 'Female']),
-        display: (value: string) => value,
+        display: (value: string) => of(value),
         validations: [
           {name: 'required', message: 'Gender is required', validator: Validators.required}
         ]
@@ -187,8 +187,7 @@ export class AppComponent implements OnInit{
         name: 'creditCardType',
         label: 'Art der Kreditkarte',
         options: () => of([new Stammdaten({id: 1, bezeichnung: 'Master Card'})]),
-        // options: () => of([1]),
-        display: (value: {id: number, bezeichnung: string}) => value.bezeichnung,
+        display: (value: {id: number, bezeichnung: string}) => of(value.bezeichnung),
         validations: [
           {name: 'required', message: 'Gender is required', validator: Validators.required}
         ]
@@ -204,7 +203,7 @@ export class AppComponent implements OnInit{
               toArray()
             );
         },
-        display: (value: string) => value,
+        display: (value: string) => of(value),
         dependencies: ['gender'],
         validations: [
           {name: 'required', message: 'Gender is required', validator: Validators.required}
