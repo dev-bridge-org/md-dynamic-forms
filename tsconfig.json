@@ -15,6 +15,18 @@
     },
     {
       "path": "./projects/md-dynamic-forms-app/e2e/tsconfig.json"
+    },
+    {
+      "path": "./projects/md-dynamic-forms-core/tsconfig.lib.json"
+    },
+    {
+      "path": "./projects/md-dynamic-forms-core/tsconfig.spec.json"
+    },
+    {
+      "path": "./projects/md-dynamic-forms-material/tsconfig.lib.json"
+    },
+    {
+      "path": "./projects/md-dynamic-forms-material/tsconfig.spec.json"
     }
   ]
 }
