@@ -1,28 +1,20 @@
 {
-  "compileOnSave": false,
-  "compilerOptions": {
-    "baseUrl": "./",
-    "outDir": "./dist/out-tsc",
-    "sourceMap": true,
-    "declaration": false,
-    "downlevelIteration": true,
-    "experimentalDecorators": true,
-    "module": "esnext",
-    "moduleResolution": "node",
-    "importHelpers": true,
-    "target": "es2015",
-    "lib": [
-      "es2018",
-      "dom"
-    ],
-    "paths": {
-      "md-dynamic-forms": [
-        "dist/md-dynamic-forms"
-      ]
+  "files": [],
+  "references": [
+    {
+      "path": "./projects/md-dynamic-forms/tsconfig.lib.json"
+    },
+    {
+      "path": "./projects/md-dynamic-forms/tsconfig.spec.json"
+    },
+    {
+      "path": "./projects/md-dynamic-forms-app/tsconfig.app.json"
+    },
+    {
+      "path": "./projects/md-dynamic-forms-app/tsconfig.spec.json"
+    },
+    {
+      "path": "./projects/md-dynamic-forms-app/e2e/tsconfig.json"
     }
-  },
-  "angularCompilerOptions": {
-    "fullTemplateTypeCheck": true,
-    "strictInjectionParameters": true
-  }
+  ]
 }
