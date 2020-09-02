@@ -1,25 +1,37 @@
-import { async, ComponentFixture, TestBed } from '@angular/core/testing';
-
-import { MdDynamicFormsCoreComponent } from './md-dynamic-forms-core.component';
+import {MdDynamicFormsCoreComponent} from './md-dynamic-forms-core.component';
+import {createComponentFactory, Spectator} from '@ngneat/spectator';
+import {CommonModule} from '@angular/common';
+import {ReactiveFormsModule} from '@angular/forms';
+import {LoggerTestingModule} from 'ngx-logger/testing';
+import {MdDynamicFieldDirective} from './md-dynamic-field.directive';
+import {FieldGroup} from './model/form/group/field-group';
+import {FieldInput} from './model/form/control/field-input';
+import {MdDynamicFormsCoreService} from './md-dynamic-forms-core.service';
 
 describe('MdDynamicFormsCoreComponent', () => {
-  let component: MdDynamicFormsCoreComponent;
-  let fixture: ComponentFixture<MdDynamicFormsCoreComponent>;
-
-  beforeEach(async(() => {
-    TestBed.configureTestingModule({
-      declarations: [ MdDynamicFormsCoreComponent ]
-    })
-    .compileComponents();
-  }));
+  let spectator: Spectator<MdDynamicFormsCoreComponent>;
+  const createComponent = createComponentFactory({
+    component: MdDynamicFormsCoreComponent,
+    declarations: [
+      MdDynamicFieldDirective,
+    ],
+    imports: [
+      CommonModule,
+      ReactiveFormsModule,
+      LoggerTestingModule,
+    ],
+    providers: [
+      MdDynamicFormsCoreService
+    ]
+  });
 
   beforeEach(() => {
-    fixture = TestBed.createComponent(MdDynamicFormsCoreComponent);
-    component = fixture.componentInstance;
-    fixture.detectChanges();
+    spectator = createComponent({detectChanges: false});
   });
 
   it('should create', () => {
-    expect(component).toBeTruthy();
+    spectator.component.config = new FieldGroup({name: 'test', children: [new FieldInput({name: 'testInput', inputType: 'text'})]});
+    spectator.detectChanges();
+    expect(spectator.component).toBeTruthy();
   });
 });

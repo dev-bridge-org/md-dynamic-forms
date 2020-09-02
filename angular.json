@@ -3,46 +3,6 @@
   "version": 1,
   "newProjectRoot": "projects",
   "projects": {
-    "md-dynamic-forms": {
-      "projectType": "library",
-      "root": "projects/md-dynamic-forms",
-      "sourceRoot": "projects/md-dynamic-forms/src",
-      "prefix": "md",
-      "architect": {
-        "build": {
-          "builder": "@angular-devkit/build-ng-packagr:build",
-          "options": {
-            "tsConfig": "projects/md-dynamic-forms/tsconfig.lib.json",
-            "project": "projects/md-dynamic-forms/ng-package.json"
-          },
-          "configurations": {
-            "production": {
-              "tsConfig": "projects/md-dynamic-forms/tsconfig.lib.prod.json"
-            }
-          }
-        },
-        "test": {
-          "builder": "@angular-devkit/build-angular:karma",
-          "options": {
-            "main": "projects/md-dynamic-forms/src/test.ts",
-            "tsConfig": "projects/md-dynamic-forms/tsconfig.spec.json",
-            "karmaConfig": "projects/md-dynamic-forms/karma.conf.js"
-          }
-        },
-        "lint": {
-          "builder": "@angular-devkit/build-angular:tslint",
-          "options": {
-            "tsConfig": [
-              "projects/md-dynamic-forms/tsconfig.lib.json",
-              "projects/md-dynamic-forms/tsconfig.spec.json"
-            ],
-            "exclude": [
-              "**/node_modules/**"
-            ]
-          }
-        }
-      }
-    },
     "md-dynamic-forms-app": {
       "projectType": "application",
       "schematics": {},
@@ -165,7 +125,7 @@
       "projectType": "library",
       "root": "projects/md-dynamic-forms-core",
       "sourceRoot": "projects/md-dynamic-forms-core/src",
-      "prefix": "lib",
+      "prefix": "md",
       "architect": {
         "build": {
           "builder": "@angular-devkit/build-ng-packagr:build",
@@ -205,7 +165,7 @@
       "projectType": "library",
       "root": "projects/md-dynamic-forms-material",
       "sourceRoot": "projects/md-dynamic-forms-material/src",
-      "prefix": "lib",
+      "prefix": "md",
       "architect": {
         "build": {
           "builder": "@angular-devkit/build-ng-packagr:build",
@@ -241,5 +201,5 @@
         }
       }
     }},
-  "defaultProject": "md-dynamic-forms"
+  "defaultProject": "md-dynamic-forms-app"
 }

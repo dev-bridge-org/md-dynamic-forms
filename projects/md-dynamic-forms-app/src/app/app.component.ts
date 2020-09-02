@@ -1,19 +1,10 @@
 import {Component, Inject, OnInit, ViewChild} from '@angular/core';
 import {FormGroup, Validators} from '@angular/forms';
-import {
-  FieldCheckbox,
-  FieldDatepicker,
-  FieldGroup,
-  FieldInput,
-  FieldRadio,
-  FieldSelect,
-  FieldTable,
-  MdDynamicFormsComponent
-} from 'md-dynamic-forms';
 import {CustomValidators} from './custom-validators';
 import {TestService} from './test.service';
 import {of} from 'rxjs';
 import {filter, flatMap, toArray} from 'rxjs/operators';
+import {FieldCheckbox, FieldDatepicker, FieldGroup, FieldInput, FieldRadio, FieldSelect, FieldTable} from 'md-dynamic-forms-core';
 
 class Stammdaten {
   id: number;

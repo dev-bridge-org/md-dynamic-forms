@@ -1,6 +1,6 @@
 import {Component, Input, OnInit} from '@angular/core';
 import {FormGroup} from '@angular/forms';
-import {FieldGroup} from 'md-dynamic-forms';
+import {FieldGroup} from 'md-dynamic-forms-core';
 
 @Component({
   selector: 'app-form-group-view',

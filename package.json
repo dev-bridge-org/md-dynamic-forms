@@ -5,7 +5,8 @@
     "ng": "ng",
     "start": "ng serve",
     "build": "ng build",
-    "build_lib": "ng build md-dynamic-forms --prod",
+    "build_core": "ng build md-dynamic-forms-core --prod",
+    "build_material": "ng build md-dynamic-forms-material --prod",
     "test": "ng test",
     "lint": "ng lint",
     "e2e": "ng e2e",
@@ -27,7 +28,7 @@
     "moment": "^2.25.0",
     "ngx-logger": "^4.1.9",
     "rxjs": "~6.5.4",
-    "tslib": "^1.10.0",
+    "tslib": "^2.0.0",
     "zone.js": "~0.10.2"
   },
   "devDependencies": {

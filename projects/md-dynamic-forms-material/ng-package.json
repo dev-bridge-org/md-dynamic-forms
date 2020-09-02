@@ -2,6 +2,10 @@
   "$schema": "../../node_modules/ng-packagr/ng-package.schema.json",
   "dest": "../../dist/md-dynamic-forms-material",
   "lib": {
-    "entryFile": "src/public-api.ts"
+    "entryFile": "src/public-api.ts",
+    "umdModuleIds": {
+      "md-dynamic-forms-core": "md-dynamic-forms-core",
+      "ngx-logger": "ngx-logger"
+    }
   }
 }

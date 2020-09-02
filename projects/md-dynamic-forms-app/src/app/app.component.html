@@ -4,8 +4,8 @@
       Registration Form
     </h1>
   </div>
-  <md-dynamic-forms [config]="regConfig" [value]="value" (submit)="submit($event)" (formChange)="form = $event">
-  </md-dynamic-forms>
+  <md-dynamic-forms-core [config]="regConfig" [value]="value" (submit)="submit($event)" (formChange)="form = $event">
+  </md-dynamic-forms-core>
 </div>
 
 <!--<pre>{{form?.value | json}}</pre>-->

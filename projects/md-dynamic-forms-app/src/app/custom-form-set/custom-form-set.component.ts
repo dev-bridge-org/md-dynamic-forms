@@ -1,6 +1,6 @@
-import {Component, Input, OnInit} from '@angular/core';
+import {Component, OnInit} from '@angular/core';
 import {FormGroup} from '@angular/forms';
-import {FieldGroup, FieldInput, MdDynamicFormsService} from 'md-dynamic-forms';
+import {FieldGroup, FieldInput, MdDynamicFormsCoreService} from 'md-dynamic-forms-core';
 
 @Component({
   selector: 'app-custom-form-set',
@@ -22,7 +22,7 @@ export class CustomFormSetComponent implements OnInit {
     ]
   });
 
-  constructor(private dynamicFormsService: MdDynamicFormsService) { }
+  constructor(private dynamicFormsService: MdDynamicFormsCoreService) { }
 
   ngOnInit(): void {
     this.group = this.dynamicFormsService.createGroup(this.field, null);
