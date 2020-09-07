@@ -19,9 +19,15 @@ export * from './lib/model/form/control/field-select';
 export * from './lib/model/validation/validator.interface';
 export * from './lib/model/validation/async-validator.interface';
 export * from './lib/model/component-set';
-export * from './lib/model/table/column-config.interface';
 export * from './lib/model/table/table-config.interface';
 export * from './lib/model/table/table-column-config.interface';
+export * from './lib/model/layout/block-config';
+export * from './lib/model/layout/column-config';
+export * from './lib/model/layout/layout-config';
+export * from './lib/model/layout/row-config';
 
 export * from './lib/components/base-element';
 export * from './lib/components/base-select';
+export * from './lib/components/base-layout';
+
+export * from './lib/pipes/fields-of-block.pipe';

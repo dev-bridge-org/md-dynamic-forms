@@ -1,7 +1,7 @@
 export interface TableColumnConfig {
   heading: string;
-  columnWidth: number;
-  propertyName: string;
+  width: number;
+  name: string;
   sortable?: boolean;
   component?: any;
   fieldtype?: string;
