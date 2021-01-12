@@ -26,8 +26,8 @@ export * from './lib/model/layout/column-config';
 export * from './lib/model/layout/layout-config';
 export * from './lib/model/layout/row-config';
 
-export * from './lib/components/base-element';
-export * from './lib/components/base-select';
-export * from './lib/components/base-layout';
+export * from './lib/components/base-element.component';
+export * from './lib/components/base-select.component';
+export * from './lib/components/base-layout.component';
 
 export * from './lib/pipes/fields-of-block.pipe';

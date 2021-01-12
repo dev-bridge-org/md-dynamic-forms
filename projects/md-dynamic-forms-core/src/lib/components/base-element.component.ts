@@ -1,7 +1,9 @@
 import {AbstractControl, FormGroup} from '@angular/forms';
 import {BaseField} from '../model/form/base-field';
+import {Component} from '@angular/core';
 
-export class BaseElement<T extends BaseField> {
+@Component({template: ''})
+export class BaseElementComponent<T extends BaseField> {
   field: T;
   group: FormGroup;
 

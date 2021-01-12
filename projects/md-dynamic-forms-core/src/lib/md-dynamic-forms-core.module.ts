@@ -4,6 +4,9 @@ import {MdDynamicFieldDirective} from './md-dynamic-field.directive';
 import {ReactiveFormsModule} from '@angular/forms';
 import {CommonModule} from '@angular/common';
 import { FieldsOfBlockPipe } from './pipes/fields-of-block.pipe';
+import {BaseLayoutComponent} from './components/base-layout.component';
+import {BaseElementComponent} from './components/base-element.component';
+import {BaseSelectComponent} from './components/base-select.component';
 
 
 
@@ -11,7 +14,10 @@ import { FieldsOfBlockPipe } from './pipes/fields-of-block.pipe';
   declarations: [
     MdDynamicFormsCoreComponent,
     MdDynamicFieldDirective,
-    FieldsOfBlockPipe
+    FieldsOfBlockPipe,
+    BaseElementComponent,
+    BaseSelectComponent,
+    BaseLayoutComponent
   ],
   imports: [
     ReactiveFormsModule,
@@ -19,7 +25,10 @@ import { FieldsOfBlockPipe } from './pipes/fields-of-block.pipe';
   ],
   exports: [
     MdDynamicFormsCoreComponent,
-    MdDynamicFieldDirective
+    MdDynamicFieldDirective,
+    BaseElementComponent,
+    BaseLayoutComponent,
+    BaseSelectComponent
   ]
 })
 export class MdDynamicFormsCoreModule { }

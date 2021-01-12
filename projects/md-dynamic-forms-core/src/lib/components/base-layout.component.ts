@@ -1,8 +1,9 @@
-import {HostListener, OnInit} from '@angular/core';
+import {Component, HostListener, OnInit} from '@angular/core';
 import {LayoutConfig} from '../model/layout/layout-config';
 import {NGXLogger} from 'ngx-logger';
 
-export class BaseLayout implements OnInit {
+@Component({template: ''})
+export class BaseLayoutComponent implements OnInit {
   layouts: LayoutConfig[] = [];
   activeLayout: LayoutConfig = null;
 

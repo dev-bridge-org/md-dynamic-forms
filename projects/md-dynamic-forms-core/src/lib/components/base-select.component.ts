@@ -1,10 +1,12 @@
-import {BaseElement} from './base-element';
+import {BaseElementComponent} from './base-element.component';
 import {FieldSelect} from '../model/form/control/field-select';
 import {tap} from 'rxjs/operators';
-import {OnDestroy, OnInit} from '@angular/core';
+import {Component, OnDestroy, OnInit} from '@angular/core';
 import {Observable, Subscription} from 'rxjs';
+import {NGXLogger} from 'ngx-logger';
 
-export abstract class BaseSelect extends BaseElement<FieldSelect> implements OnInit, OnDestroy {
+@Component({template: ''})
+export class BaseSelectComponent extends BaseElementComponent<FieldSelect> implements OnInit, OnDestroy {
   loadedOptions$: Observable<any[]>;
   subs: Array<Subscription> = [];
 
