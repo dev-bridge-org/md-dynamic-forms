@@ -14,6 +14,7 @@ export * from './lib/model/form/array/field-table';
 export * from './lib/model/form/control/field-input';
 export * from './lib/model/form/control/field-checkbox';
 export * from './lib/model/form/control/field-datepicker';
+export * from './lib/model/form/control/field-file';
 export * from './lib/model/form/control/field-radio';
 export * from './lib/model/form/control/field-select';
 export * from './lib/model/validation/validator.interface';
