@@ -1,15 +1,14 @@
-import {BaseField, BaseFieldConfig} from '../base-field';
+import {FieldInput, FieldInputConfig} from './field-input';
 
-export interface FieldFileConfig extends BaseFieldConfig {
-  fileControlname: string;
+export interface FieldFileConfig extends FieldInputConfig {
 }
 
-export class FieldFile extends BaseField {
-  fileControlname: string;
-
+export class FieldFile extends FieldInput {
   constructor(config: FieldFileConfig) {
     super(config);
-    this.fileControlname = config.fileControlname;
+
+    this.component = 'file';
+    this.inputType = 'file';
   }
 
 }
