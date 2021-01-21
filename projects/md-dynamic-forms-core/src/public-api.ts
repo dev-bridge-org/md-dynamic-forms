@@ -9,6 +9,7 @@ export * from './lib/md-dynamic-field.directive';
 
 export * from './lib/model/form/base-field';
 export * from './lib/model/form/group/field-group';
+export * from './lib/model/form/group/field-layout-group';
 export * from './lib/model/form/array/field-array';
 export * from './lib/model/form/array/field-table';
 export * from './lib/model/form/control/field-input';
