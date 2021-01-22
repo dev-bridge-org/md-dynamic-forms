@@ -5,9 +5,12 @@ import {BaseElementComponent} from './base-element.component';
 import {FieldLayoutGroup} from '../model/form/group/field-layout-group';
 
 @Component({template: ''})
-export class BaseLayoutComponent extends BaseElementComponent<FieldLayoutGroup> implements OnInit {
-  layouts: LayoutConfig[] = [];
+export class BaseLayoutComponent<T extends FieldLayoutGroup> extends BaseElementComponent<T> implements OnInit {
   activeLayout: LayoutConfig = null;
+
+  get layouts(): LayoutConfig[] {
+    return this.field.layouts;
+  }
 
   constructor(protected logger: NGXLogger) {
     super();
