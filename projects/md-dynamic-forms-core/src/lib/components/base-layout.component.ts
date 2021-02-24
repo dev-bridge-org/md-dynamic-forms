@@ -1,13 +1,20 @@
 import {Component, HostListener, OnInit} from '@angular/core';
 import {LayoutConfig} from '../model/layout/layout-config';
 import {NGXLogger} from 'ngx-logger';
+import {BaseElementComponent} from './base-element.component';
+import {FieldLayoutGroup} from '../model/form/group/field-layout-group';
 
 @Component({template: ''})
-export class BaseLayoutComponent implements OnInit {
-  layouts: LayoutConfig[] = [];
+export class BaseLayoutComponent<T extends FieldLayoutGroup> extends BaseElementComponent<T> implements OnInit {
   activeLayout: LayoutConfig = null;
 
-  constructor(protected logger: NGXLogger) {}
+  get layouts(): LayoutConfig[] {
+    return this.field.layouts;
+  }
+
+  constructor(protected logger: NGXLogger) {
+    super();
+  }
 
   ngOnInit(): void {
     this.updateActiveLayout(window.innerWidth);
@@ -19,7 +26,7 @@ export class BaseLayoutComponent implements OnInit {
   }
 
   protected updateActiveLayout(containerWidth: number): void {
-    if (this.layouts.length === 0) {
+    if (this.layouts === undefined || this.layouts.length === 0) {
       throw Error('No layouts given');
     }
     let targetLayout: LayoutConfig = null;
