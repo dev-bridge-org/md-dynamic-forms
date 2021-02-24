@@ -4,6 +4,23 @@ All notable changes to this project will be documented in this file.
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/),
 and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
+## [0.0.5] - 2021-01-22
+### Added
+* added get-method for layouts of field to `BaseLayoutComponent`
+
+### Changed
+* updated `BaseLayoutComponent`
+  * now extending BaseElementComponent
+  * updated expression when no layouts given
+
+## [0.0.4] - 2021-01-21
+### Changed
+* added `FieldLayoutGroup` to public_api
+
+## [0.0.3] - 2021-01-17
+### Added
+* `FieldFile` added to support file-uploads and more
+
 ## [0.0.2] - 2021-01-12
 ### Added
 * base-components were added to MdDynamicFormsCoreModule
