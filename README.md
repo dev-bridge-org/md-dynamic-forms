@@ -25,3 +25,46 @@ Run `ng e2e` to execute the end-to-end tests via [Protractor](http://www.protrac
 ## Further help
 
 To get more help on the Angular CLI use `ng help` or go check out the [Angular CLI README](https://github.com/angular/angular-cli/blob/master/README.md).
+
+## State of Model/Components
+
+### Controls
+|                	|md-dynamic-forms-core|ngx-bootstrap|material|
+|----------------	|:-------------------: |:----------------:	|:-------------:	|
+| Checkbox       	|:heavy_check_mark:|:x:|:x:|
+| Checkbox Group 	|:heavy_check_mark:|:x:|:x:|
+| Colorpicker    	|:x:|:x:|:x:|
+| Currency      	|:x:|:x:|:x:|
+| Datepicker     	|:heavy_check_mark:|:x:|:x:|
+| Editor         	|:x:|:x:|:x:|
+| File Upload    	|:heavy_check_mark:|:x:|:x:|
+| Input          	|:heavy_check_mark:|:x:|:x:|
+| MultiInput     	|:heavy_check_mark:|:x:|:x:|
+| Radio Group    	|:heavy_check_mark:|:x:|:x:|
+| Rating         	|:x:|:x:|:x:|
+| Select         	|:heavy_check_mark:|:x:|:x:|
+| Slider         	|:x:|:x:|:x:|
+| Switch         	|:x:|:x:|:x:|
+| Textarea       	|:x:|:x:|:x:|
+| Timepicker     	|:x:|:x:|:x:|
+| Toggle        	|:x:|:x:|:x:|
+| DecisionToggle 	|:x:|:x:|:x:|
+
+### Group
+|                	|md-dynamic-forms-core|ngx-bootstrap|material|
+|----------------	|:--------:	|:----------------:	|:-------------:	|
+| BaseGroup      	|:heavy_check_mark:|:x:|:x:|
+| LayoutGroup   	|:heavy_check_mark:|:x:|:x:|
+| CombineGroup   	|:x:|:x:|:x:|
+
+### Array
+|                	|md-dynamic-forms-core|ngx-bootstrap|material|
+|----------------	|:--:|:--:|:--:|
+| List          	|:heavy_check_mark:|:x:|:x:|
+| Table         	|:heavy_check_mark:|:x:|:x:|
+| GroupedTable   	|:x:|:x:|:x:|
+
+### Legend
+* :heavy_check_mark: implemented
+* :x: not implemented
+* :soon: work in progress
