@@ -9,6 +9,7 @@
     "build_core_prod": "ng build md-dynamic-forms-core --prod",
     "build_material_prod": "ng build md-dynamic-forms-material --prod",
     "test": "ng test",
+    "test_material": "ng test md-dynamic-forms-material",
     "lint": "ng lint",
     "e2e": "ng e2e",
     "postinstall": "ngcc"

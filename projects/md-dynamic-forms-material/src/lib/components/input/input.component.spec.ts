@@ -70,6 +70,25 @@ describe('InputComponent', () => {
     expect(ariaRequired.value).toEqual('true');
   });
 
+  it('should display error', () => {
+    const field = new FieldInput({
+      name: 'test',
+      inputType: 'number',
+      label: 'This is a Test-Label',
+      validations: [{name: 'required', validator: Validators.required, message: 'Required field'}],
+    });
+    const group = new FormGroup({test: new FormControl('', [Validators.required])});
+    group.markAllAsTouched();
+    spectator.component.field = field;
+    spectator.component.group = group;
+
+    spectator.detectChanges();
+
+    const error = spectator.query('mat-error').innerHTML;
+    expect(error).toBeDefined();
+    expect(error).toEqual('Required field');
+  });
+
   it('should have aria-label set to label-context', () => {
     const field = new FieldInput({
       name: 'test',
@@ -86,5 +105,43 @@ describe('InputComponent', () => {
     const ariaLabel = spectator.query('input').attributes.getNamedItem('aria-label');
     expect(ariaLabel).toBeDefined();
     expect(ariaLabel.value).toEqual(field.label);
+  });
+
+  it('should have hint displayed when configured', () => {
+    const field = new FieldInput({
+      name: 'test',
+      inputType: 'text',
+      label: 'This is the label',
+      hint: 'Just a hint'
+    });
+    const group = new FormGroup({test: new FormControl('')});
+
+    spectator.component.field = field;
+    spectator.component.group = group;
+
+    spectator.detectChanges();
+
+    const hint = spectator.query('mat-hint').innerHTML;
+    expect(hint).toBeDefined();
+    expect(hint).toEqual(field.hint);
+  });
+
+  it('should have count-hint displayed when configured', () => {
+    const field = new FieldInput({
+      name: 'test',
+      inputType: 'text',
+      label: 'This is the label',
+      maxLength: 20
+    });
+    const group = new FormGroup({test: new FormControl('')});
+
+    spectator.component.field = field;
+    spectator.component.group = group;
+
+    spectator.detectChanges();
+
+    const hint = spectator.query('mat-hint.count-hint').innerHTML;
+    expect(hint).toBeDefined();
+    expect(hint).toEqual(`0 / ${field.maxLength}`);
   });
 });
