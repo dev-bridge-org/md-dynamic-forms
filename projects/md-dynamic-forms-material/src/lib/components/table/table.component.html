@@ -1,8 +1,8 @@
 <div class="mat-elevation-z8" [style.width]="tableConfig.width + '%'">
   <table mat-table class="full-width-table" matSort aria-label="Elements">
-    <ng-container *ngFor="let columnConfig of currentColumnConfigs" [matColumnDef]="columnConfig.propertyName">
+    <ng-container *ngFor="let columnConfig of currentColumnConfigs" [matColumnDef]="columnConfig.name">
       <th mat-header-cell *matHeaderCellDef mat-sort-header [disabled]="!columnConfig.sortable">{{columnConfig.heading}}</th>
-      <td mat-cell *matCellDef="let row">{{row.get(columnConfig.propertyName).value | json}}</td>
+      <td mat-cell *matCellDef="let row">{{row.get(columnConfig.name).value | json}}</td>
     </ng-container>
 
     <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>

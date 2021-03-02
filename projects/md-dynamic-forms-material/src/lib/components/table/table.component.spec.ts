@@ -5,10 +5,8 @@ import { MatTableModule } from '@angular/material/table';
 
 import { TableComponent } from './table.component';
 import {FormArray, FormControl, FormGroup} from '@angular/forms';
-import {FieldTable} from '../../../../../md-dynamic-forms/src/lib/model/form/array/field-table';
-import {FieldGroup} from '../../../../../md-dynamic-forms/src/lib/model/form/group/field-group';
-import {FieldInput} from '../../../../../md-dynamic-forms/src/lib/model/form/control/field-input';
 import {createComponentFactory, Spectator} from '@ngneat/spectator';
+import {FieldGroup, FieldInput, FieldTable} from 'md-dynamic-forms-core';
 
 describe('TableComponent', () => {
   let spectator: Spectator<TableComponent>;
@@ -47,8 +45,8 @@ describe('TableComponent', () => {
       config: {
         width: 75,
         columns: [
-          {name: 'test', width: 50},
-          {name: 'abc', width: 50}
+          {name: 'test', width: 50, heading: 'Test'},
+          {name: 'abc', width: 50, heading: 'ABC'}
         ]
       }
     });

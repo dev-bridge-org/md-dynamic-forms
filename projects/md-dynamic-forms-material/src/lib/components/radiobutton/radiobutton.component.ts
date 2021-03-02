@@ -1,5 +1,5 @@
 import {Component} from '@angular/core';
-import {BaseElement, FieldRadio} from 'md-dynamic-forms-core';
+import {BaseElementComponent, FieldRadio} from 'md-dynamic-forms-core';
 
 @Component({
   selector: 'md-radiobutton',
@@ -16,7 +16,7 @@ import {BaseElement, FieldRadio} from 'md-dynamic-forms-core';
   `,
   styles: []
 })
-export class RadiobuttonComponent extends BaseElement<FieldRadio> {
+export class RadiobuttonComponent extends BaseElementComponent<FieldRadio> {
   constructor() {
     super();
   }

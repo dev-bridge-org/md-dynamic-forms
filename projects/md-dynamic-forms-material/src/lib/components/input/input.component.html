@@ -1,0 +1,10 @@
+<mat-form-field class="demo-full-width" [formGroup]="group">
+  <input matInput [formControlName]="field.name"
+         [required]="required" [attr.aria-label]="field.label"
+         [placeholder]="field.label" [type]="field.inputType">
+  <ng-container *ngFor="let validation of field.validations;" ngProjectAs="mat-error">
+    <mat-error *ngIf="control.hasError(validation.name)">{{validation.message}}</mat-error>
+  </ng-container>
+  <mat-hint align="start" *ngIf="field.hint">{{field.hint}}</mat-hint>
+  <mat-hint align="end" *ngIf="field.maxLength > 0">{{control.value?.length || 0}} / {{field.maxLength}}</mat-hint>
+</mat-form-field>

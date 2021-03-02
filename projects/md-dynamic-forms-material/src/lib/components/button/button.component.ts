@@ -1,5 +1,5 @@
 import {Component} from '@angular/core';
-import {BaseElement, BaseField} from 'md-dynamic-forms-core';
+import {BaseElementComponent, BaseField, BaseFieldControl} from 'md-dynamic-forms-core';
 
 @Component({
   selector: 'md-button',
@@ -10,7 +10,7 @@ import {BaseElement, BaseField} from 'md-dynamic-forms-core';
   `,
   styles: []
 })
-export class ButtonComponent extends BaseElement<BaseField> {
+export class ButtonComponent extends BaseElementComponent<BaseFieldControl> {
   constructor() {
     super();
   }

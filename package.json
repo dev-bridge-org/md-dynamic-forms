@@ -7,7 +7,7 @@
     "build": "ng build",
     "build_core": "ng build md-dynamic-forms-core",
     "build_core_prod": "ng build md-dynamic-forms-core --prod",
-    "build_material": "ng build md-dynamic-forms-material --prod",
+    "build_material_prod": "ng build md-dynamic-forms-material --prod",
     "test": "ng test",
     "lint": "ng lint",
     "e2e": "ng e2e",
