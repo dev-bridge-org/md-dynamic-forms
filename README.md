@@ -1,30 +1,46 @@
 # MdDynamicForms
 
-This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 9.1.0.
+MdDynamicForms is a form automation library to create forms in a declarative way.
+It's fast and easy to use and comes with built-in components to get started right away.
+You get the form as model and as template created from one configuration.
 
-## Development server
+The idea is based off of the [**official Angular guide**](https://angular.io/guide/dynamic-form)
 
-Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The app will automatically reload if you change any of the source files.
+## Table of Contents
+- [MdDynamicForms](#mddynamicforms)
+  - [Table of Contents](#table-of-contents)
+  - [Getting Started](#getting-started)
+  - [State of Model/Components](#state-of-modelcomponents)
+    - [Controls](#controls)
+    - [Group](#group)
+    - [Array](#array)
+    - [Legend](#legend)
 
-## Code scaffolding
+## Getting Started
 
-Run `ng generate component component-name` to generate a new component. You can also use `ng generate directive|pipe|service|class|guard|interface|enum|module`.
+**1. Install the core package**
+```bash
+npm i md-dynamic-forms-core
+```
 
-## Build
+**2. Install a UI-Library of your choice**
+```bash
+npm i md-dynamic-forms-material
+```
 
-Run `ng build` to build the project. The build artifacts will be stored in the `dist/` directory. Use the `--prod` flag for a production build.
+**3. Import the modules**
+```typescript
+import {MdDynamicFormsCoreModule} from 'md-dynamic-forms-core';
+import {MdDynamicFormsMaterialModule} from 'md-dynamic-forms-material';
 
-## Running unit tests
-
-Run `ng test` to execute the unit tests via [Karma](https://karma-runner.github.io).
-
-## Running end-to-end tests
-
-Run `ng e2e` to execute the end-to-end tests via [Protractor](http://www.protractortest.org/).
-
-## Further help
-
-To get more help on the Angular CLI use `ng help` or go check out the [Angular CLI README](https://github.com/angular/angular-cli/blob/master/README.md).
+@NgModule({
+  imports: [
+    MdDynamicFormsCoreModule,
+    MdDynamicFormsMaterialModule
+  ]
+})
+export class AppModule { }
+```
 
 ## State of Model/Components
 
@@ -35,10 +51,10 @@ To get more help on the Angular CLI use `ng help` or go check out the [Angular C
 | Checkbox Group 	|:heavy_check_mark:|:x:|:x:|
 | Colorpicker    	|:x:|:x:|:x:|
 | Currency      	|:x:|:x:|:x:|
-| Datepicker     	|:heavy_check_mark:|:x:|:x:|
+| Datepicker     	|:heavy_check_mark:|:x:|:soon:|
 | Editor         	|:x:|:x:|:x:|
 | File Upload    	|:heavy_check_mark:|:x:|:x:|
-| Input          	|:heavy_check_mark:|:x:|:x:|
+| Input          	|:heavy_check_mark:|:x:|:soon:|
 | MultiInput     	|:heavy_check_mark:|:x:|:x:|
 | Radio Group    	|:heavy_check_mark:|:x:|:x:|
 | Rating         	|:x:|:x:|:x:|
@@ -47,8 +63,8 @@ To get more help on the Angular CLI use `ng help` or go check out the [Angular C
 | Switch         	|:x:|:x:|:x:|
 | Textarea       	|:x:|:x:|:x:|
 | Timepicker     	|:x:|:x:|:x:|
-| Toggle        	|:x:|:x:|:x:|
-| DecisionToggle 	|:x:|:x:|:x:|
+| Toggle        	|:soon:|:x:|:soon:|
+| DecisionToggle 	|:soon:|:x:|:soon:|
 
 ### Group
 |                	|md-dynamic-forms-core|ngx-bootstrap|material|
