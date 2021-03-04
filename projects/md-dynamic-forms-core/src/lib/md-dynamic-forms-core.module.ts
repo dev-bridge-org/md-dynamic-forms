@@ -7,6 +7,7 @@ import { FieldsOfBlockPipe } from './pipes/fields-of-block.pipe';
 import {BaseLayoutComponent} from './components/base-layout.component';
 import {BaseElementComponent} from './components/base-element.component';
 import {BaseSelectComponent} from './components/base-select.component';
+import {MdDynamicFormsCoreService} from './md-dynamic-forms-core.service';
 
 
 
@@ -22,6 +23,9 @@ import {BaseSelectComponent} from './components/base-select.component';
   imports: [
     ReactiveFormsModule,
     CommonModule
+  ],
+  providers: [
+    MdDynamicFormsCoreService
   ],
   exports: [
     MdDynamicFormsCoreComponent,

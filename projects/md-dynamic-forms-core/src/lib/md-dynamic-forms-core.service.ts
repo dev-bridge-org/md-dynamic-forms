@@ -7,9 +7,7 @@ import {Validator} from './model/validation/validator.interface';
 import {AsyncValidator} from './model/validation/async-validator.interface';
 import {MdDynamicFormsCoreModule} from './md-dynamic-forms-core.module';
 
-@Injectable({
-  providedIn: MdDynamicFormsCoreModule
-})
+@Injectable()
 export class MdDynamicFormsCoreService {
   constructor(private fb: FormBuilder) { }
 

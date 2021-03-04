@@ -7,6 +7,16 @@ import {MdDynamicFieldDirective} from './md-dynamic-field.directive';
 import {FieldGroup} from './model/form/group/field-group';
 import {FieldInput} from './model/form/control/field-input';
 import {MdDynamicFormsCoreService} from './md-dynamic-forms-core.service';
+import {Component} from '@angular/core';
+import {BaseElementComponent} from './components/base-element.component';
+import {COMPONENT_SET} from './model/component-set';
+
+@Component({template: ''})
+class TestComponent extends BaseElementComponent<FieldInput> {}
+
+const set = {
+  input: TestComponent
+};
 
 describe('MdDynamicFormsCoreComponent', () => {
   let spectator: Spectator<MdDynamicFormsCoreComponent>;
@@ -14,6 +24,7 @@ describe('MdDynamicFormsCoreComponent', () => {
     component: MdDynamicFormsCoreComponent,
     declarations: [
       MdDynamicFieldDirective,
+      TestComponent
     ],
     imports: [
       CommonModule,
@@ -21,7 +32,8 @@ describe('MdDynamicFormsCoreComponent', () => {
       LoggerTestingModule,
     ],
     providers: [
-      MdDynamicFormsCoreService
+      MdDynamicFormsCoreService,
+      {provide: COMPONENT_SET, useValue: set}
     ]
   });
 
@@ -30,7 +42,7 @@ describe('MdDynamicFormsCoreComponent', () => {
   });
 
   it('should create', () => {
-    spectator.component.config = new FieldGroup({name: 'test', children: [new FieldInput({name: 'testInput', inputType: 'text'})]});
+    spectator.component.config = new FieldGroup({name: 'test', children: [new FieldInput({name: 'testInput', inputType: 'text', label: 'Test'})]});
     spectator.detectChanges();
     expect(spectator.component).toBeTruthy();
   });
