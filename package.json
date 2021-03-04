@@ -12,7 +12,7 @@
     "test:material": "ng test md-dynamic-forms-material --code-coverage",
     "lint": "ng lint",
     "e2e": "ng e2e",
-    "postinstall": "ngcc"
+    "postinstall": "ngcc --tsconfig './tsconfig.base.json'"
   },
   "private": true,
   "dependencies": {
