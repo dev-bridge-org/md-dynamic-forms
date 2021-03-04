@@ -8,8 +8,8 @@
     "build:core": "ng build md-dynamic-forms-core --prod",
     "build:material": "ng build md-dynamic-forms-material --prod",
     "test": "ng test",
-    "test:core": "ng test md-dynamic-forms-core",
-    "test:material": "ng test md-dynamic-forms-material",
+    "test:core": "ng test md-dynamic-forms-core --code-coverage",
+    "test:material": "ng test md-dynamic-forms-material --code-coverage",
     "lint": "ng lint",
     "e2e": "ng e2e",
     "postinstall": "ngcc"
