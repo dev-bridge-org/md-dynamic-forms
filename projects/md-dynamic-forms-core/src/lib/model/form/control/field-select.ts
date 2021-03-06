@@ -1,12 +1,12 @@
-import {BaseField, BaseFieldConfig} from '../base-field';
-import {Observable, of} from 'rxjs';
+import {Observable} from 'rxjs';
+import {BaseFieldControl, BaseFieldControlConfig} from './base-field-control';
 
-export interface FieldSelectConfig extends BaseFieldConfig {
+export interface FieldSelectConfig extends BaseFieldControlConfig {
   options: (...args) => Observable<any>;
   display?: (...args) => Observable<string>;
 }
 
-export class FieldSelect extends BaseField {
+export class FieldSelect extends BaseFieldControl {
   options: (...args) => Observable<any>;
   display: (...args) => Observable<string>;
 

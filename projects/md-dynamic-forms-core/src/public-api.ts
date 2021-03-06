@@ -12,6 +12,7 @@ export * from './lib/model/form/group/field-group';
 export * from './lib/model/form/group/field-layout-group';
 export * from './lib/model/form/array/field-array';
 export * from './lib/model/form/array/field-table';
+export * from './lib/model/form/control/base-field-control';
 export * from './lib/model/form/control/field-input';
 export * from './lib/model/form/control/field-checkbox';
 export * from './lib/model/form/control/field-datepicker';

@@ -1,6 +1,6 @@
 import {Component} from '@angular/core';
 import {FormArray} from '@angular/forms';
-import {BaseElement, FieldArray} from 'md-dynamic-forms-core';
+import {BaseElementComponent, FieldArray} from 'md-dynamic-forms-core';
 
 @Component({
   selector: 'md-list',
@@ -11,7 +11,7 @@ import {BaseElement, FieldArray} from 'md-dynamic-forms-core';
   `,
   styles: []
 })
-export class ListComponent extends BaseElement<FieldArray> {
+export class ListComponent extends BaseElementComponent<FieldArray> {
   constructor() {
     super();
   }

@@ -1,6 +1,6 @@
 import {Component} from '@angular/core';
 import {NGXLogger} from 'ngx-logger';
-import {BaseSelect} from 'md-dynamic-forms-core';
+import {BaseSelectComponent} from 'md-dynamic-forms-core';
 
 @Component({
   selector: 'md-select',
@@ -16,7 +16,7 @@ import {BaseSelect} from 'md-dynamic-forms-core';
   `,
   styles: []
 })
-export class SelectComponent extends BaseSelect {
+export class SelectComponent extends BaseSelectComponent {
 
   constructor(private logger: NGXLogger) {
     super();

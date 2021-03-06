@@ -1,5 +1,5 @@
 import {Component} from '@angular/core';
-import {BaseElement, FieldGroup} from 'md-dynamic-forms-core';
+import {BaseElementComponent, FieldGroup} from 'md-dynamic-forms-core';
 
 @Component({
   selector: 'md-group',
@@ -18,7 +18,7 @@ import {BaseElement, FieldGroup} from 'md-dynamic-forms-core';
     `
   ]
 })
-export class GroupComponent extends BaseElement<FieldGroup> {
+export class GroupComponent extends BaseElementComponent<FieldGroup> {
   constructor() {
     super();
   }

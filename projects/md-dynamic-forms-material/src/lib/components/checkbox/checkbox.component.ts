@@ -1,6 +1,6 @@
 import {Component} from '@angular/core';
 import {FormControl} from '@angular/forms';
-import {BaseElement, FieldCheckbox} from 'md-dynamic-forms-core';
+import {BaseElementComponent, FieldCheckbox} from 'md-dynamic-forms-core';
 
 @Component({
   selector: 'md-checkbox',
@@ -14,7 +14,7 @@ import {BaseElement, FieldCheckbox} from 'md-dynamic-forms-core';
   `,
   styles: []
 })
-export class CheckboxComponent extends BaseElement<FieldCheckbox> {
+export class CheckboxComponent extends BaseElementComponent<FieldCheckbox> {
   constructor() {
     super();
   }

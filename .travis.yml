@@ -1,0 +1,12 @@
+branches:
+  only:
+    - master
+language: node_js
+sudo: required
+node_js:
+  - "lts/*"
+addons:
+  chrome: stable
+script:
+  - npm run build:core && npm run test:core
+  - npm run build:material && npm run test:material

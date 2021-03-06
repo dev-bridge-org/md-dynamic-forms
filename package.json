@@ -5,13 +5,14 @@
     "ng": "ng",
     "start": "ng serve",
     "build": "ng build",
-    "build_core": "ng build md-dynamic-forms-core",
-    "build_core_prod": "ng build md-dynamic-forms-core --prod",
-    "build_material": "ng build md-dynamic-forms-material --prod",
+    "build:core": "ng build md-dynamic-forms-core --prod",
+    "build:material": "ng build md-dynamic-forms-material --prod",
     "test": "ng test",
+    "test:core": "ng test md-dynamic-forms-core --code-coverage",
+    "test:material": "ng test md-dynamic-forms-material --code-coverage",
     "lint": "ng lint",
     "e2e": "ng e2e",
-    "postinstall": "ngcc"
+    "postinstall": "ngcc --tsconfig './tsconfig.base.json'"
   },
   "private": true,
   "dependencies": {

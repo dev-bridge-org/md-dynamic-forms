@@ -1,17 +1,18 @@
-import { AfterViewInit, Component, OnInit, ViewChild } from '@angular/core';
-import { MatPaginator } from '@angular/material/paginator';
-import { MatSort } from '@angular/material/sort';
-import { MatTable } from '@angular/material/table';
-import { TableDataSource } from './table-datasource';
+import {AfterViewInit, Component, OnInit, ViewChild} from '@angular/core';
+import {MatPaginator} from '@angular/material/paginator';
+import {MatSort} from '@angular/material/sort';
+import {MatTable} from '@angular/material/table';
+import {TableDataSource} from './table-datasource';
 import {FormArray, FormGroup} from '@angular/forms';
-import {BaseElement, ColumnConfig, FieldTable, TableColumnConfig, TableConfig} from 'md-dynamic-forms-core';
+import {BaseElementComponent, FieldTable, TableColumnConfig, TableConfig} from 'md-dynamic-forms-core';
+import {BaseFieldControl} from '../../../../../../dist/md-dynamic-forms-core/lib/model/form/control/base-field-control';
 
 @Component({
   selector: 'md-table',
   templateUrl: './table.component.html',
   styleUrls: ['./table.component.css']
 })
-export class TableComponent extends BaseElement<FieldTable> implements AfterViewInit, OnInit {
+export class TableComponent extends BaseElementComponent<FieldTable> implements AfterViewInit, OnInit {
   @ViewChild(MatPaginator) paginator: MatPaginator;
   @ViewChild(MatSort) sort: MatSort;
   @ViewChild(MatTable) table: MatTable<FormGroup>;
@@ -41,7 +42,7 @@ export class TableComponent extends BaseElement<FieldTable> implements AfterView
     this.table.dataSource = this.dataSource;
   }
 
-  get columnConfigs(): ColumnConfig[] {
+  get columnConfigs(): TableColumnConfig[] {
     return this.tableConfig.columns;
   }
 
@@ -56,12 +57,10 @@ export class TableComponent extends BaseElement<FieldTable> implements AfterView
   private setupColumnConfigs() {
     const listConfig = this.field;
     this.currentColumnConfigs = this.columnConfigs.map((config) => {
-      const fieldsOfGroup = listConfig.listItem.children;
+      const fieldsOfGroup = listConfig.listItem.children as BaseFieldControl[];
       const fieldOfConfig = fieldsOfGroup.find((field) => field.name === config.name);
       if (fieldOfConfig) {
-        return {heading: fieldOfConfig.label, columnWidth: config.width, propertyName: fieldOfConfig.name};
-      } else {
-        return {heading: '', columnWidth: config.width, propertyName: config.name};
+        return {heading: fieldOfConfig.label, width: config.width, name: fieldOfConfig.name};
       }
     });
   }
