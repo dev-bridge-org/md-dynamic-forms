@@ -16,9 +16,6 @@
       "dom"
     ],
     "paths": {
-      "md-dynamic-forms": [
-        "dist/md-dynamic-forms"
-      ],
       "md-dynamic-forms-core": [
         "dist/md-dynamic-forms-core/md-dynamic-forms-core",
         "dist/md-dynamic-forms-core"
