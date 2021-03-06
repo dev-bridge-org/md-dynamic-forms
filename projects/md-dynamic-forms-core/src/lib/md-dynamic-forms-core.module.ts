@@ -8,6 +8,7 @@ import {BaseLayoutComponent} from './components/base-layout.component';
 import {BaseElementComponent} from './components/base-element.component';
 import {BaseSelectComponent} from './components/base-select.component';
 import {MdDynamicFormsCoreService} from './md-dynamic-forms-core.service';
+import {BaseInputComponent} from './components/base-input.component';
 
 
 
@@ -18,7 +19,8 @@ import {MdDynamicFormsCoreService} from './md-dynamic-forms-core.service';
     FieldsOfBlockPipe,
     BaseElementComponent,
     BaseSelectComponent,
-    BaseLayoutComponent
+    BaseLayoutComponent,
+    BaseInputComponent
   ],
   imports: [
     ReactiveFormsModule,
@@ -32,7 +34,8 @@ import {MdDynamicFormsCoreService} from './md-dynamic-forms-core.service';
     MdDynamicFieldDirective,
     BaseElementComponent,
     BaseLayoutComponent,
-    BaseSelectComponent
+    BaseSelectComponent,
+    BaseInputComponent
   ]
 })
 export class MdDynamicFormsCoreModule { }

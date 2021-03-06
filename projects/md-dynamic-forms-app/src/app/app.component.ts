@@ -1,10 +1,7 @@
 import {Component, OnInit} from '@angular/core';
 import {FormGroup, Validators} from '@angular/forms';
-import {CustomValidators} from './custom-validators';
 import {TestService} from './test.service';
-import {of} from 'rxjs';
-import {filter, flatMap, toArray} from 'rxjs/operators';
-import {FieldCheckbox, FieldDatepicker, FieldGroup, FieldInput, FieldRadio, FieldSelect, FieldTable} from 'md-dynamic-forms-core';
+import {FieldDatepicker, FieldGroup, FieldInput} from 'md-dynamic-forms-core';
 
 class Stammdaten {
   id: number;
@@ -81,7 +78,7 @@ export class AppComponent implements OnInit{
   //     value: 'Male'
   //   },
   //   {
-  //     type: 'date',
+  //     type: 'datepicker',
   //     label: 'DOB',
   //     name: 'dob',
   //     validations: [
@@ -146,6 +143,19 @@ export class AppComponent implements OnInit{
           {name: 'required', message: 'Age is Required', validator: Validators.required},
           {name: 'min', message: 'You need to be atleast 18 years', validator: Validators.min(18)}
         ]
+      }),
+      new FieldDatepicker({
+        name: 'dob',
+        label: 'DOB',
+        validations: [
+          {name: 'required', validator: Validators.required, message: 'Date of Birth Required'}
+        ]
+      }),
+      new FieldDatepicker({
+        name: 'dobHint',
+        label: 'DOB Hint',
+        hint: 'Please enter your date of birth',
+        validations: []
       }),
       // new FieldTable({
       //   name: 'kunden',
@@ -225,7 +235,7 @@ export class AppComponent implements OnInit{
       // new FieldDatepicker({
       //   name: 'dob',
       //   label: 'DOB',
-      //   inputType: 'date',
+      //   inputType: 'datepicker',
       //   validations: [
       //     {
       //       name: 'required',
@@ -266,7 +276,7 @@ export class AppComponent implements OnInit{
   constructor(private service: TestService) {}
 
   ngOnInit(): void {
-    this.value = {name: '', adress: {}, kunden: [{test: 'test', abc: 'def'}, {test: 'def', abc: 'test'}], dob: '7/8/2020'};
+    this.value = {name: '', adress: {}, kunden: [{test: 'test', abc: 'def'}, {test: 'def', abc: 'test'}], dob: ''};
   }
 
   submit(value: any) {
