@@ -5,8 +5,27 @@ import {AppComponent} from './app.component';
 import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
 import {LoggerModule, NgxLoggerLevel} from 'ngx-logger';
 import {HttpClientModule} from '@angular/common/http';
-import {MdDynamicFormsCoreModule} from 'md-dynamic-forms-core';
-import {MdDynamicFormsMaterialModule} from 'md-dynamic-forms-material';
+import {RouterModule, Routes} from '@angular/router';
+
+const routes: Routes = [
+  {
+    path: 'material',
+    loadChildren: () => import('./material/material.module').then(m => m.MaterialModule)
+  },
+  {
+    path: 'bootstrap',
+    loadChildren: () => import('./bootstrap/bootstrap.module').then(m => m.BootstrapModule)
+  },
+  {
+    path: 'clarity',
+    loadChildren: () => import('./clarity/clarity.module').then(m => m.ClarityModule)
+  },
+  {
+    path: '',
+    pathMatch: 'full',
+    redirectTo: 'material'
+  }
+];
 
 @NgModule({
   declarations: [
@@ -15,10 +34,9 @@ import {MdDynamicFormsMaterialModule} from 'md-dynamic-forms-material';
   imports: [
     BrowserModule,
     BrowserAnimationsModule,
-    MdDynamicFormsCoreModule,
-    MdDynamicFormsMaterialModule,
     HttpClientModule,
-    LoggerModule.forRoot({level: NgxLoggerLevel.DEBUG})
+    LoggerModule.forRoot({level: NgxLoggerLevel.DEBUG}),
+    RouterModule.forRoot(routes, {useHash: true}),
   ],
   providers: [],
   bootstrap: [AppComponent]
