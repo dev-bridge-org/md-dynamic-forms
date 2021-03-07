@@ -1,7 +1,7 @@
 import { NgModule } from '@angular/core';
 import {ButtonComponent} from './components/button/button.component';
 import {CheckboxComponent} from './components/checkbox/checkbox.component';
-import {DateComponent} from './components/date/date.component';
+import {DatepickerComponent} from './components/datepicker/datepicker.component';
 import {InputComponent} from './components/input/input.component';
 import {RadiobuttonComponent} from './components/radiobutton/radiobutton.component';
 import {SelectComponent} from './components/select/select.component';
@@ -30,7 +30,7 @@ import {MatMomentDateModule} from '@angular/material-moment-adapter';
   declarations: [
     ButtonComponent,
     CheckboxComponent,
-    DateComponent,
+    DatepickerComponent,
     InputComponent,
     RadiobuttonComponent,
     SelectComponent,
@@ -57,7 +57,7 @@ import {MatMomentDateModule} from '@angular/material-moment-adapter';
   exports: [
     ButtonComponent,
     CheckboxComponent,
-    DateComponent,
+    DatepickerComponent,
     InputComponent,
     RadiobuttonComponent,
     SelectComponent,

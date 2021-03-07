@@ -1,7 +1,7 @@
 import {InputComponent} from '../components/input/input.component';
 import {ButtonComponent} from '../components/button/button.component';
 import {SelectComponent} from '../components/select/select.component';
-import {DateComponent} from '../components/date/date.component';
+import {DatepickerComponent} from '../components/datepicker/datepicker.component';
 import {RadiobuttonComponent} from '../components/radiobutton/radiobutton.component';
 import {CheckboxComponent} from '../components/checkbox/checkbox.component';
 import {GroupComponent} from '../components/group/group.component';
@@ -12,7 +12,7 @@ export const STANDARD_COMPONENT_SET = {
   input: InputComponent,
   button: ButtonComponent,
   select: SelectComponent,
-  date: DateComponent,
+  datepicker: DatepickerComponent,
   radiobutton: RadiobuttonComponent,
   checkbox: CheckboxComponent,
   group: GroupComponent,

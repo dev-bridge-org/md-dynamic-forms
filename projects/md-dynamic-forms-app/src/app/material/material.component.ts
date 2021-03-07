@@ -1,7 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import {FormGroup, Validators} from '@angular/forms';
-import {FieldGroup, FieldInput} from 'md-dynamic-forms-core';
-import {TestService} from '../test.service';
+import {FieldDatepicker, FieldGroup, FieldInput} from 'md-dynamic-forms-core';
 
 @Component({
   selector: 'app-material',
@@ -42,7 +41,20 @@ export class MaterialComponent implements OnInit {
           {name: 'required', message: 'Age is Required', validator: Validators.required},
           {name: 'min', message: 'You need to be atleast 18 years', validator: Validators.min(18)}
         ]
-      })
+      }),
+      new FieldDatepicker({
+        name: 'dob',
+        label: 'DOB',
+        validations: [
+          {name: 'required', validator: Validators.required, message: 'Date of Birth Required'}
+        ]
+      }),
+      new FieldDatepicker({
+        name: 'dobHint',
+        label: 'DOB Hint',
+        hint: 'Please enter your date of birth',
+        validations: []
+      }),
     ]
   });
 
@@ -51,7 +63,7 @@ export class MaterialComponent implements OnInit {
   constructor() {}
 
   ngOnInit(): void {
-    this.value = {name: '', adress: {}, kunden: [{test: 'test', abc: 'def'}, {test: 'def', abc: 'test'}], dob: '7/8/2020'};
+    this.value = {name: '', adress: {}, kunden: [{test: 'test', abc: 'def'}, {test: 'def', abc: 'test'}], dob: ''};
   }
 
   submit(value: any) {

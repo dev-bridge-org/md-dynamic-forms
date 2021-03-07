@@ -1,7 +1,7 @@
 import {BaseFieldControl, BaseFieldControlConfig} from './base-field-control';
 
 export interface FieldInputConfig extends BaseFieldControlConfig {
-  inputType: string;
+  inputType?: string;
   maxLength?: number;
 }
 
@@ -11,7 +11,7 @@ export class FieldInput extends BaseFieldControl {
 
   constructor(config: FieldInputConfig) {
     super(config);
-    this.inputType = config.inputType;
+    this.inputType = config.inputType || 'text';
     this.maxLength = config.maxLength || 0;
 
     this.formType = 'control';
