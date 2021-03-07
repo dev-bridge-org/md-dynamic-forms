@@ -1,0 +1,20 @@
+nav {
+  background: #0094FF;
+  height: 40px;
+}
+
+nav ul {
+  display: flex;
+  flex-flow: row;
+}
+
+li {
+  list-style-type: none;
+  padding: 6px 4px;
+  margin: 5px 2px;
+  border-radius: 4px;
+  cursor: pointer;
+}
+li:hover, li.active {
+  background: #0064FF;
+}

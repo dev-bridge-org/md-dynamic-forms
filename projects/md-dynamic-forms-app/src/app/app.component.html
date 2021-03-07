@@ -1,12 +1,9 @@
-<div class="form">
-  <div style="text-align:center">
-    <h1>
-      Registration Form
-    </h1>
-  </div>
-  <md-dynamic-forms-core [config]="regConfig" [value]="value" (submit)="submit($event)" (formChange)="form = $event">
-  </md-dynamic-forms-core>
-</div>
+<nav>
+  <ul>
+    <li routerLink="material" routerLinkActive="active">Material</li>
+    <li routerLink="bootstrap" routerLinkActive="active">Bootstrap</li>
+    <li routerLink="clarity" routerLinkActive="active">Clarity</li>
+  </ul>
+</nav>
 
-<!--<pre>{{form?.value | json}}</pre>-->
-<!--<app-custom-form-set></app-custom-form-set>-->
+<router-outlet></router-outlet>

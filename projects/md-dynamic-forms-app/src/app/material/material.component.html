@@ -1,0 +1,9 @@
+<div class="form">
+  <div style="text-align:center">
+    <h1>
+      Registration Form
+    </h1>
+  </div>
+  <md-dynamic-forms-core [config]="regConfig" [value]="value" (submit)="submit($event)" (formChange)="form = $event">
+  </md-dynamic-forms-core>
+</div>
