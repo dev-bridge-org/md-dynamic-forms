@@ -23,6 +23,8 @@ import {MatTableModule} from '@angular/material/table';
 import {MatSortModule} from '@angular/material/sort';
 import {MatPaginatorModule} from '@angular/material/paginator';
 import {MatMomentDateModule} from '@angular/material-moment-adapter';
+import {ToggleComponent} from './components/toggle/toggle.component';
+import {MatButtonToggleModule} from '@angular/material/button-toggle';
 
 
 
@@ -36,7 +38,8 @@ import {MatMomentDateModule} from '@angular/material-moment-adapter';
     SelectComponent,
     GroupComponent,
     ListComponent,
-    TableComponent
+    TableComponent,
+    ToggleComponent
   ],
   imports: [
     MatButtonModule,
@@ -52,7 +55,8 @@ import {MatMomentDateModule} from '@angular/material-moment-adapter';
     MatTableModule,
     MatSortModule,
     MatPaginatorModule,
-    MatMomentDateModule
+    MatMomentDateModule,
+    MatButtonToggleModule
   ],
   exports: [
     ButtonComponent,
@@ -63,7 +67,8 @@ import {MatMomentDateModule} from '@angular/material-moment-adapter';
     SelectComponent,
     GroupComponent,
     ListComponent,
-    TableComponent
+    TableComponent,
+    ToggleComponent
   ],
   providers: [
     {provide: COMPONENT_SET, useValue: STANDARD_COMPONENT_SET}

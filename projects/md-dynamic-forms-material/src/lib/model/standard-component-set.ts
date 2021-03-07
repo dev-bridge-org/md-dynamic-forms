@@ -7,11 +7,13 @@ import {CheckboxComponent} from '../components/checkbox/checkbox.component';
 import {GroupComponent} from '../components/group/group.component';
 import {ListComponent} from '../components/list/list.component';
 import {TableComponent} from '../components/table/table.component';
+import {ToggleComponent} from '../components/toggle/toggle.component';
 
 export const STANDARD_COMPONENT_SET = {
   input: InputComponent,
   button: ButtonComponent,
   select: SelectComponent,
+  toggle: ToggleComponent,
   datepicker: DatepickerComponent,
   radiobutton: RadiobuttonComponent,
   checkbox: CheckboxComponent,

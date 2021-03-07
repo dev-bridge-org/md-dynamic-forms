@@ -19,6 +19,7 @@ export * from './lib/model/form/control/field-datepicker';
 export * from './lib/model/form/control/field-file';
 export * from './lib/model/form/control/field-radio';
 export * from './lib/model/form/control/field-select';
+export * from './lib/model/form/control/field-toggle';
 export * from './lib/model/validation/validator.interface';
 export * from './lib/model/validation/async-validator.interface';
 export * from './lib/model/component-set';

@@ -1,0 +1,18 @@
+<div class="control" [formGroup]="group">
+  <label>{{field.label}}</label>
+  <div class="field">
+    <mat-button-toggle-group [formControlName]="field.name"
+                             [required]="required"
+                             [attr.aria-label]="field.label">
+      <mat-button-toggle *ngFor="let item of options | async"
+                         [attr.aria-label]="item.label"
+                         [value]="item.value">{{item.label}}</mat-button-toggle>
+    </mat-button-toggle-group>
+    <div class="subscripts">
+      <mat-hint *ngIf="!canShowError">{{field.hint}}</mat-hint>
+      <ng-container *ngFor="let validation of field.validations;" ngProjectAs="mat-error">
+        <mat-error *ngIf="canShowError && group.get(field.name).hasError(validation.name)">{{validation.message}}</mat-error>
+      </ng-container>
+    </div>
+  </div>
+</div>

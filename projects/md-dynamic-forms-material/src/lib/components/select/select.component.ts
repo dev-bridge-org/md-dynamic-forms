@@ -1,6 +1,6 @@
 import {ChangeDetectionStrategy, Component} from '@angular/core';
 import {NGXLogger} from 'ngx-logger';
-import {BaseSelectComponent} from 'md-dynamic-forms-core';
+import {BaseSelectComponent, FieldSelect} from 'md-dynamic-forms-core';
 
 @Component({
   selector: 'md-select',
@@ -8,7 +8,7 @@ import {BaseSelectComponent} from 'md-dynamic-forms-core';
   styles: [],
   changeDetection: ChangeDetectionStrategy.OnPush
 })
-export class SelectComponent extends BaseSelectComponent {
+export class SelectComponent extends BaseSelectComponent<FieldSelect> {
 
   constructor(private logger: NGXLogger) {
     super();

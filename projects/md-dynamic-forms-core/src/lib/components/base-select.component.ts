@@ -3,12 +3,11 @@ import {FieldSelect} from '../model/form/control/field-select';
 import {tap} from 'rxjs/operators';
 import {Component, OnDestroy, OnInit} from '@angular/core';
 import {Observable, Subscription} from 'rxjs';
-import {NGXLogger} from 'ngx-logger';
 import {Option} from '../model/common/option';
 import {Validators} from '@angular/forms';
 
 @Component({template: ''})
-export class BaseSelectComponent extends BaseElementComponent<FieldSelect> implements OnInit, OnDestroy {
+export class BaseSelectComponent<T extends FieldSelect> extends BaseElementComponent<T> implements OnInit, OnDestroy {
   loadedOptions$: Observable<Option[]>;
   subs: Array<Subscription> = [];
 
