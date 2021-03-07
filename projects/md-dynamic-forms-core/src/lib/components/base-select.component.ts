@@ -4,10 +4,12 @@ import {tap} from 'rxjs/operators';
 import {Component, OnDestroy, OnInit} from '@angular/core';
 import {Observable, Subscription} from 'rxjs';
 import {NGXLogger} from 'ngx-logger';
+import {Option} from '../model/common/option';
+import {Validators} from '@angular/forms';
 
 @Component({template: ''})
 export class BaseSelectComponent extends BaseElementComponent<FieldSelect> implements OnInit, OnDestroy {
-  loadedOptions$: Observable<any[]>;
+  loadedOptions$: Observable<Option[]>;
   subs: Array<Subscription> = [];
 
   ngOnInit() {
@@ -26,7 +28,7 @@ export class BaseSelectComponent extends BaseElementComponent<FieldSelect> imple
   get options() {
     return this.loadedOptions$.pipe(
       tap(options => {
-        if (this.control.value && options.indexOf(this.control.value) === -1) {
+        if (this.control.value && options.findIndex((option) => option.value === this.control.value) === -1) {
           this.control.patchValue(null);
         }
       })
@@ -35,5 +37,9 @@ export class BaseSelectComponent extends BaseElementComponent<FieldSelect> imple
 
   get optionParameters() {
     return this.dependencyControls.map(control => control.value);
+  }
+
+  get required() {
+    return this.field.validations.find((validation) => validation.validator === Validators.required) !== undefined;
   }
 }
