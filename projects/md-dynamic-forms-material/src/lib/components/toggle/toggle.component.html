@@ -1,5 +1,5 @@
 <div class="control" [formGroup]="group">
-  <label>{{field.label}}</label>
+  <label [class.required]="required">{{field.label}}</label>
   <div class="field">
     <mat-button-toggle-group [formControlName]="field.name"
                              [required]="required"

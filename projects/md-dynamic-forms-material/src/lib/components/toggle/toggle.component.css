@@ -12,6 +12,10 @@ label {
   text-align: right;
   align-self: flex-start;
 }
+label.required::after {
+  content: '*';
+  margin-left: 5px;
+}
 div.subscripts :is(mat-error, mat-hint) {
   align-self: center;
 }
