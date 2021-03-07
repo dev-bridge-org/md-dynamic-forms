@@ -3,6 +3,7 @@
   "version": "0.0.0",
   "scripts": {
     "ng": "ng",
+    "prestart": "npm run build:core && npm run build:material",
     "start": "ng serve",
     "build": "ng build",
     "build:core": "ng build md-dynamic-forms-core --prod",
