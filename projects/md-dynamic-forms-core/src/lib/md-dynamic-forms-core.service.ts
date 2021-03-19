@@ -14,9 +14,6 @@ export class MdDynamicFormsCoreService {
   createGroup(config: FieldGroup, value: any): FormGroup {
     const group = this.fb.group({});
     config.children.forEach(field => {
-      // if (field.type === 'button') {
-      //   return;
-      // }
       let control = null;
       switch (field.typeOfFormField) {
         case 'group':

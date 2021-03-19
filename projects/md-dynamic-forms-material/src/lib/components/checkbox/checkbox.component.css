@@ -1,0 +1,21 @@
+div.control {
+  display: flex;
+  flex-flow: row;
+}
+div.field {
+  display: flex;
+  flex-flow: column;
+}
+label {
+  margin-right: 15px;
+  line-height: 48px;
+  text-align: right;
+  align-self: flex-start;
+}
+::ng-deep .required .mat-checkbox-label::after {
+  content: '*';
+  margin-left: 5px;
+}
+div.subscripts :is(mat-error, mat-hint) {
+  align-self: center;
+}

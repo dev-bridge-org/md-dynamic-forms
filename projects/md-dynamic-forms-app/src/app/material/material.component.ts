@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import {FormGroup, Validators} from '@angular/forms';
-import {FieldDatepicker, FieldGroup, FieldInput, FieldSelect, FieldToggle} from 'md-dynamic-forms-core';
+import {FieldCheckbox, FieldDatepicker, FieldGroup, FieldInput, FieldSelect, FieldToggle} from 'md-dynamic-forms-core';
 import {of} from 'rxjs';
 
 @Component({
@@ -89,6 +89,14 @@ export class MaterialComponent implements OnInit {
         validations: [
           {name: 'required', validator: Validators.required, message: 'Job is required'}
         ]
+      }),
+      new FieldCheckbox({
+        name: 'agb',
+        label: 'AGB',
+        hint: 'read the AGB',
+        validations: [
+          {name: 'required', validator: Validators.required, message: 'Job is required'}
+        ]
       })
     ]
   });
@@ -98,7 +106,8 @@ export class MaterialComponent implements OnInit {
   constructor() {}
 
   ngOnInit(): void {
-    this.value = {name: '', adress: {}, kunden: [{test: 'test', abc: 'def'}, {test: 'def', abc: 'test'}], dob: '', job: 'architect'};
+    // this.value = {name: '', kunden: [{test: 'test', abc: 'def'}, {test: 'def', abc: 'test'}], dob: '', job: 'architect'};
+    this.value = null;
   }
 
   submit(value: any) {
