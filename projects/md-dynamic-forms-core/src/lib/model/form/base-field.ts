@@ -2,6 +2,7 @@ import {Validator} from '../validation/validator.interface';
 import {AsyncValidator} from '../validation/async-validator.interface';
 export interface BaseFieldConfig {
   name: string;
+  id?: string;
   component?: string;
   validations?: Validator[];
   asyncValidations?: AsyncValidator[];
@@ -12,6 +13,7 @@ export interface BaseFieldConfig {
 
 export abstract class BaseField {
   name: string;
+  id: string;
   validations?: Validator[];
   asyncValidations?: AsyncValidator[];
   readonly?: boolean;
@@ -22,6 +24,7 @@ export abstract class BaseField {
 
   protected constructor(config: BaseFieldConfig) {
     this.name = config.name;
+    this.id = config.id || '';
     this.validations = config.validations || [];
     this.asyncValidations = config.asyncValidations || [];
     this.readonly = config.readonly || false;

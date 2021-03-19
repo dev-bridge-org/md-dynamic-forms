@@ -1,5 +1,6 @@
 <mat-form-field class="demo-full-width" [formGroup]="group" color="primary">
   <input matInput [formControlName]="field.name"
+         [id]="id"
          [required]="required" [attr.aria-label]="field.label"
          [placeholder]="field.label" [type]="field.inputType">
   <ng-container *ngFor="let validation of field.validations;" ngProjectAs="mat-error">

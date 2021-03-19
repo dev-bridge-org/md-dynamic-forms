@@ -6,4 +6,6 @@
   </div>
   <md-dynamic-forms-core [config]="regConfig" [value]="value" (submit)="submit($event)" (formChange)="form = $event">
   </md-dynamic-forms-core>
+
+  <pre>{{form.value | json}}</pre>
 </div>

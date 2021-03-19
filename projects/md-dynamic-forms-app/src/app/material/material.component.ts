@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import {FormGroup, Validators} from '@angular/forms';
-import {FieldDatepicker, FieldGroup, FieldInput} from 'md-dynamic-forms-core';
+import {FieldDatepicker, FieldGroup, FieldInput, FieldSelect, FieldToggle} from 'md-dynamic-forms-core';
+import {of} from 'rxjs';
 
 @Component({
   selector: 'app-material',
@@ -55,6 +56,40 @@ export class MaterialComponent implements OnInit {
         hint: 'Please enter your date of birth',
         validations: []
       }),
+      new FieldSelect({
+        name: 'gender',
+        label: 'Gender',
+        hint: 'Select your gender',
+        options: () => of([
+          {value: 'male', label: 'Male'},
+          {value: 'female', label: 'Female'},
+          {value: 'diverse', label: 'Diverse'}
+        ])
+      }),
+      new FieldSelect({
+        name: 'job',
+        label: 'Job',
+        hint: 'Select your job',
+        options: () => of([
+          {value: 'engineer', label: 'Engineer'},
+          {value: 'architect', label: 'Architect'}
+        ]),
+        validations: [
+          {name: 'required', validator: Validators.required, message: 'Job is required'}
+        ]
+      }),
+      new FieldToggle({
+        name: 'job',
+        label: 'Job',
+        hint: 'Select your job',
+        options: () => of([
+          {value: 'engineer', label: 'Engineer'},
+          {value: 'architect', label: 'Architect'}
+        ]),
+        validations: [
+          {name: 'required', validator: Validators.required, message: 'Job is required'}
+        ]
+      })
     ]
   });
 
@@ -63,7 +98,7 @@ export class MaterialComponent implements OnInit {
   constructor() {}
 
   ngOnInit(): void {
-    this.value = {name: '', adress: {}, kunden: [{test: 'test', abc: 'def'}, {test: 'def', abc: 'test'}], dob: ''};
+    this.value = {name: '', adress: {}, kunden: [{test: 'test', abc: 'def'}, {test: 'def', abc: 'test'}], dob: '', job: 'architect'};
   }
 
   submit(value: any) {

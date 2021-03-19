@@ -62,7 +62,7 @@ export class AppModule { }
 | MultiInput     	|:heavy_check_mark:|:x:|:x:|:x:|
 | Radio Group    	|:heavy_check_mark:|:x:|:x:|:x:|
 | Rating         	|:x:|:x:|:x:|:x:|
-| Select         	|:heavy_check_mark:|:x:|:x:|:x:|
+| Select         	|:heavy_check_mark:|:x:|:soon:|:x:|
 | Slider         	|:x:|:x:|:x:|:x:|
 | Switch         	|:x:|:x:|:x:|:x:|
 | Textarea       	|:x:|:x:|:x:|:x:|
