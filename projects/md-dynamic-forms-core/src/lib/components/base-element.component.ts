@@ -14,4 +14,8 @@ export class BaseElementComponent<T extends BaseField> {
   get dependencyControls(): AbstractControl[] {
     return this.field.dependencies.map(dependency => this.group.root.get(dependency));
   }
+
+  get id(): string {
+    return this.field.id;
+  }
 }

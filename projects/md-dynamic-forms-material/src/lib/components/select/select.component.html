@@ -2,6 +2,7 @@
   <mat-select [placeholder]="field.label"
               [formControlName]="field.name"
               [required]="required"
+              [id]="id"
               [attr.aria-label]="field.label">
     <mat-option *ngFor="let item of options | async"
                 [attr.aria-label]="item.label"

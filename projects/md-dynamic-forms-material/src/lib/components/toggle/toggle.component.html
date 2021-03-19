@@ -2,6 +2,7 @@
   <label [class.required]="required">{{field.label}}</label>
   <div class="field">
     <mat-button-toggle-group [formControlName]="field.name"
+                             [id]="id"
                              [required]="required"
                              [attr.aria-label]="field.label">
       <mat-button-toggle *ngFor="let item of options | async"

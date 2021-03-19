@@ -98,7 +98,7 @@ export class MaterialComponent implements OnInit {
   constructor() {}
 
   ngOnInit(): void {
-    this.value = {name: '', adress: {}, kunden: [{test: 'test', abc: 'def'}, {test: 'def', abc: 'test'}], dob: ''};
+    this.value = {name: '', adress: {}, kunden: [{test: 'test', abc: 'def'}, {test: 'def', abc: 'test'}], dob: '', job: 'architect'};
   }
 
   submit(value: any) {
