@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import {FormGroup, Validators} from '@angular/forms';
-import {FieldCheckbox, FieldDatepicker, FieldGroup, FieldInput, FieldSelect, FieldToggle} from 'md-dynamic-forms-core';
+import {FieldCheckbox, FieldDatepicker, FieldGroup, FieldInput, FieldRadio, FieldSelect, FieldToggle} from 'md-dynamic-forms-core';
 import {of} from 'rxjs';
 
 @Component({
@@ -97,6 +97,14 @@ export class MaterialComponent implements OnInit {
         validations: [
           {name: 'required', validator: Validators.required, message: 'Job is required'}
         ]
+      }),
+      new FieldRadio({
+        label: 'Blood Group',
+        name: 'bloodGroup',
+        options: () => of([
+          {label: '0', value: '0'},
+          {label: 'A-', value: 'AMinus'},
+        ])
       })
     ]
   });

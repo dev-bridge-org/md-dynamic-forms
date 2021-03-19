@@ -1,13 +1,9 @@
-import {BaseField, BaseFieldConfig} from '../base-field';
-import {Observable} from 'rxjs';
-import {BaseFieldControl, BaseFieldControlConfig} from './base-field-control';
+import {FieldSelect, FieldSelectConfig} from './field-select';
 
-export interface FieldRadioConfig extends BaseFieldControlConfig {
-  options: (...args) => Observable<any>;
+export interface FieldRadioConfig extends FieldSelectConfig {
 }
 
-export class FieldRadio extends BaseFieldControl {
-  options: (...args) => Observable<any>;
+export class FieldRadio extends FieldSelect {
 
   constructor(config: FieldRadioConfig) {
     super(config);
