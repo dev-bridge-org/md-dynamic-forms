@@ -64,7 +64,7 @@ export class AppModule { }
 | Select         	|:heavy_check_mark:|:x:|:soon:|:x:|
 | Slider         	|:x:|:x:|:x:|:x:|
 | Switch         	|:x:|:x:|:x:|:x:|
-| Textarea       	|:x:|:x:|:x:|:x:|
+| Textarea       	|:soon:|:x:|:soon:|:x:|
 | Timepicker     	|:x:|:x:|:x:|:x:|
 | Toggle        	|:soon:|:x:|:soon:|:x:|
 | DecisionToggle 	|:soon:|:x:|:soon:|:x:|

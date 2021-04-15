@@ -2,12 +2,6 @@
   "files": [],
   "references": [
     {
-      "path": "./projects/md-dynamic-forms/tsconfig.lib.json"
-    },
-    {
-      "path": "./projects/md-dynamic-forms/tsconfig.spec.json"
-    },
-    {
       "path": "./projects/md-dynamic-forms-app/tsconfig.app.json"
     },
     {

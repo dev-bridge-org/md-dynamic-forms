@@ -1,0 +1,10 @@
+<mat-form-field>
+  <textarea matInput
+            [formControl]="control"
+            [placeholder]="field.label" [attr.aria-label]="field.label" [required]="required"></textarea>
+  <ng-container *ngFor="let validation of field.validations;" ngProjectAs="mat-error">
+    <mat-error *ngIf="control.hasError(validation.name)">{{validation.message}}</mat-error>
+  </ng-container>
+  <mat-hint align="start" *ngIf="field.hint">{{field.hint}}</mat-hint>
+  <mat-hint align="end" *ngIf="field.maxLength > 0" class="count-hint">{{control.value?.length || 0}} / {{field.maxLength}}</mat-hint>
+</mat-form-field>

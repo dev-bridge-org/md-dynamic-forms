@@ -25,6 +25,7 @@ import {MatPaginatorModule} from '@angular/material/paginator';
 import {MatMomentDateModule} from '@angular/material-moment-adapter';
 import {ToggleComponent} from './components/toggle/toggle.component';
 import {MatButtonToggleModule} from '@angular/material/button-toggle';
+import { TextareaComponent } from './components/textarea/textarea.component';
 
 
 
@@ -39,7 +40,8 @@ import {MatButtonToggleModule} from '@angular/material/button-toggle';
     GroupComponent,
     ListComponent,
     TableComponent,
-    ToggleComponent
+    ToggleComponent,
+    TextareaComponent
   ],
   imports: [
     MatButtonModule,
@@ -68,7 +70,8 @@ import {MatButtonToggleModule} from '@angular/material/button-toggle';
     GroupComponent,
     ListComponent,
     TableComponent,
-    ToggleComponent
+    ToggleComponent,
+    TextareaComponent
   ],
   providers: [
     {provide: COMPONENT_SET, useValue: STANDARD_COMPONENT_SET}
