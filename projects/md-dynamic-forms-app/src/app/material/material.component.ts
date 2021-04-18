@@ -6,7 +6,7 @@ import {
   FieldGroup,
   FieldInput,
   FieldRadio,
-  FieldSelect,
+  FieldSelect, FieldSlider,
   FieldTextarea,
   FieldToggle
 } from 'md-dynamic-forms-core';
@@ -121,6 +121,15 @@ export class MaterialComponent implements OnInit {
         validations: [
           {name: 'required', validator: Validators.required, message: 'Description is required'}
         ]
+      }),
+      new FieldSlider({
+        label: 'Volume',
+        name: 'volume',
+        min: 0,
+        max: 100,
+        step: 1,
+        withThumbLabel: true,
+        hint: 'Set your volume'
       })
     ]
   });

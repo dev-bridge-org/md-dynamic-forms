@@ -9,6 +9,7 @@ import {ListComponent} from '../components/list/list.component';
 import {TableComponent} from '../components/table/table.component';
 import {ToggleComponent} from '../components/toggle/toggle.component';
 import {TextareaComponent} from '../components/textarea/textarea.component';
+import {SliderComponent} from '../components/slider/slider.component';
 
 export const STANDARD_COMPONENT_SET = {
   input: InputComponent,
@@ -21,5 +22,6 @@ export const STANDARD_COMPONENT_SET = {
   group: GroupComponent,
   list: ListComponent,
   table: TableComponent,
-  textarea: TextareaComponent
+  textarea: TextareaComponent,
+  slider: SliderComponent
 };

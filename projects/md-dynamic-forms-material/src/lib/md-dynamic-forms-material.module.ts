@@ -26,6 +26,8 @@ import {MatMomentDateModule} from '@angular/material-moment-adapter';
 import {ToggleComponent} from './components/toggle/toggle.component';
 import {MatButtonToggleModule} from '@angular/material/button-toggle';
 import { TextareaComponent } from './components/textarea/textarea.component';
+import { SliderComponent } from './components/slider/slider.component';
+import {MatSliderModule} from '@angular/material/slider';
 
 
 
@@ -41,7 +43,8 @@ import { TextareaComponent } from './components/textarea/textarea.component';
     ListComponent,
     TableComponent,
     ToggleComponent,
-    TextareaComponent
+    TextareaComponent,
+    SliderComponent
   ],
   imports: [
     MatButtonModule,
@@ -58,7 +61,8 @@ import { TextareaComponent } from './components/textarea/textarea.component';
     MatSortModule,
     MatPaginatorModule,
     MatMomentDateModule,
-    MatButtonToggleModule
+    MatButtonToggleModule,
+    MatSliderModule
   ],
   exports: [
     ButtonComponent,
@@ -71,7 +75,8 @@ import { TextareaComponent } from './components/textarea/textarea.component';
     ListComponent,
     TableComponent,
     ToggleComponent,
-    TextareaComponent
+    TextareaComponent,
+    SliderComponent
   ],
   providers: [
     {provide: COMPONENT_SET, useValue: STANDARD_COMPONENT_SET}

@@ -12,6 +12,7 @@ export * from './lib/components/input/input.component';
 export * from './lib/components/list/list.component';
 export * from './lib/components/radiobutton/radiobutton.component';
 export * from './lib/components/select/select.component';
+export * from './lib/components/slider/slider.component';
 export * from './lib/components/table/table.component';
 export * from './lib/components/toggle/toggle.component';
 export * from './lib/components/textarea/textarea.component';
