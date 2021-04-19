@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import {Component, OnInit, ViewEncapsulation} from '@angular/core';
 import {FormGroup, Validators} from '@angular/forms';
 import {
   FieldButton,
@@ -7,7 +7,10 @@ import {
   FieldGroup,
   FieldInput,
   FieldRadio,
-  FieldSelect, FieldSlider, FieldTable,
+  FieldSelect,
+  FieldSlider,
+  FieldSwitch,
+  FieldTable,
   FieldTextarea,
   FieldToggle
 } from 'md-dynamic-forms-core';
@@ -16,7 +19,8 @@ import {of} from 'rxjs';
 @Component({
   selector: 'app-material',
   templateUrl: './material.component.html',
-  styleUrls: ['./material.component.css']
+  styleUrls: ['./material.component.css'],
+  encapsulation: ViewEncapsulation.None
 })
 export class MaterialComponent implements OnInit {
   form: FormGroup;
@@ -131,6 +135,10 @@ export class MaterialComponent implements OnInit {
         step: 1,
         withThumbLabel: true,
         hint: 'Set your volume'
+      }),
+      new FieldSwitch({
+        name: 'newsletter',
+        label: 'Want the newsletter?'
       }),
       new FieldTable({
         name: 'contacts',

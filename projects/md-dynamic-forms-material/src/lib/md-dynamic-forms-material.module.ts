@@ -29,6 +29,8 @@ import { TextareaComponent } from './components/textarea/textarea.component';
 import { SliderComponent } from './components/slider/slider.component';
 import {MatSliderModule} from '@angular/material/slider';
 import {MatIconModule} from '@angular/material/icon';
+import { SwitchComponent } from './components/switch/switch.component';
+import {MatSlideToggleModule} from '@angular/material/slide-toggle';
 
 
 
@@ -45,7 +47,8 @@ import {MatIconModule} from '@angular/material/icon';
     TableComponent,
     ToggleComponent,
     TextareaComponent,
-    SliderComponent
+    SliderComponent,
+    SwitchComponent
   ],
   imports: [
     MatButtonModule,
@@ -64,7 +67,8 @@ import {MatIconModule} from '@angular/material/icon';
     MatMomentDateModule,
     MatButtonToggleModule,
     MatSliderModule,
-    MatIconModule
+    MatIconModule,
+    MatSlideToggleModule
   ],
   exports: [
     ButtonComponent,
@@ -78,7 +82,8 @@ import {MatIconModule} from '@angular/material/icon';
     TableComponent,
     ToggleComponent,
     TextareaComponent,
-    SliderComponent
+    SliderComponent,
+    SwitchComponent
   ],
   providers: [
     {provide: COMPONENT_SET, useValue: STANDARD_COMPONENT_SET}

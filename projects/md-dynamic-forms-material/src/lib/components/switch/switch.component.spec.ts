@@ -1,30 +1,30 @@
-import { TestBed } from '@angular/core/testing';
+import {TestBed} from '@angular/core/testing';
 
-import { SliderComponent } from './slider.component';
+import {SwitchComponent} from './switch.component';
 import {createComponentFactory, Spectator} from '@ngneat/spectator';
+import {HarnessLoader} from '@angular/cdk/testing';
 import {NoopAnimationsModule} from '@angular/platform-browser/animations';
 import {FormControl, FormGroup, ReactiveFormsModule} from '@angular/forms';
 import {LoggerTestingModule} from 'ngx-logger/testing';
-import {MatSliderModule} from '@angular/material/slider';
 import {BrowserDynamicTestingModule, platformBrowserDynamicTesting} from '@angular/platform-browser-dynamic/testing';
-import {HarnessLoader} from '@angular/cdk/testing';
 import {TestbedHarnessEnvironment} from '@angular/cdk/testing/testbed';
-import {MatSliderHarness} from '@angular/material/slider/testing';
-import {FieldSlider} from 'md-dynamic-forms-core';
+import {FieldSwitch} from 'md-dynamic-forms-core';
+import {MatSlideToggleModule} from '@angular/material/slide-toggle';
+import {MatSlideToggleHarness} from '@angular/material/slide-toggle/testing';
 import {MatFormFieldModule} from '@angular/material/form-field';
 
-describe('SliderComponent', () => {
-  let spectator: Spectator<SliderComponent>;
+describe('SwitchComponent', () => {
+  let spectator: Spectator<SwitchComponent>;
   let loader: HarnessLoader;
 
   const createComponent = createComponentFactory({
-    component: SliderComponent,
+    component: SwitchComponent,
     imports: [
       NoopAnimationsModule,
       ReactiveFormsModule,
       LoggerTestingModule,
-      MatFormFieldModule,
-      MatSliderModule
+      MatSlideToggleModule,
+      MatFormFieldModule
     ]
   });
 
@@ -39,15 +39,13 @@ describe('SliderComponent', () => {
   });
 
   it('should have correct values set', async () => {
-    const field = new FieldSlider({name: 'testSlider', min: 10, max: 20, withThumbLabel: true, step: 1, label: 'Slider-Test'});
-    const form = new FormGroup({testSlider: new FormControl(12)});
+    const field = new FieldSwitch({name: 'testSwitch', label: 'Switch-Test'});
+    const form = new FormGroup({testSwitch: new FormControl(true)});
     spectator.component.field = field;
     spectator.component.group = form;
     spectator.detectChanges();
-    const slider = await loader.getHarness(MatSliderHarness);
-    expect(await slider.getDisplayValue()).toEqual('12');
-    expect(await slider.getValue()).toEqual(12);
-    expect(await slider.getMinValue()).toEqual(10);
-    expect(await slider.getMaxValue()).toEqual(20);
+    const switchHarness = await loader.getHarness(MatSlideToggleHarness);
+    expect(await switchHarness.getLabelText()).toEqual(field.label);
+    expect(await switchHarness.isChecked()).toEqual(true);
   });
 });

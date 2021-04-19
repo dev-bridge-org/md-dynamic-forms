@@ -1,0 +1,22 @@
+div.control {
+  display: flex;
+  flex-flow: row;
+  align-items: center;
+}
+div.field {
+  display: flex;
+  flex-flow: column;
+}
+/*label {*/
+/*  margin-right: 1rem;*/
+/*  line-height: 48px;*/
+/*  text-align: right;*/
+/*  align-self: flex-start;*/
+/*}*/
+/*label.required::after {*/
+/*  content: '*';*/
+/*  margin-left: 5px;*/
+/*}*/
+div.subscripts :is(mat-error, mat-hint) {
+  align-self: center;
+}

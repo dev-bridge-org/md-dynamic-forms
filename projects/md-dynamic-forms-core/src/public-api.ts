@@ -21,6 +21,7 @@ export * from './lib/model/form/control/field-file';
 export * from './lib/model/form/control/field-radio';
 export * from './lib/model/form/control/field-select';
 export * from './lib/model/form/control/field-slider';
+export * from './lib/model/form/control/field-switch';
 export * from './lib/model/form/control/field-toggle';
 export * from './lib/model/form/control/field-textarea';
 export * from './lib/model/validation/validator.interface';

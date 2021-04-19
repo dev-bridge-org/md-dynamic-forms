@@ -4,9 +4,12 @@ import { MatSortModule } from '@angular/material/sort';
 import { MatTableModule } from '@angular/material/table';
 
 import { TableComponent } from './table.component';
-import {FormArray, FormControl, FormGroup} from '@angular/forms';
+import {FormArray, FormControl, FormGroup, ReactiveFormsModule} from '@angular/forms';
 import {createComponentFactory, Spectator} from '@ngneat/spectator';
-import {FieldGroup, FieldInput, FieldTable} from 'md-dynamic-forms-core';
+import {COMPONENT_SET, FieldGroup, FieldInput, FieldTable, MdDynamicFormsCoreModule} from 'md-dynamic-forms-core';
+import {STANDARD_COMPONENT_SET} from '../../model/standard-component-set';
+import {MatIconModule} from '@angular/material/icon';
+import {BrowserModule} from '@angular/platform-browser';
 
 describe('TableComponent', () => {
   let spectator: Spectator<TableComponent>;
@@ -14,9 +17,15 @@ describe('TableComponent', () => {
     component: TableComponent,
     imports: [
       NoopAnimationsModule,
+      ReactiveFormsModule,
+      MatIconModule,
       MatPaginatorModule,
       MatSortModule,
       MatTableModule,
+      MdDynamicFormsCoreModule
+    ],
+    providers: [
+      {provide: COMPONENT_SET, useValue: STANDARD_COMPONENT_SET}
     ]
   });
 
@@ -43,12 +52,12 @@ describe('TableComponent', () => {
         name: 'kunde'
       }),
       config: {
-        width: 75,
-        columns: [
-          {name: 'test', width: 50, heading: 'Test'},
-          {name: 'abc', width: 50, heading: 'ABC'}
-        ]
-      }
+        width: 75
+      },
+      columns: [
+        {name: 'test', width: 50, heading: 'Test'},
+        {name: 'abc', width: 50, heading: 'ABC'}
+      ]
     });
     spectator.detectChanges();
   });
