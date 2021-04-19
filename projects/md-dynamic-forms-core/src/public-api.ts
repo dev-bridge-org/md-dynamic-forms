@@ -8,6 +8,7 @@ export * from './lib/md-dynamic-forms-core.module';
 export * from './lib/md-dynamic-field.directive';
 
 export * from './lib/model/form/base-field';
+export * from './lib/model/form/control/field-button';
 export * from './lib/model/form/group/field-group';
 export * from './lib/model/form/group/field-layout-group';
 export * from './lib/model/form/array/field-array';

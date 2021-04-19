@@ -1,12 +1,13 @@
 import { Component, OnInit } from '@angular/core';
 import {FormGroup, Validators} from '@angular/forms';
 import {
+  FieldButton,
   FieldCheckbox,
   FieldDatepicker,
   FieldGroup,
   FieldInput,
   FieldRadio,
-  FieldSelect, FieldSlider,
+  FieldSelect, FieldSlider, FieldTable,
   FieldTextarea,
   FieldToggle
 } from 'md-dynamic-forms-core';
@@ -130,6 +131,34 @@ export class MaterialComponent implements OnInit {
         step: 1,
         withThumbLabel: true,
         hint: 'Set your volume'
+      }),
+      new FieldTable({
+        name: 'contacts',
+        config: {
+          width: 100
+        },
+        columns: [
+          {name: 'type', heading: 'Type', width: 50},
+          {name: 'value', heading: 'Value', width: 50}
+        ],
+        listItem: new FieldGroup({
+          name: 'contact',
+          children: [
+            new FieldSelect({
+              name: 'type',
+              options: () => of([{value: 'email', label: 'E-Mail'}, {value: 'phone', label: 'Phone'}]),
+              label: 'Type'
+            }),
+            new FieldInput({
+              name: 'value',
+              label: 'Value'
+            }),
+            new FieldButton({
+              name: 'test',
+              label: 'Save Contact'
+            })
+          ]
+        })
       })
     ]
   });

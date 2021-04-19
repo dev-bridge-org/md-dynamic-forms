@@ -3,7 +3,4 @@ export interface TableColumnConfig {
   width: number;
   name: string;
   sortable?: boolean;
-  component?: any;
-  fieldtype?: string;
-  readonly?: boolean;
 }

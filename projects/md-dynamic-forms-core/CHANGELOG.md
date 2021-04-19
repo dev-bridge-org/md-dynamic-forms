@@ -7,7 +7,13 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 ## [0.1.0] - tbd.
 ### Added
 * controls 
-  * `FieldSlider`
+  * `FieldSlider`, `FieldButton`
+
+### Changed
+* controls
+  * `FieldTable`
+    * columns were moved from `TableConfig`
+    * properties from `TableConfig` and `TableColumnConfig` were removed due to no usage
 
 ## [0.0.5] - 2021-01-22
 ### Added

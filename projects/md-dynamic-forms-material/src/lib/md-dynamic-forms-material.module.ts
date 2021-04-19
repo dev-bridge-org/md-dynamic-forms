@@ -28,6 +28,7 @@ import {MatButtonToggleModule} from '@angular/material/button-toggle';
 import { TextareaComponent } from './components/textarea/textarea.component';
 import { SliderComponent } from './components/slider/slider.component';
 import {MatSliderModule} from '@angular/material/slider';
+import {MatIconModule} from '@angular/material/icon';
 
 
 
@@ -62,7 +63,8 @@ import {MatSliderModule} from '@angular/material/slider';
     MatPaginatorModule,
     MatMomentDateModule,
     MatButtonToggleModule,
-    MatSliderModule
+    MatSliderModule,
+    MatIconModule
   ],
   exports: [
     ButtonComponent,
