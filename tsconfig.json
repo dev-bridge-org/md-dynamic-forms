@@ -1,26 +1,33 @@
 {
-  "files": [],
-  "references": [
-    {
-      "path": "./projects/md-dynamic-forms-app/tsconfig.app.json"
-    },
-    {
-      "path": "./projects/md-dynamic-forms-app/tsconfig.spec.json"
-    },
-    {
-      "path": "./projects/md-dynamic-forms-app/e2e/tsconfig.json"
-    },
-    {
-      "path": "./projects/md-dynamic-forms-core/tsconfig.lib.json"
-    },
-    {
-      "path": "./projects/md-dynamic-forms-core/tsconfig.spec.json"
-    },
-    {
-      "path": "./projects/md-dynamic-forms-material/tsconfig.lib.json"
-    },
-    {
-      "path": "./projects/md-dynamic-forms-material/tsconfig.spec.json"
+  "compileOnSave": false,
+  "compilerOptions": {
+    "baseUrl": "./",
+    "outDir": "./dist/out-tsc",
+    "sourceMap": true,
+    "declaration": false,
+    "downlevelIteration": true,
+    "experimentalDecorators": true,
+    "moduleResolution": "node",
+    "importHelpers": true,
+    "target": "es2015",
+    "module": "es2020",
+    "lib": [
+      "es2018",
+      "dom"
+    ],
+    "paths": {
+      "md-dynamic-forms-core": [
+        "dist/md-dynamic-forms-core/md-dynamic-forms-core",
+        "dist/md-dynamic-forms-core"
+      ],
+      "md-dynamic-forms-material": [
+        "dist/md-dynamic-forms-material/md-dynamic-forms-material",
+        "dist/md-dynamic-forms-material"
+      ]
     }
-  ]
+  },
+  "angularCompilerOptions": {
+    "fullTemplateTypeCheck": true,
+    "strictInjectionParameters": true
+  }
 }
