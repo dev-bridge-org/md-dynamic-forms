@@ -14,8 +14,7 @@
     "test:core": "ng test md-dynamic-forms-core --code-coverage",
     "test:material": "ng test md-dynamic-forms-material --code-coverage",
     "lint": "ng lint",
-    "e2e": "ng e2e",
-    "postinstall": "ngcc --tsconfig './tsconfig.base.json'"
+    "e2e": "ng e2e"
   },
   "private": true,
   "dependencies": {
