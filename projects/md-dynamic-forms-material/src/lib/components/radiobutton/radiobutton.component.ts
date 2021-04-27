@@ -1,23 +1,16 @@
 import {Component} from '@angular/core';
-import {BaseElementComponent, FieldRadio} from 'md-dynamic-forms-core';
+import {BaseSelectComponent, FieldRadio} from 'md-dynamic-forms-core';
 
 @Component({
   selector: 'md-radiobutton',
-  template: `
-      <div class="demo-full-width margin-top" [formGroup]="group">
-          <label class="radio-label-padding">{{field.label}}:</label>
-          <mat-radio-group [formControlName]="field.name">
-              <mat-radio-button *ngFor="let item of field.options() | async" [value]="item">{{item}}</mat-radio-button>
-          </mat-radio-group>
-        <ng-container *ngFor="let validation of field.validations;" ngProjectAs="mat-error">
-          <mat-error *ngIf="group.get(field.name).hasError(validation.name)">{{validation.message}}</mat-error>
-        </ng-container>
-      </div>
-  `,
-  styles: []
+  templateUrl: './radiobutton.component.html',
+  styleUrls: ['./radiobutton.component.css']
 })
-export class RadiobuttonComponent extends BaseElementComponent<FieldRadio> {
+export class RadiobuttonComponent extends BaseSelectComponent<FieldRadio> {
   constructor() {
     super();
+  }
+  get canShowError(): boolean {
+    return this.control.invalid && (this.control.touched || this.control.dirty);
   }
 }

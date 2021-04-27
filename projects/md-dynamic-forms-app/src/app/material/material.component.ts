@@ -1,12 +1,26 @@
-import { Component, OnInit } from '@angular/core';
+import {Component, OnInit, ViewEncapsulation} from '@angular/core';
 import {FormGroup, Validators} from '@angular/forms';
-import {FieldDatepicker, FieldGroup, FieldInput, FieldSelect, FieldToggle} from 'md-dynamic-forms-core';
+import {
+  FieldButton,
+  FieldCheckbox,
+  FieldDatepicker,
+  FieldGroup,
+  FieldInput,
+  FieldRadio,
+  FieldSelect,
+  FieldSlider,
+  FieldSwitch,
+  FieldTable,
+  FieldTextarea,
+  FieldToggle
+} from 'md-dynamic-forms-core';
 import {of} from 'rxjs';
 
 @Component({
   selector: 'app-material',
   templateUrl: './material.component.html',
-  styleUrls: ['./material.component.css']
+  styleUrls: ['./material.component.css'],
+  encapsulation: ViewEncapsulation.None
 })
 export class MaterialComponent implements OnInit {
   form: FormGroup;
@@ -89,6 +103,70 @@ export class MaterialComponent implements OnInit {
         validations: [
           {name: 'required', validator: Validators.required, message: 'Job is required'}
         ]
+      }),
+      new FieldCheckbox({
+        name: 'agb',
+        label: 'AGB',
+        hint: 'read the AGB',
+        validations: [
+          {name: 'required', validator: Validators.required, message: 'Job is required'}
+        ]
+      }),
+      new FieldRadio({
+        label: 'Blood Group',
+        name: 'bloodGroup',
+        options: () => of([
+          {label: '0', value: '0'},
+          {label: 'A-', value: 'AMinus'},
+        ])
+      }),
+      new FieldTextarea({
+        label: 'Description',
+        name: 'description',
+        validations: [
+          {name: 'required', validator: Validators.required, message: 'Description is required'}
+        ]
+      }),
+      new FieldSlider({
+        label: 'Volume',
+        name: 'volume',
+        min: 0,
+        max: 100,
+        step: 1,
+        withThumbLabel: true,
+        hint: 'Set your volume'
+      }),
+      new FieldSwitch({
+        name: 'newsletter',
+        label: 'Want the newsletter?'
+      }),
+      new FieldTable({
+        name: 'contacts',
+        config: {
+          width: 100
+        },
+        columns: [
+          {name: 'type', heading: 'Type', width: 50},
+          {name: 'value', heading: 'Value', width: 50}
+        ],
+        listItem: new FieldGroup({
+          name: 'contact',
+          children: [
+            new FieldSelect({
+              name: 'type',
+              options: () => of([{value: 'email', label: 'E-Mail'}, {value: 'phone', label: 'Phone'}]),
+              label: 'Type'
+            }),
+            new FieldInput({
+              name: 'value',
+              label: 'Value'
+            }),
+            new FieldButton({
+              name: 'test',
+              label: 'Save Contact'
+            })
+          ]
+        })
       })
     ]
   });
@@ -98,7 +176,8 @@ export class MaterialComponent implements OnInit {
   constructor() {}
 
   ngOnInit(): void {
-    this.value = {name: '', adress: {}, kunden: [{test: 'test', abc: 'def'}, {test: 'def', abc: 'test'}], dob: '', job: 'architect'};
+    // this.value = {name: '', kunden: [{test: 'test', abc: 'def'}, {test: 'def', abc: 'test'}], dob: '', job: 'architect'};
+    this.value = null;
   }
 
   submit(value: any) {

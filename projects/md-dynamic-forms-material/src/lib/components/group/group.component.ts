@@ -15,6 +15,9 @@ import {BaseElementComponent, FieldGroup} from 'md-dynamic-forms-core';
         display: flex;
         flex-direction: row;
     }
+    ::ng-deep .group > * + * {
+      margin-left: 1rem;
+    }
     `
   ]
 })

@@ -1,0 +1,11 @@
+<div [formGroup]="group" class="control">
+  <div class="field">
+    <mat-slide-toggle [formControlName]="field.name">{{field.label}}</mat-slide-toggle>
+    <div class="subscripts">
+      <mat-hint *ngIf="!canShowError">{{field.hint}}</mat-hint>
+      <ng-container *ngFor="let validation of field.validations;" ngProjectAs="mat-error">
+        <mat-error *ngIf="canShowError && group.get(field.name).hasError(validation.name)">{{validation.message}}</mat-error>
+      </ng-container>
+    </div>
+  </div>
+</div>

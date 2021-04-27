@@ -1,0 +1,14 @@
+<div class="control" [formGroup]="group">
+  <label class="radio-label-padding" [class.required]="required">{{field.label}}:</label>
+  <div class="field">
+    <mat-radio-group [formControlName]="field.name" [id]="id" [attr.aria-label]="field.label" [attr.aria-required]="required">
+      <mat-radio-button *ngFor="let item of loadedOptions$ | async" [value]="item.value">{{item.label}}</mat-radio-button>
+    </mat-radio-group>
+    <div class="subscripts">
+      <mat-hint *ngIf="!canShowError">{{field.hint}}</mat-hint>
+      <ng-container *ngFor="let validation of field.validations;" ngProjectAs="mat-error">
+        <mat-error *ngIf="canShowError && group.get(field.name).hasError(validation.name)">{{validation.message}}</mat-error>
+      </ng-container>
+    </div>
+  </div>
+</div>

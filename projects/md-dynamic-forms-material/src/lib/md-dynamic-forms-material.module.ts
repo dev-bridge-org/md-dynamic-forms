@@ -25,6 +25,12 @@ import {MatPaginatorModule} from '@angular/material/paginator';
 import {MatMomentDateModule} from '@angular/material-moment-adapter';
 import {ToggleComponent} from './components/toggle/toggle.component';
 import {MatButtonToggleModule} from '@angular/material/button-toggle';
+import { TextareaComponent } from './components/textarea/textarea.component';
+import { SliderComponent } from './components/slider/slider.component';
+import {MatSliderModule} from '@angular/material/slider';
+import {MatIconModule} from '@angular/material/icon';
+import { SwitchComponent } from './components/switch/switch.component';
+import {MatSlideToggleModule} from '@angular/material/slide-toggle';
 
 
 
@@ -39,7 +45,10 @@ import {MatButtonToggleModule} from '@angular/material/button-toggle';
     GroupComponent,
     ListComponent,
     TableComponent,
-    ToggleComponent
+    ToggleComponent,
+    TextareaComponent,
+    SliderComponent,
+    SwitchComponent
   ],
   imports: [
     MatButtonModule,
@@ -56,7 +65,10 @@ import {MatButtonToggleModule} from '@angular/material/button-toggle';
     MatSortModule,
     MatPaginatorModule,
     MatMomentDateModule,
-    MatButtonToggleModule
+    MatButtonToggleModule,
+    MatSliderModule,
+    MatIconModule,
+    MatSlideToggleModule
   ],
   exports: [
     ButtonComponent,
@@ -68,7 +80,10 @@ import {MatButtonToggleModule} from '@angular/material/button-toggle';
     GroupComponent,
     ListComponent,
     TableComponent,
-    ToggleComponent
+    ToggleComponent,
+    TextareaComponent,
+    SliderComponent,
+    SwitchComponent
   ],
   providers: [
     {provide: COMPONENT_SET, useValue: STANDARD_COMPONENT_SET}

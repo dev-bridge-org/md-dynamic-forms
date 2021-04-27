@@ -51,8 +51,7 @@ export class AppModule { }
 ### Controls
 |                	|md-dynamic-forms-core|ngx-bootstrap|material|clarity|
 |----------------	|:-:|:-:|:-:|:-:|
-| Checkbox       	|:heavy_check_mark:|:x:|:x:|:x:|
-| Checkbox Group 	|:heavy_check_mark:|:x:|:x:|:x:|
+| Checkbox       	|:heavy_check_mark:|:x:|:soon:|:x:|
 | Colorpicker    	|:x:|:x:|:x:|:x:|
 | Currency      	|:x:|:x:|:x:|:x:|
 | Datepicker     	|:heavy_check_mark:|:x:|:soon:|:x:|
@@ -60,15 +59,15 @@ export class AppModule { }
 | File Upload    	|:heavy_check_mark:|:x:|:x:|:x:|
 | Input          	|:heavy_check_mark:|:x:|:soon:|:x:|
 | MultiInput     	|:heavy_check_mark:|:x:|:x:|:x:|
-| Radio Group    	|:heavy_check_mark:|:x:|:x:|:x:|
+| Radio Group    	|:heavy_check_mark:|:x:|:soon:|:x:|
 | Rating         	|:x:|:x:|:x:|:x:|
 | Select         	|:heavy_check_mark:|:x:|:soon:|:x:|
-| Slider         	|:x:|:x:|:x:|:x:|
-| Switch         	|:x:|:x:|:x:|:x:|
-| Textarea       	|:x:|:x:|:x:|:x:|
+| Slider         	|:soon:|:x:|:soon:|:x:|
+| Switch         	|:soon:|:x:|:soon:|:x:|
+| Textarea       	|:soon:|:x:|:soon:|:x:|
 | Timepicker     	|:x:|:x:|:x:|:x:|
 | Toggle        	|:soon:|:x:|:soon:|:x:|
-| DecisionToggle 	|:soon:|:x:|:soon:|:x:|
+| DecisionToggle 	|:x:|:x:|:x:|:x:|
 
 ### Group
 |                	|md-dynamic-forms-core|ngx-bootstrap|material|clarity|
@@ -81,8 +80,10 @@ export class AppModule { }
 |                	|md-dynamic-forms-core|ngx-bootstrap|material|clarity|
 |----------------	|:-:|:-:|:-:|:-:|
 | List          	|:heavy_check_mark:|:x:|:x:|:x:|
-| Table         	|:heavy_check_mark:|:x:|:x:|:x:|
+| Table         	|:heavy_check_mark:|:x:|:soon:|:x:|
 | GroupedTable   	|:x:|:x:|:x:|:x:|
+| CheckboxGroup 	|:x:|:x:|:x:|:x:|
+| MultiToggle 	|:x:|:x:|:x:|:x:|
 
 ### Legend
 * :heavy_check_mark: implemented

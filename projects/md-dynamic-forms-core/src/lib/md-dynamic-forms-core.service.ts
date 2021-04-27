@@ -5,7 +5,6 @@ import {FieldArray} from './model/form/array/field-array';
 import {BaseField} from './model/form/base-field';
 import {Validator} from './model/validation/validator.interface';
 import {AsyncValidator} from './model/validation/async-validator.interface';
-import {MdDynamicFormsCoreModule} from './md-dynamic-forms-core.module';
 
 @Injectable()
 export class MdDynamicFormsCoreService {
@@ -14,16 +13,14 @@ export class MdDynamicFormsCoreService {
   createGroup(config: FieldGroup, value: any): FormGroup {
     const group = this.fb.group({});
     config.children.forEach(field => {
-      // if (field.type === 'button') {
-      //   return;
-      // }
+      if (field.typeOfFormField === 'button') { return; }
       let control = null;
       switch (field.typeOfFormField) {
         case 'group':
           control = this.createGroup(field as FieldGroup, value ? value[field.name] : null);
           break;
         case 'array':
-          control = this.createArray(field as FieldArray, value ? value[field.name] : null);
+          control = this.createArray(field as FieldArray, value ? value[field.name] : []);
           break;
         case 'control':
           control = this.createControl(field, value ? value[field.name] : null);
