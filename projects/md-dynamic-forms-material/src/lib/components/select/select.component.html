@@ -3,7 +3,7 @@
               [formControlName]="field.name"
               [required]="required"
               [id]="id"
-              [attr.aria-label]="field.label">
+              [aria-label]="field.label">
     <mat-option *ngFor="let item of options | async"
                 [attr.aria-label]="item.label"
                 [value]="item.value">{{item.label}}</mat-option>
