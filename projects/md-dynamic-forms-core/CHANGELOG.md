@@ -7,7 +7,9 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 ## [0.1.0] - tbd.
 ### Added
 * controls 
-  * `FieldSlider`, `FieldButton`, `FieldSwitch`
+  * `FieldSlider`, `FieldButton`, `FieldSwitch`, `FieldToggle`, `FieldTextarea`
+* components
+  * `BaseInputComponent`
 
 ### Changed
 * controls
