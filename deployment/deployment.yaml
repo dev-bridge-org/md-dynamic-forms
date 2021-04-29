@@ -18,7 +18,7 @@ spec:
         app.kubernetes.io/name: md-dynamic-forms-app
     spec:
       containers:
-        - name: kundenverwaltung
+        - name: md-dynamic-forms-app
           image: officialmkl/md-dynamic-forms-app:latest
           ports:
             - containerPort: 80
