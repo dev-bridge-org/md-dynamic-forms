@@ -6,6 +6,7 @@
     "prestart": "npm run build:core && npm run build:material",
     "start": "ng serve",
     "build": "ng build",
+    "build:app": "ng build md-dynamic-forms-app --prod",
     "build:core": "ng build md-dynamic-forms-core --prod",
     "build:core:watch": "ng build md-dynamic-forms-core --prod --watch",
     "build:material": "ng build md-dynamic-forms-material --prod",

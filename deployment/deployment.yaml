@@ -1,0 +1,24 @@
+
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: md-dynamic-forms-app
+  labels:
+    app.kubernetes.io/name: md-dynamic-forms-app
+spec:
+  replicas: 1
+  strategy:
+    type: RollingUpdate
+  selector:
+    matchLabels:
+      app.kubernetes.io/name: md-dynamic-forms-app
+  template:
+    metadata:
+      labels:
+        app.kubernetes.io/name: md-dynamic-forms-app
+    spec:
+      containers:
+        - name: kundenverwaltung
+          image: officialmkl/md-dynamic-forms-app:latest
+          ports:
+            - containerPort: 80
