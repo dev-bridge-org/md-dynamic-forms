@@ -19,6 +19,7 @@ The idea is based off of the [**official Angular guide**](https://angular.io/gui
     - [Group](#group)
     - [Array](#array)
     - [Legend](#legend)
+  - [What is possible?](#what-is-possible?)
 
 ## Getting Started
 
@@ -44,6 +45,41 @@ import {MdDynamicFormsMaterialModule} from 'md-dynamic-forms-material';
   ]
 })
 export class AppModule { }
+```
+**4. Create your Model**
+```typescript
+export const YOUR_MODEL = new FieldGroup({
+  name: 'nameOfYourForm',
+  children: [
+    new FieldInput({
+      name: 'nameOfYourControl',
+      label: 'LabelOfControl'
+    })
+  ]
+});
+```
+**5. Import into component and use**
+```typescript
+export class FormWrapperComponent implements OnInit {
+  config: FieldGroup = YOUR_MODEL;
+  form: FormGroup;
+  initialValue = null;
+  constructor() { }
+
+  ngOnInit(): void {
+  }
+
+  submit(formValue: any) {
+    // Do your submit logic
+  }
+}
+```
+```html
+<md-dynamic-forms-core [config]="config"
+                       [value]="initialValue"
+                       (submit)="submit($event)"
+                       (formChange)="form = $event">
+</md-dynamic-forms-core>
 ```
 
 ## State of Model/Components
@@ -90,3 +126,63 @@ export class AppModule { }
 * :x: not implemented
 * :soon: work in progress
 * :arrows_counterclockwise: adjustment coming
+
+## What is possible?
+
+### Controls
+So controls are single-elements that represent a value in the form. You can create different types of controls by using differnt field-classes
+
+**FieldInput**
+```typescript
+new FieldInput({
+  name: 'firstname',
+  label: 'Firstname',
+  hint: 'enter your firstname', // optional
+  inputType: 'text', // optional
+  maxLength: 255, // optional
+  validations: [ // optional
+    {
+      name: 'required',
+      message: 'Field is required',
+      validator: Validators.required
+    }
+  ],
+  asyncValidations: [], // optional
+  readonly: false, // optional
+  id: 'firstname' // optional
+})
+```
+**FieldTextarea**
+```typescript
+new FieldTextarea({
+  name: 'description',
+  label: 'Description',
+  hint: '', // optional
+  maxLength: 2000, // optional
+  validations: [], // optional
+  asyncValidations: [], // optional
+  readonly: false, // optional
+  id: 'description' // optional
+})
+```
+**FieldSelect**
+```typescript
+```
+**FieldDatepicker**
+```typescript
+```
+**FieldCheckbox**
+```typescript
+```
+**FieldRadio**
+```typescript
+```
+**FieldToggle**
+```typescript
+```
+**FieldSwitch**
+```typescript
+```
+**FieldSlider**
+```typescript
+```

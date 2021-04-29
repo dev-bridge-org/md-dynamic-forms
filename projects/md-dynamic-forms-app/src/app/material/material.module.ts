@@ -4,18 +4,20 @@ import {RouterModule} from '@angular/router';
 import { MaterialComponent } from './material.component';
 import {MdDynamicFormsCoreModule} from 'md-dynamic-forms-core';
 import {MdDynamicFormsMaterialModule} from 'md-dynamic-forms-material';
+import {SharedFormsModule} from '../shared-forms/shared-forms.module';
 
 
 
 @NgModule({
   declarations: [MaterialComponent],
-  imports: [
-    CommonModule,
-    RouterModule.forChild([
-      {path: '', component: MaterialComponent}
-    ]),
-    MdDynamicFormsCoreModule,
-    MdDynamicFormsMaterialModule
-  ]
+    imports: [
+        CommonModule,
+        RouterModule.forChild([
+            {path: '', component: MaterialComponent}
+        ]),
+        MdDynamicFormsCoreModule,
+        MdDynamicFormsMaterialModule,
+        SharedFormsModule
+    ]
 })
 export class MaterialModule { }

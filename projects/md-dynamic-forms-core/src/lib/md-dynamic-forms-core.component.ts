@@ -40,6 +40,7 @@ export class MdDynamicFormsCoreComponent implements OnInit {
     this.formChange.emit(this.form);
   }
 
+  // TODO: fix submit not triggering
   onSubmit(event: Event): void {
     event.preventDefault();
     event.stopPropagation();

@@ -15,6 +15,7 @@ import {
   FieldToggle
 } from 'md-dynamic-forms-core';
 import {of} from 'rxjs';
+import {ORDER_FORM} from '../shared-forms/model/order-form';
 
 @Component({
   selector: 'app-material',
@@ -170,6 +171,8 @@ export class MaterialComponent implements OnInit {
       })
     ]
   });
+
+  testConf: FieldGroup = ORDER_FORM;
 
   public value;
 
