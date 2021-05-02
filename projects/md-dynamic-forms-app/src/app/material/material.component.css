@@ -1,1 +1,11 @@
 @import "~@angular/material/prebuilt-themes/indigo-pink.css";
+
+.form-swap {
+  display: flex;
+  justify-content: flex-start;
+  padding: .5rem .8rem;
+}
+
+.form-swap > .mat-raised-button + .mat-raised-button {
+  margin-left: .5rem;
+}

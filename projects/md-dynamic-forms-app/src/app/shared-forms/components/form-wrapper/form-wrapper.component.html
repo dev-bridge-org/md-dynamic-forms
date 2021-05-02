@@ -5,7 +5,7 @@
     </div>
     <md-dynamic-forms-core [config]="config"
                            [value]="initialValue"
-                           (submit)="submit($event)"
+                           (submitChange)="submit($event)"
                            (formChange)="form = $event">
     </md-dynamic-forms-core>
   </div>
@@ -13,6 +13,7 @@
     <div class="debug-container">
       <h2>Form-Value</h2>
       <pre>{{form.value | json}}</pre>
+      <pre>{{form.valid | json}}</pre>
     </div>
     <div class="debug-container">
       <h2>Config-Value</h2>

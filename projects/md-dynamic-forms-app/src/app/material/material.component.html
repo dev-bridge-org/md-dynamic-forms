@@ -1,1 +1,6 @@
-<app-form-wrapper [config]="testConf" [initialValue]="value" [title]="'Registration Form'"></app-form-wrapper>
+<div class="form-swap">
+  <button mat-raised-button (click)="currentConfig = orderConfig" color="primary">Order-Form</button>
+  <button mat-raised-button (click)="currentConfig = registrationConfig" color="primary">Reg-Form</button>
+</div>
+
+<app-form-wrapper [config]="currentConfig.form" [initialValue]="value" [title]="currentConfig.heading"></app-form-wrapper>

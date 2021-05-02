@@ -1,18 +1,29 @@
 import {
-  FieldArray,
   FieldButton,
-  FieldCheckbox,
   FieldGroup,
   FieldInput,
   FieldRadio,
   FieldSelect,
-  FieldTable,
-  FieldTextarea
+  FieldTable
 } from 'md-dynamic-forms-core';
 import {of} from 'rxjs';
 import {Validators} from '@angular/forms';
+import {ShowcaseConfig} from './showcase-config';
 
-export const ORDER_FORM = new FieldGroup({
+
+const PRODUCTS = [
+  {value: 'laptop', label: 'Laptop'},
+  {value: 'pc', label: 'PC'},
+  {value: 'ramStick', label: 'RAM-Stick'},
+  {value: 'graphicsCard', label: 'Graphics Card'}
+];
+const PAYMENT_METHODS = [
+  {value: 'paypal', label: 'PayPal'},
+  {value: 'creditCard', label: 'CreditCard'},
+  {value: 'paysafecard', label: 'Paysafecard'},
+];
+
+const ORDER_FORM = new FieldGroup({
   name: 'order',
   children: [
     new FieldTable({
@@ -21,9 +32,12 @@ export const ORDER_FORM = new FieldGroup({
         name: 'orderItem',
         children: [
           new FieldSelect({
-            name: 'item',
-            options: () => of([{value: 'Laptop', label: 'Laptop'}]),
-            label: 'Item'
+            name: 'product',
+            options: () => of(PRODUCTS),
+            label: 'Item',
+            validations: [
+              {name: 'required', message: 'Field is required', validator: Validators.required}
+            ]
           }),
           new FieldButton({
             name: 'submit',
@@ -32,24 +46,45 @@ export const ORDER_FORM = new FieldGroup({
         ]
       }),
       config: {width: 85},
-      columns: [{name: 'item', width: 100, heading: 'Selected Item'}]
+      columns: [{name: 'product', width: 100, heading: 'Selected Item'}]
     }),
     new FieldRadio({
       name: 'payment',
       label: 'Payment-Method',
-      options: () => of([
-        {value: 'paypal', label: 'PayPal'},
-        {value: 'creditCard', label: 'CreditCard'},
-        {value: 'paysafecard', label: 'Paysafecard'},
-      ])
+      options: () => of(PAYMENT_METHODS),
+      validations: [
+        {name: 'required', message: 'Field is required', validator: Validators.required}
+      ]
     }),
     new FieldGroup({
       name: 'adress',
       children: [
-        new FieldInput({name: 'postalCode', label: 'Postal Code', hint: 'Enter a postal code'}),
-        new FieldInput({name: 'city', label: 'City'}),
-        new FieldInput({name: 'street', label: 'Street'}),
-        new FieldInput({name: 'housenumber', label: 'Housenumber'}),
+        new FieldInput({
+          name: 'postalCode',
+          label: 'Postal Code',
+          hint: 'Enter a postal code',
+          validations: [
+            {name: 'required', message: 'Field is required', validator: Validators.required}
+          ]
+        }),
+        new FieldInput({
+          name: 'city',
+          label: 'City',
+          validations: [
+            {name: 'required', message: 'Field is required', validator: Validators.required}
+          ]
+        }),
+        new FieldInput({
+          name: 'street',
+          label: 'Street',
+          validations: [
+            {name: 'required', message: 'Field is required', validator: Validators.required}
+          ]
+        }),
+        new FieldInput({
+          name: 'housenumber',
+          label: 'Housenumber'
+        }),
       ]
     }),
     new FieldButton({
@@ -58,19 +93,4 @@ export const ORDER_FORM = new FieldGroup({
     })
   ]
 });
-
-export const YOUR_MODEL = new FieldGroup({
-  name: 'nameOfYourForm',
-  children: [
-    new FieldTextarea({
-      name: 'description',
-      label: 'Description',
-      hint: '', // optional
-      maxLength: 2000, // optional
-      validations: [], // optional
-      asyncValidations: [], // optional
-      readonly: false, // optional
-      id: 'description' // optional
-    })
-  ]
-});
+export const ORDER_CONIFG: ShowcaseConfig = {heading: 'Order Form', form: ORDER_FORM};
