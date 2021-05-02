@@ -1,4 +1,4 @@
-import {Component, EventEmitter, Input, OnInit, Output} from '@angular/core';
+import {Component, EventEmitter, Input, OnChanges, Output, SimpleChanges} from '@angular/core';
 import {FormGroup} from '@angular/forms';
 import {NGXLogger} from 'ngx-logger';
 import {FieldGroup} from './model/form/group/field-group';
@@ -21,7 +21,7 @@ import {MdDynamicFormsCoreService} from './md-dynamic-forms-core.service';
     `
   ]
 })
-export class MdDynamicFormsCoreComponent implements OnInit {
+export class MdDynamicFormsCoreComponent implements OnChanges {
   @Input() config: FieldGroup = null;
 
   @Input() value: any = null;
@@ -35,11 +35,13 @@ export class MdDynamicFormsCoreComponent implements OnInit {
   constructor(private dynamicFormsService: MdDynamicFormsCoreService, private logger: NGXLogger) {
   }
 
-  ngOnInit() {
-    this.form = this.dynamicFormsService.createGroup(this.config, this.value);
-    this.formChange.emit(this.form);
+  ngOnChanges(changes: SimpleChanges) {
+    if (changes.config) {
+      this.createForm();
+    }
   }
 
+  // TODO: fix submit not triggering
   onSubmit(event: Event): void {
     event.preventDefault();
     event.stopPropagation();
@@ -57,5 +59,8 @@ export class MdDynamicFormsCoreComponent implements OnInit {
     });
   }
 
-
+  private createForm(): void {
+    this.form = this.dynamicFormsService.createGroup(this.config, this.value);
+    this.formChange.emit(this.form);
+  }
 }
