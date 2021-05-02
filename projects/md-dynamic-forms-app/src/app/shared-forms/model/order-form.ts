@@ -1,11 +1,4 @@
-import {
-  FieldButton,
-  FieldGroup,
-  FieldInput,
-  FieldRadio,
-  FieldSelect,
-  FieldTable
-} from 'md-dynamic-forms-core';
+import {FieldButton, FieldGroup, FieldInput, FieldRadio, FieldSelect, FieldTable} from 'md-dynamic-forms-core';
 import {of} from 'rxjs';
 import {Validators} from '@angular/forms';
 import {ShowcaseConfig} from './showcase-config';

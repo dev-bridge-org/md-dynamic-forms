@@ -10,6 +10,8 @@ You get the form as model and as template created from one configuration.
 
 The idea is based off of the [**official Angular guide**](https://angular.io/guide/dynamic-form)
 
+To see a live-demo with different sample-forms click [**here**](http://md-dynamic-forms-app.officialmkl.cloud.okteto.net/) (if the app is in sleeping mode then refresh after a few seconds) 
+
 ## Table of Contents
 - [MdDynamicForms](#mddynamicforms)
   - [Table of Contents](#table-of-contents)
@@ -140,13 +142,7 @@ new FieldInput({
   hint: 'enter your firstname', // optional
   inputType: 'text', // optional
   maxLength: 255, // optional
-  validations: [ // optional
-    {
-      name: 'required',
-      message: 'Field is required',
-      validator: Validators.required
-    }
-  ],
+  validations: [], // optional,
   asyncValidations: [], // optional
   readonly: false, // optional
   id: 'firstname' // optional
@@ -167,22 +163,92 @@ new FieldTextarea({
 ```
 **FieldSelect**
 ```typescript
+new FieldSelect({
+  name: 'product',
+  label: 'Product',
+  options: () => of([{value: '1234-4121', label: 'Laptop'}]),
+  hint: 'Choose your product', // optional
+  validations: [], // optional
+  asyncValidations: [], // optional
+  readonly: false, // optional
+  id: 'product' // optional
+});
 ```
 **FieldDatepicker**
 ```typescript
+new FieldDatepicker({
+  name: 'birthdate',
+  label: 'Date of birth',
+  hint: 'Choose your birthdate', // optional
+  validations: [], // optional
+  asyncValidations: [], // optional
+  readonly: false, // optional
+  id: 'birthdate' // optional
+});
 ```
 **FieldCheckbox**
 ```typescript
+new FieldCheckbox({
+  name: 'expressShipping',
+  label: 'Express-Shipping?',
+  hint: '', // optional
+  validations: [], // optional
+  asyncValidations: [], // optional
+  readonly: false, // optional
+  id: 'expressShipping' // optional
+});
 ```
 **FieldRadio**
 ```typescript
+new FieldRadio({
+  name: 'paymentMethod',
+  label: 'Payment-Method',
+  options: () => of([]),
+  hint: 'Choose your payment', // optional
+  validations: [], // optional
+  asyncValidations: [], // optional
+  readonly: false, // optional
+  id: 'payment_method' // optional
+});
 ```
 **FieldToggle**
 ```typescript
+new FieldToggle({
+  name: 'paymentMethod',
+  label: 'Payment-Method',
+  options: () => of([]),
+  hint: 'Choose your payment', // optional
+  validations: [], // optional
+  asyncValidations: [], // optional
+  readonly: false, // optional
+  id: 'payment_method' // optional
+});
 ```
 **FieldSwitch**
 ```typescript
+new FieldSwitch({
+  name: 'lightSwitch',
+  label: 'Light-Switch',
+  hint: '', // optional
+  validations: [], // optional
+  asyncValidations: [], // optional
+  readonly: false, // optional
+  id: 'light_switch' // optional
+});
 ```
 **FieldSlider**
 ```typescript
+new FieldSlider({
+  name: 'volume',
+  label: 'Volume',
+  min: 0,
+  max: 100,
+  step: 1,
+  withThumbLabel: true,
+  hint: '', // optional
+  validations: [], // optional
+  asyncValidations: [], // optional
+  readonly: false, // optional
+  id: 'volume' // optional
+});
 ```
