@@ -10,7 +10,7 @@ You get the form as model and as template created from one configuration.
 
 The idea is based off of the [**official Angular guide**](https://angular.io/guide/dynamic-form)
 
-To see a live-demo with different sample-forms click [**here**](http://md-dynamic-forms-app.officialmkl.cloud.okteto.net/) (if the app is in sleeping mode then refresh after a few seconds) 
+To see a live-demo with different sample-forms click [**here**](http://md-dynamic-forms-app.officialmkl.cloud.okteto.net/) (if the app is in sleeping mode then refresh after a few seconds)
 
 ## Table of Contents
 - [MdDynamicForms](#mddynamicforms)
@@ -21,7 +21,7 @@ To see a live-demo with different sample-forms click [**here**](http://md-dynami
     - [Group](#group)
     - [Array](#array)
     - [Legend](#legend)
-  - [What is possible?](#what-is-possible?)
+  - [What is possible?](#what-is-possible)
 
 ## Getting Started
 
@@ -110,7 +110,7 @@ export class FormWrapperComponent implements OnInit {
 ### Group
 |                	|md-dynamic-forms-core|ngx-bootstrap|material|clarity|
 |----------------	|:-:|:-:|:-:|:-:|
-| BaseGroup      	|:heavy_check_mark:|:x:|:x:|:x:|
+| BaseGroup      	|:heavy_check_mark:|:x:|:heavy_check_mark:|:x:|
 | LayoutGroup   	|:heavy_check_mark:|:x:|:x:|:x:|
 | CombineGroup   	|:x:|:x:|:x:|:x:|
 
@@ -251,4 +251,62 @@ new FieldSlider({
   readonly: false, // optional
   id: 'volume' // optional
 });
+```
+### Groups
+So groups contain multiple controls, groups or arrays to have them all together. Currently there is only one Group implmented but there are more to come.
+
+**FieldGroup**
+```typescript
+new FieldGroup({
+  name: 'adress',
+  children: [], // more groups or fields
+  validations: [], // optional
+  asyncValidations: [], // optional
+  id: 'adress', // optional
+  readonly: false // optional
+});
+```
+### Arrays
+Arrays are configuring lists so you can display or edit multiple Values of a type of group or control
+
+**FieldTable**
+```typescript
+new FieldTable({
+  name: 'adress',
+  listItem: new FieldGroup({}), // more groups or fields
+  config: {width: 100, countActive: false},
+  columns: [{name: '', heading: '', width: 0, sortable: false}],
+  validations: [], // optional
+  asyncValidations: [], // optional
+  id: 'adress', // optional
+  readonly: false // optional
+});
+```
+
+### Validations
+You can configure multiple validations per field and also asynchronous validations to validate through a backend.
+One validation-configuration consists of the following fields
+```typescript
+interface Validator {
+  name: string;
+  validator: ValidatorFn;
+  message: string;
+}
+interface AsyncValidator {
+  name: string;
+  validator: AsyncValidatorFn;
+  message: string;
+}
+```
+with that you can create validations for your formular to provide better quality and user-experience.
+here is a example
+```typescript
+new FieldSelect({
+  name: 'product',
+  options: () => of(PRODUCTS),
+  label: 'Item',
+  validations: [
+    {name: 'required', message: 'Field is required', validator: Validators.required}
+  ]
+})
 ```
