@@ -51,8 +51,9 @@ export class TableComponent extends BaseElementComponent<FieldTable<TableConfig,
   }
 
   onSubmit() {
-    this.formArray.push(this.newForm.get(this.field.listItem.name));
+    this.formArray.push(this.copyForm(this.newForm.get(this.field.listItem.name).value));
     this.dataSource.data = this.formArray.controls as FormGroup[];
+    this.resetForm();
   }
 
   deleteRow(index: number): void {
@@ -81,5 +82,15 @@ export class TableComponent extends BaseElementComponent<FieldTable<TableConfig,
         return {heading: fieldOfConfig.label, width: config.width, name: fieldOfConfig.name};
       }
     });
+  }
+
+  private copyForm(value: unknown): FormGroup {
+    return this.dynamicFormsService.createGroup(this.field.listItem, value);
+  }
+
+  private resetForm(): void {
+    this.newForm.reset();
+    this.newForm.markAsUntouched();
+    this.newForm.markAsPristine();
   }
 }
