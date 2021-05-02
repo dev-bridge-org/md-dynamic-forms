@@ -1,6 +1,6 @@
 {
   "name": "md-dynamic-forms-material",
-  "version": "0.1.0",
+  "version": "0.1.1",
   "author": "Michael Stadelmann",
   "repository": {
     "type": "git",
@@ -11,8 +11,10 @@
   },
   "license": "MIT",
   "peerDependencies": {
-    "@angular/common": "^10.0.14",
-    "@angular/core": "^10.0.14"
+    "@angular/common": "^11.2.11",
+    "@angular/core": "^11.2.11",
+    "@angular/forms": "^11.2.11",
+    "@angular/material": "^11.2.10"
   },
   "dependencies": {
     "tslib": "^2.0.0"
