@@ -3,7 +3,7 @@
   "version": "0.0.0",
   "scripts": {
     "ng": "ng",
-    "prestart": "npm run build:core && npm run build:material",
+    "prestart": "npm run build:core && npm run build:material && npm run build:clarity",
     "start": "ng serve",
     "build": "ng build",
     "build:app": "ng build md-dynamic-forms-app --prod",
@@ -11,9 +11,11 @@
     "build:core:watch": "ng build md-dynamic-forms-core --prod --watch",
     "build:material": "ng build md-dynamic-forms-material --prod",
     "build:material:watch": "ng build md-dynamic-forms-material --prod --watch",
+    "build:clarity": "ng build md-dynamic-forms-clarity --prod",
     "test": "ng test",
     "test:core": "ng test md-dynamic-forms-core --code-coverage",
     "test:material": "ng test md-dynamic-forms-material --code-coverage",
+    "test:clarity": "ng test md-dynamic-forms-clarity --code-coverage",
     "lint": "ng lint",
     "e2e": "ng e2e"
   },

@@ -198,6 +198,46 @@
           }
         }
       }
+    },
+    "md-dynamic-forms-clarity": {
+      "projectType": "library",
+      "root": "projects/md-dynamic-forms-clarity",
+      "sourceRoot": "projects/md-dynamic-forms-clarity/src",
+      "prefix": "lib",
+      "architect": {
+        "build": {
+          "builder": "@angular-devkit/build-angular:ng-packagr",
+          "options": {
+            "tsConfig": "projects/md-dynamic-forms-clarity/tsconfig.lib.json",
+            "project": "projects/md-dynamic-forms-clarity/ng-package.json"
+          },
+          "configurations": {
+            "production": {
+              "tsConfig": "projects/md-dynamic-forms-clarity/tsconfig.lib.prod.json"
+            }
+          }
+        },
+        "test": {
+          "builder": "@angular-devkit/build-angular:karma",
+          "options": {
+            "main": "projects/md-dynamic-forms-clarity/src/test.ts",
+            "tsConfig": "projects/md-dynamic-forms-clarity/tsconfig.spec.json",
+            "karmaConfig": "projects/md-dynamic-forms-clarity/karma.conf.js"
+          }
+        },
+        "lint": {
+          "builder": "@angular-devkit/build-angular:tslint",
+          "options": {
+            "tsConfig": [
+              "projects/md-dynamic-forms-clarity/tsconfig.lib.json",
+              "projects/md-dynamic-forms-clarity/tsconfig.spec.json"
+            ],
+            "exclude": [
+              "**/node_modules/**"
+            ]
+          }
+        }
+      }
     }},
   "defaultProject": "md-dynamic-forms-app"
 }
