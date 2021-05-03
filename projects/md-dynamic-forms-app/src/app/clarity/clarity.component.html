@@ -1,1 +1,7 @@
-<p>clarity works!</p>
+<div class="form-swap">
+  <button class="btn btn-primary" (click)="currentConfig = orderConfig">Order-Form</button>
+  <button class="btn btn-primary" (click)="currentConfig = registrationConfig">Reg-Form</button>
+</div>
+
+<app-form-wrapper [config]="currentConfig.form" [initialValue]="value" [title]="currentConfig.heading"></app-form-wrapper>
+

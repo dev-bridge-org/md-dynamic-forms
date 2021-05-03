@@ -24,6 +24,7 @@
               "projects/md-dynamic-forms-app/src/assets"
             ],
             "styles": [
+              "node_modules/@clr/ui/clr-ui.min.css",
               "projects/md-dynamic-forms-app/src/styles.css"
             ],
             "scripts": []
@@ -203,7 +204,7 @@
       "projectType": "library",
       "root": "projects/md-dynamic-forms-clarity",
       "sourceRoot": "projects/md-dynamic-forms-clarity/src",
-      "prefix": "lib",
+      "prefix": "md",
       "architect": {
         "build": {
           "builder": "@angular-devkit/build-angular:ng-packagr",
@@ -238,6 +239,7 @@
           }
         }
       }
-    }},
+    }
+  },
   "defaultProject": "md-dynamic-forms-app"
 }
