@@ -4,6 +4,8 @@ import {ClarityComponent} from './clarity.component';
 import {RouterModule} from '@angular/router';
 import {ClarityModule} from '@clr/angular';
 import {SharedFormsModule} from '../shared-forms/shared-forms.module';
+import {MdDynamicFormsCoreModule} from 'md-dynamic-forms-core';
+import {MdDynamicFormsClarityModule} from 'md-dynamic-forms-clarity';
 
 
 @NgModule({
@@ -14,6 +16,8 @@ import {SharedFormsModule} from '../shared-forms/shared-forms.module';
       {path: '', component: ClarityComponent}
     ]),
     ClarityModule,
+    MdDynamicFormsCoreModule,
+    MdDynamicFormsClarityModule,
     SharedFormsModule
   ]
 })
