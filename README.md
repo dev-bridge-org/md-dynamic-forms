@@ -118,7 +118,7 @@ export class FormWrapperComponent implements OnInit {
 |                	|md-dynamic-forms-core|ngx-bootstrap|material|clarity|
 |----------------	|:-:|:-:|:-:|:-:|
 | List          	|:heavy_check_mark:|:x:|:x:|:x:|
-| Table         	|:heavy_check_mark:|:x:|:heavy_check_mark:|:x:|
+| Table         	|:heavy_check_mark:|:x:|:heavy_check_mark:|:soon:|
 | GroupedTable   	|:x:|:x:|:x:|:x:|
 | CheckboxGroup 	|:x:|:x:|:x:|:x:|
 | MultiToggle 	|:x:|:x:|:x:|:x:|
