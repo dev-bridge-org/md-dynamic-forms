@@ -1,11 +1,11 @@
-<clr-input-container [formGroup]="group">
-  <label>{{field.label}}</label>
-  <input clrInput [type]="field.inputType"
-         [attr.aria-required]="required"
-         [attr.aria-label]="field.label"
-         [formControl]="control" />
+<clr-toggle-container [formGroup]="group">
+  <label></label>
+  <clr-toggle-wrapper>
+    <input type="checkbox" clrToggle [formControlName]="field.name"/>
+    <label>{{field.label}}</label>
+  </clr-toggle-wrapper>
   <clr-control-helper>{{field.hint}}</clr-control-helper>
   <ng-container *ngFor="let validation of field.validations" ngProjectAs="clr-control-error">
     <clr-control-error *ngIf="control.hasError(validation.name)">{{validation.message}}</clr-control-error>
   </ng-container>
-</clr-input-container>
+</clr-toggle-container>

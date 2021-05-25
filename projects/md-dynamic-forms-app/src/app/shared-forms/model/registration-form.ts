@@ -81,24 +81,24 @@ const REGISTRATION_FORM = new FieldGroup({
         {name: 'required', validator: Validators.required, message: 'Job is required'}
       ]
     }),
-    new FieldToggle({
-      name: 'job',
-      label: 'Job',
-      hint: 'Select your job',
-      options: () => of([
-        {value: 'engineer', label: 'Engineer'},
-        {value: 'architect', label: 'Architect'}
-      ]),
-      validations: [
-        {name: 'required', validator: Validators.required, message: 'Job is required'}
-      ]
-    }),
+    // new FieldToggle({
+    //   name: 'job',
+    //   label: 'Job',
+    //   hint: 'Select your job',
+    //   options: () => of([
+    //     {value: 'engineer', label: 'Engineer'},
+    //     {value: 'architect', label: 'Architect'}
+    //   ]),
+    //   validations: [
+    //     {name: 'required', validator: Validators.required, message: 'Job is required'}
+    //   ]
+    // }),
     new FieldCheckbox({
       name: 'agb',
       label: 'AGB',
       hint: 'read the AGB',
       validations: [
-        {name: 'required', validator: Validators.required, message: 'Job is required'}
+        {name: 'required', validator: Validators.requiredTrue, message: 'Job is required'}
       ]
     }),
     new FieldRadio({
@@ -109,13 +109,13 @@ const REGISTRATION_FORM = new FieldGroup({
         {label: 'A-', value: 'AMinus'},
       ])
     }),
-    new FieldTextarea({
-      label: 'Description',
-      name: 'description',
-      validations: [
-        {name: 'required', validator: Validators.required, message: 'Description is required'}
-      ]
-    }),
+    // new FieldTextarea({
+    //   label: 'Description',
+    //   name: 'description',
+    //   validations: [
+    //     {name: 'required', validator: Validators.required, message: 'Description is required'}
+    //   ]
+    // }),
     new FieldSlider({
       label: 'Volume',
       name: 'volume',
@@ -129,34 +129,34 @@ const REGISTRATION_FORM = new FieldGroup({
       name: 'newsletter',
       label: 'Want the newsletter?'
     }),
-    new FieldTable({
-      name: 'contacts',
-      config: {
-        width: 100
-      },
-      columns: [
-        {name: 'type', heading: 'Type', width: 50},
-        {name: 'value', heading: 'Value', width: 50}
-      ],
-      listItem: new FieldGroup({
-        name: 'contact',
-        children: [
-          new FieldSelect({
-            name: 'type',
-            options: () => of([{value: 'email', label: 'E-Mail'}, {value: 'phone', label: 'Phone'}]),
-            label: 'Type'
-          }),
-          new FieldInput({
-            name: 'value',
-            label: 'Value'
-          }),
-          new FieldButton({
-            name: 'test',
-            label: 'Save Contact'
-          })
-        ]
-      })
-    })
+    // new FieldTable({
+    //   name: 'contacts',
+    //   config: {
+    //     width: 100
+    //   },
+    //   columns: [
+    //     {name: 'type', heading: 'Type', width: 50},
+    //     {name: 'value', heading: 'Value', width: 50}
+    //   ],
+    //   listItem: new FieldGroup({
+    //     name: 'contact',
+    //     children: [
+    //       new FieldSelect({
+    //         name: 'type',
+    //         options: () => of([{value: 'email', label: 'E-Mail'}, {value: 'phone', label: 'Phone'}]),
+    //         label: 'Type'
+    //       }),
+    //       new FieldInput({
+    //         name: 'value',
+    //         label: 'Value'
+    //       }),
+    //       new FieldButton({
+    //         name: 'test',
+    //         label: 'Save Contact'
+    //       })
+    //     ]
+    //   })
+    // })
   ]
 });
 

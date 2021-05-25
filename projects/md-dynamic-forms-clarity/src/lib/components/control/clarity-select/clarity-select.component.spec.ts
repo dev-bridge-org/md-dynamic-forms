@@ -1,24 +1,19 @@
-import {createComponentFactory, Spectator} from '@ngneat/spectator';
-import {SelectComponent} from '../select/select.component';
-import {NoopAnimationsModule} from '@angular/platform-browser/animations';
-import {FormControl, FormGroup, ReactiveFormsModule, Validators} from '@angular/forms';
-import {LoggerTestingModule} from 'ngx-logger/testing';
-import {MatFormFieldModule} from '@angular/material/form-field';
-import {FieldRadio} from 'md-dynamic-forms-core';
+import { ClaritySelectComponent } from './clarity-select.component';
 import {of} from 'rxjs';
-import {RadiobuttonComponent} from './radiobutton.component';
-import {MatRadioModule} from '@angular/material/radio';
+import {FormControl, FormGroup, ReactiveFormsModule, Validators} from '@angular/forms';
+import {createComponentFactory, Spectator} from '@ngneat/spectator';
+import {NoopAnimationsModule} from '@angular/platform-browser/animations';
+import {ClarityModule} from '@clr/angular';
+import {FieldSelect} from 'md-dynamic-forms-core';
 
-describe('RadiobuttonComponent', () => {
-  let spectator: Spectator<RadiobuttonComponent>;
+describe('ClaritySelectComponent', () => {
+  let spectator: Spectator<ClaritySelectComponent>;
   const createComponent = createComponentFactory({
-    component: RadiobuttonComponent,
+    component: ClaritySelectComponent,
     imports: [
       NoopAnimationsModule,
       ReactiveFormsModule,
-      LoggerTestingModule,
-      MatFormFieldModule,
-      MatRadioModule
+      ClarityModule
     ]
   });
 
@@ -31,7 +26,7 @@ describe('RadiobuttonComponent', () => {
   });
 
   it('should have a aria-label with correct content', () => {
-    const field = new FieldRadio({
+    const field = new FieldSelect({
       name: 'gender',
       label: 'This is a Test-Label',
       options: () => of([{value: 'male', label: 'Male'}, {value: 'female', label: 'Female'}])
@@ -42,13 +37,13 @@ describe('RadiobuttonComponent', () => {
 
     spectator.detectChanges();
 
-    const ariaLabel = spectator.query('mat-radio-group').attributes.getNamedItem('aria-label');
+    const ariaLabel = spectator.query('select').attributes.getNamedItem('aria-label');
     expect(ariaLabel).toBeTruthy();
     expect(ariaLabel.value).toEqual(field.label);
   });
 
   it('should have aria-required set to true', () => {
-    const field = new FieldRadio({
+    const field = new FieldSelect({
       name: 'gender',
       options: () => of([{value: 'male', label: 'Male'}, {value: 'female', label: 'Female'}]),
       label: 'This is a Test-Label',
@@ -60,13 +55,13 @@ describe('RadiobuttonComponent', () => {
 
     spectator.detectChanges();
 
-    const ariaRequired = spectator.query('mat-radio-group').attributes.getNamedItem('aria-required');
+    const ariaRequired = spectator.query('select').attributes.getNamedItem('aria-required');
     expect(ariaRequired).toBeDefined();
     expect(ariaRequired.value).toEqual('true');
   });
 
   it('should display error', () => {
-    const field = new FieldRadio({
+    const field = new FieldSelect({
       name: 'test',
       options: () => of([{value: 'male', label: 'Male'}, {value: 'female', label: 'Female'}]),
       label: 'This is a Test-Label',
@@ -78,14 +73,16 @@ describe('RadiobuttonComponent', () => {
     spectator.component.group = group;
 
     spectator.detectChanges();
+    spectator.focus('select');
+    spectator.blur('select');
 
-    const error = spectator.query('mat-error').innerHTML;
+    const error = spectator.query('clr-control-error').innerHTML;
     expect(error).toBeDefined();
     expect(error).toEqual('Required field');
   });
 
   it('should have hint displayed when configured', () => {
-    const field = new FieldRadio({
+    const field = new FieldSelect({
       name: 'test',
       options: () => of([{value: 'male', label: 'Male'}, {value: 'female', label: 'Female'}]),
       label: 'This is the label',
@@ -98,7 +95,7 @@ describe('RadiobuttonComponent', () => {
 
     spectator.detectChanges();
 
-    const hint = spectator.query('mat-hint').innerHTML;
+    const hint = spectator.query('clr-control-helper').innerHTML;
     expect(hint).toBeDefined();
     expect(hint).toEqual(field.hint);
   });

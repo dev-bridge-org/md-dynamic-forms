@@ -1,14 +1,14 @@
-import { ClarityInputComponent } from './clarity-input.component';
+import { ClarityDatepickerComponent } from './clarity-datepicker.component';
 import {createComponentFactory, Spectator} from '@ngneat/spectator';
 import {NoopAnimationsModule} from '@angular/platform-browser/animations';
 import {FormControl, FormGroup, ReactiveFormsModule, Validators} from '@angular/forms';
+import {FieldDatepicker} from 'md-dynamic-forms-core';
 import {ClarityModule} from '@clr/angular';
-import {FieldInput} from 'md-dynamic-forms-core';
 
-describe('ClarityInputComponent', () => {
-  let spectator: Spectator<ClarityInputComponent>;
+describe('ClarityDatepickerComponent', () => {
+  let spectator: Spectator<ClarityDatepickerComponent>;
   const createComponent = createComponentFactory({
-    component: ClarityInputComponent,
+    component: ClarityDatepickerComponent,
     imports: [
       NoopAnimationsModule,
       ReactiveFormsModule,
@@ -25,7 +25,7 @@ describe('ClarityInputComponent', () => {
   });
 
   it('should have a aria-label with correct content', () => {
-    const field = new FieldInput({name: 'test', inputType: 'text', label: 'This is a Test-Label'});
+    const field = new FieldDatepicker({name: 'test', label: 'This is a Test-Label'});
     const group = new FormGroup({test: new FormControl('')});
     spectator.component.field = field;
     spectator.component.group = group;
@@ -37,23 +37,9 @@ describe('ClarityInputComponent', () => {
     expect(ariaLabel.value).toEqual(field.label);
   });
 
-  it('should have set the correct inputType', () => {
-    const field = new FieldInput({name: 'test', inputType: 'number', label: 'This is a Test-Label'});
-    const group = new FormGroup({test: new FormControl('')});
-    spectator.component.field = field;
-    spectator.component.group = group;
-
-    spectator.detectChanges();
-
-    const inputType = spectator.query('input').attributes.getNamedItem('type');
-    expect(inputType).toBeDefined();
-    expect(inputType.value).toEqual(field.inputType);
-  });
-
   it('should have aria-required set to true', () => {
-    const field = new FieldInput({
+    const field = new FieldDatepicker({
       name: 'test',
-      inputType: 'number',
       label: 'This is a Test-Label',
       validations: [{name: 'required', validator: Validators.required, message: 'Required field'}],
     });
@@ -69,9 +55,8 @@ describe('ClarityInputComponent', () => {
   });
 
   it('should display error', () => {
-    const field = new FieldInput({
+    const field = new FieldDatepicker({
       name: 'test',
-      inputType: 'number',
       label: 'This is a Test-Label',
       validations: [{name: 'required', validator: Validators.required, message: 'Required field'}],
     });
@@ -84,45 +69,8 @@ describe('ClarityInputComponent', () => {
     spectator.focus('input');
     spectator.blur('input');
 
-    const error = spectator.query('clr-input-container clr-control-error').innerHTML;
+    const error = spectator.query('clr-control-error').innerHTML;
     expect(error).toBeDefined();
     expect(error).toEqual('Required field');
-  });
-
-  it('should have aria-label set to label-context', () => {
-    const field = new FieldInput({
-      name: 'test',
-      inputType: 'text',
-      label: 'This is the label'
-    });
-    const group = new FormGroup({test: new FormControl('')});
-
-    spectator.component.field = field;
-    spectator.component.group = group;
-
-    spectator.detectChanges();
-
-    const ariaLabel = spectator.query('input').attributes.getNamedItem('aria-label');
-    expect(ariaLabel).toBeDefined();
-    expect(ariaLabel.value).toEqual(field.label);
-  });
-
-  it('should have hint displayed when configured', () => {
-    const field = new FieldInput({
-      name: 'test',
-      inputType: 'text',
-      label: 'This is the label',
-      hint: 'Just a hint'
-    });
-    const group = new FormGroup({test: new FormControl('')});
-
-    spectator.component.field = field;
-    spectator.component.group = group;
-
-    spectator.detectChanges();
-
-    const hint = spectator.query('clr-control-helper').innerHTML;
-    expect(hint).toBeDefined();
-    expect(hint).toEqual(field.hint);
   });
 });

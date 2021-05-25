@@ -19,28 +19,28 @@ const PAYMENT_METHODS = [
 const ORDER_FORM = new FieldGroup({
   name: 'order',
   children: [
-    new FieldTable({
-      name: 'items',
-      listItem: new FieldGroup({
-        name: 'orderItem',
-        children: [
-          new FieldSelect({
-            name: 'product',
-            options: () => of(PRODUCTS),
-            label: 'Item',
-            validations: [
-              {name: 'required', message: 'Field is required', validator: Validators.required}
-            ]
-          }),
-          new FieldButton({
-            name: 'submit',
-            label: 'Add to List'
-          })
-        ]
-      }),
-      config: {width: 85},
-      columns: [{name: 'product', width: 100, heading: 'Selected Item'}]
-    }),
+    // new FieldTable({
+    //   name: 'items',
+    //   listItem: new FieldGroup({
+    //     name: 'orderItem',
+    //     children: [
+    //       new FieldSelect({
+    //         name: 'product',
+    //         options: () => of(PRODUCTS),
+    //         label: 'Item',
+    //         validations: [
+    //           {name: 'required', message: 'Field is required', validator: Validators.required}
+    //         ]
+    //       }),
+    //       new FieldButton({
+    //         name: 'submit',
+    //         label: 'Add to List'
+    //       })
+    //     ]
+    //   }),
+    //   config: {width: 85},
+    //   columns: [{name: 'product', width: 100, heading: 'Selected Item'}]
+    // }),
     new FieldRadio({
       name: 'payment',
       label: 'Payment-Method',

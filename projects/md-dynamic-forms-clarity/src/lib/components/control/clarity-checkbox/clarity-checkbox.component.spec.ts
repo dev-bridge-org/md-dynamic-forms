@@ -1,24 +1,20 @@
+import { ClarityCheckboxComponent } from './clarity-checkbox.component';
 import {createComponentFactory, Spectator} from '@ngneat/spectator';
-import {SelectComponent} from '../select/select.component';
 import {NoopAnimationsModule} from '@angular/platform-browser/animations';
 import {FormControl, FormGroup, ReactiveFormsModule, Validators} from '@angular/forms';
 import {LoggerTestingModule} from 'ngx-logger/testing';
-import {MatFormFieldModule} from '@angular/material/form-field';
-import {FieldRadio} from 'md-dynamic-forms-core';
-import {of} from 'rxjs';
-import {RadiobuttonComponent} from './radiobutton.component';
-import {MatRadioModule} from '@angular/material/radio';
+import {FieldCheckbox} from 'md-dynamic-forms-core';
+import {ClarityModule} from '@clr/angular';
 
-describe('RadiobuttonComponent', () => {
-  let spectator: Spectator<RadiobuttonComponent>;
+describe('ClarityCheckboxComponent', () => {
+  let spectator: Spectator<ClarityCheckboxComponent>;
   const createComponent = createComponentFactory({
-    component: RadiobuttonComponent,
+    component: ClarityCheckboxComponent,
     imports: [
       NoopAnimationsModule,
       ReactiveFormsModule,
       LoggerTestingModule,
-      MatFormFieldModule,
-      MatRadioModule
+      ClarityModule
     ]
   });
 
@@ -31,10 +27,9 @@ describe('RadiobuttonComponent', () => {
   });
 
   it('should have a aria-label with correct content', () => {
-    const field = new FieldRadio({
+    const field = new FieldCheckbox({
       name: 'gender',
-      label: 'This is a Test-Label',
-      options: () => of([{value: 'male', label: 'Male'}, {value: 'female', label: 'Female'}])
+      label: 'This is a Test-Label'
     });
     const group = new FormGroup({gender: new FormControl('')});
     spectator.component.field = field;
@@ -42,33 +37,14 @@ describe('RadiobuttonComponent', () => {
 
     spectator.detectChanges();
 
-    const ariaLabel = spectator.query('mat-radio-group').attributes.getNamedItem('aria-label');
+    const ariaLabel = spectator.query('input').attributes.getNamedItem('aria-label');
     expect(ariaLabel).toBeTruthy();
     expect(ariaLabel.value).toEqual(field.label);
   });
 
-  it('should have aria-required set to true', () => {
-    const field = new FieldRadio({
-      name: 'gender',
-      options: () => of([{value: 'male', label: 'Male'}, {value: 'female', label: 'Female'}]),
-      label: 'This is a Test-Label',
-      validations: [{name: 'required', validator: Validators.required, message: 'Required field'}],
-    });
-    const group = new FormGroup({gender: new FormControl('', [Validators.required])});
-    spectator.component.field = field;
-    spectator.component.group = group;
-
-    spectator.detectChanges();
-
-    const ariaRequired = spectator.query('mat-radio-group').attributes.getNamedItem('aria-required');
-    expect(ariaRequired).toBeDefined();
-    expect(ariaRequired.value).toEqual('true');
-  });
-
   it('should display error', () => {
-    const field = new FieldRadio({
+    const field = new FieldCheckbox({
       name: 'test',
-      options: () => of([{value: 'male', label: 'Male'}, {value: 'female', label: 'Female'}]),
       label: 'This is a Test-Label',
       validations: [{name: 'required', validator: Validators.required, message: 'Required field'}],
     });
@@ -78,16 +54,17 @@ describe('RadiobuttonComponent', () => {
     spectator.component.group = group;
 
     spectator.detectChanges();
+    spectator.focus('input');
+    spectator.blur('input');
 
-    const error = spectator.query('mat-error').innerHTML;
+    const error = spectator.query('clr-control-error').innerHTML;
     expect(error).toBeDefined();
     expect(error).toEqual('Required field');
   });
 
   it('should have hint displayed when configured', () => {
-    const field = new FieldRadio({
+    const field = new FieldCheckbox({
       name: 'test',
-      options: () => of([{value: 'male', label: 'Male'}, {value: 'female', label: 'Female'}]),
       label: 'This is the label',
       hint: 'Just a hint'
     });
@@ -98,7 +75,7 @@ describe('RadiobuttonComponent', () => {
 
     spectator.detectChanges();
 
-    const hint = spectator.query('mat-hint').innerHTML;
+    const hint = spectator.query('clr-control-helper').innerHTML;
     expect(hint).toBeDefined();
     expect(hint).toEqual(field.hint);
   });

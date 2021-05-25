@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component } from '@angular/core';
 import {BaseInputComponent, FieldInput} from 'md-dynamic-forms-core';
 
 @Component({
@@ -6,7 +6,4 @@ import {BaseInputComponent, FieldInput} from 'md-dynamic-forms-core';
   templateUrl: './clarity-input.component.html',
   styleUrls: ['./clarity-input.component.css']
 })
-export class ClarityInputComponent extends BaseInputComponent<FieldInput> implements OnInit {
-  ngOnInit(): void {
-  }
-}
+export class ClarityInputComponent extends BaseInputComponent<FieldInput> {}
