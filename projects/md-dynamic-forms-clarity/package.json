@@ -1,13 +1,13 @@
 {
   "name": "md-dynamic-forms-clarity",
   "version": "0.0.1",
-  "author": "Michael Stadelmann",
+  "author": "dev-bridge <contact@dev-bridge.org>",
   "repository": {
     "type": "git",
-    "url": "https://github.com/officialMKL/md-dynamic-forms.git"
+    "url": "https://github.com/dev-bridge-org/md-dynamic-forms.git"
   },
   "bugs": {
-    "url": "https://github.com/officialMKL/md-dynamic-forms/issues"
+    "url": "https://github.com/dev-bridge-org/md-dynamic-forms/issues"
   },
   "license": "MIT",
   "peerDependencies": {

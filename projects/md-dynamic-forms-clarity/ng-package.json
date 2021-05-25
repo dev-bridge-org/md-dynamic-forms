@@ -4,6 +4,7 @@
   "lib": {
     "entryFile": "src/public-api.ts",
     "umdModuleIds": {
+      "@clr/angular": "@clr/angular",
       "md-dynamic-forms-core": "md-dynamic-forms-core",
       "ngx-logger": "ngx-logger"
     }
