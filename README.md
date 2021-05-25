@@ -89,28 +89,28 @@ export class FormWrapperComponent implements OnInit {
 ### Controls
 |                	|md-dynamic-forms-core|ngx-bootstrap|material|clarity|
 |----------------	|:-:|:-:|:-:|:-:|
-| Checkbox       	|:heavy_check_mark:|:x:|:heavy_check_mark:|:x:|
+| Checkbox       	|:heavy_check_mark:|:x:|:heavy_check_mark:|:soon:|
 | Colorpicker    	|:x:|:x:|:x:|:x:|
 | Currency      	|:x:|:x:|:x:|:x:|
-| Datepicker     	|:heavy_check_mark:|:x:|:heavy_check_mark:|:x:|
+| Datepicker     	|:heavy_check_mark:|:x:|:heavy_check_mark:|:soon:|
 | Editor         	|:x:|:x:|:x:|:x:|
 | File Upload    	|:heavy_check_mark:|:x:|:x:|:x:|
-| Input          	|:heavy_check_mark:|:x:|:heavy_check_mark:|:x:|
+| Input          	|:heavy_check_mark:|:x:|:heavy_check_mark:|:soon:|
 | MultiInput     	|:heavy_check_mark:|:x:|:x:|:x:|
-| Radio Group    	|:heavy_check_mark:|:x:|:heavy_check_mark:|:x:|
+| Radio Group    	|:heavy_check_mark:|:x:|:heavy_check_mark:|:soon:|
 | Rating         	|:x:|:x:|:x:|:x:|
-| Select         	|:heavy_check_mark:|:x:|:heavy_check_mark:|:x:|
-| Slider         	|:heavy_check_mark:|:x:|:heavy_check_mark:|:x:|
-| Switch         	|:heavy_check_mark:|:x:|:heavy_check_mark:|:x:|
+| Select         	|:heavy_check_mark:|:x:|:heavy_check_mark:|:soon:|
+| Slider         	|:heavy_check_mark:|:x:|:heavy_check_mark:|:soon:|
+| Switch         	|:heavy_check_mark:|:x:|:heavy_check_mark:|:soon:|
 | Textarea       	|:heavy_check_mark:|:x:|:heavy_check_mark:|:x:|
 | Timepicker     	|:x:|:x:|:x:|:x:|
-| Toggle        	|:heavy_check_mark:|:x:|:heavy_check_mark:|:x:|
+| Toggle        	|:heavy_check_mark:|:x:|:heavy_check_mark:|:soon:|
 | DecisionToggle 	|:x:|:x:|:x:|:x:|
 
 ### Group
 |                	|md-dynamic-forms-core|ngx-bootstrap|material|clarity|
 |----------------	|:-:|:-:|:-:|:-:|
-| BaseGroup      	|:heavy_check_mark:|:x:|:heavy_check_mark:|:x:|
+| BaseGroup      	|:heavy_check_mark:|:x:|:heavy_check_mark:|:soon:|
 | LayoutGroup   	|:heavy_check_mark:|:x:|:x:|:x:|
 | CombineGroup   	|:x:|:x:|:x:|:x:|
 

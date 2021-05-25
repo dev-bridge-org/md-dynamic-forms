@@ -1,5 +1,5 @@
 <clr-range-container [clrRangeHasProgress]="true" [formGroup]="group">
   <label>{{field.label}}</label>
-  <input type="range" clrRange [formControlName]="field.name" [min]="field.min" [max]="field.max" />
+  <input type="range" clrRange [formControlName]="field.name" [min]="field.min" [max]="field.max" [step]="field.step" />
   <clr-control-helper>{{field.hint}}</clr-control-helper>
 </clr-range-container>
