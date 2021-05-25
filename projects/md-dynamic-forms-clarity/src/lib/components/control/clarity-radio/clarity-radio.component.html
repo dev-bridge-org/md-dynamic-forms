@@ -1,0 +1,11 @@
+<clr-radio-container [formGroup]="group">
+  <label>{{field.label}}</label>
+  <clr-radio-wrapper *ngFor="let option of options | async">
+    <input type="radio" clrRadio [value]="option.value" [formControlName]="field.name" />
+    <label>{{option.label}}</label>
+  </clr-radio-wrapper>
+  <clr-control-helper>{{field.hint}}</clr-control-helper>
+  <ng-container *ngFor="let validation of field.validations" ngProjectAs="clr-control-error">
+    <clr-control-error *ngIf="control.hasError(validation.name)">{{validation.message}}</clr-control-error>
+  </ng-container>
+</clr-radio-container>

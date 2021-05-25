@@ -24,9 +24,15 @@
               "projects/md-dynamic-forms-app/src/assets"
             ],
             "styles": [
+              "node_modules/@clr/icons/clr-icons.min.css",
+              "node_modules/@clr/ui/clr-ui.min.css",
               "projects/md-dynamic-forms-app/src/styles.css"
             ],
-            "scripts": []
+            "scripts": [
+              "node_modules/@webcomponents/webcomponentsjs/custom-elements-es5-adapter.js",
+              "node_modules/@webcomponents/webcomponentsjs/webcomponents-bundle.js",
+              "node_modules/@clr/icons/clr-icons.min.js"
+            ]
           },
           "configurations": {
             "production": {
@@ -198,6 +204,47 @@
           }
         }
       }
-    }},
+    },
+    "md-dynamic-forms-clarity": {
+      "projectType": "library",
+      "root": "projects/md-dynamic-forms-clarity",
+      "sourceRoot": "projects/md-dynamic-forms-clarity/src",
+      "prefix": "md",
+      "architect": {
+        "build": {
+          "builder": "@angular-devkit/build-angular:ng-packagr",
+          "options": {
+            "tsConfig": "projects/md-dynamic-forms-clarity/tsconfig.lib.json",
+            "project": "projects/md-dynamic-forms-clarity/ng-package.json"
+          },
+          "configurations": {
+            "production": {
+              "tsConfig": "projects/md-dynamic-forms-clarity/tsconfig.lib.prod.json"
+            }
+          }
+        },
+        "test": {
+          "builder": "@angular-devkit/build-angular:karma",
+          "options": {
+            "main": "projects/md-dynamic-forms-clarity/src/test.ts",
+            "tsConfig": "projects/md-dynamic-forms-clarity/tsconfig.spec.json",
+            "karmaConfig": "projects/md-dynamic-forms-clarity/karma.conf.js"
+          }
+        },
+        "lint": {
+          "builder": "@angular-devkit/build-angular:tslint",
+          "options": {
+            "tsConfig": [
+              "projects/md-dynamic-forms-clarity/tsconfig.lib.json",
+              "projects/md-dynamic-forms-clarity/tsconfig.spec.json"
+            ],
+            "exclude": [
+              "**/node_modules/**"
+            ]
+          }
+        }
+      }
+    }
+  },
   "defaultProject": "md-dynamic-forms-app"
 }

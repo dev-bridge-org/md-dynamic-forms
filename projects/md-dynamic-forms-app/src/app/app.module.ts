@@ -18,7 +18,7 @@ const routes: Routes = [
   },
   {
     path: 'clarity',
-    loadChildren: () => import('./clarity/clarity.module').then(m => m.ClarityModule)
+    loadChildren: () => import('./clarity/clarity-sample.module').then(m => m.ClaritySampleModule)
   },
   {
     path: '',
