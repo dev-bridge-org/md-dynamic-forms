@@ -1,0 +1,22 @@
+<form class="newEntryForm" clrForm [formGroup]="newForm" (ngSubmit)="onSubmit()">
+  <ng-container mdDynamicField [group]="newForm" [field]="field.listItem"></ng-container>
+</form>
+
+<table class="table">
+  <thead>
+  <tr>
+    <th *ngFor="let columnConfig of columnConfigs">{{columnConfig.heading}}</th>
+    <th><span class="clr-sr-only">Action Column</span></th>
+  </tr>
+  </thead>
+  <tbody>
+  <tr *ngFor="let control of controls; let i = index">
+    <td *ngFor="let columnConfig of columnConfigs">{{control.get(columnConfig.name).value}}</td>
+    <td>
+      <button type="button" class="btn btn-icon" aria-label="home" (click)="deleteRow(i)">
+        <clr-icon shape="trash"></clr-icon>
+      </button>
+    </td>
+  </tr>
+  </tbody>
+</table>

@@ -10,4 +10,6 @@ export * from './lib/components/control/clarity-radio/clarity-radio.component';
 export * from './lib/components/control/clarity-range/clarity-range.component';
 export * from './lib/components/control/clarity-select/clarity-select.component';
 export * from './lib/components/control/clarity-toggle/clarity-toggle.component';
+export * from './lib/components/control/clarity-button/clarity-button.component';
 export * from './lib/components/group/clarity-group.component';
+export * from './lib/components/array/clarity-table/clarity-table.component';

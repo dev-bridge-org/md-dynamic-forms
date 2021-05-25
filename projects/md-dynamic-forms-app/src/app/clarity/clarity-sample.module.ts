@@ -7,6 +7,7 @@ import {SharedFormsModule} from '../shared-forms/shared-forms.module';
 import {MdDynamicFormsCoreModule} from 'md-dynamic-forms-core';
 import {MdDynamicFormsClarityModule} from 'md-dynamic-forms-clarity';
 import {ReactiveFormsModule} from '@angular/forms';
+import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
 
 
 @NgModule({

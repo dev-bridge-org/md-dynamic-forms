@@ -13,6 +13,8 @@ import { ClarityToggleComponent } from './components/control/clarity-toggle/clar
 import { ClarityRadioComponent } from './components/control/clarity-radio/clarity-radio.component';
 import {ClarityGroupComponent} from './components/group/clarity-group.component';
 import {MdDynamicFormsCoreModule} from 'md-dynamic-forms-core';
+import { ClarityTableComponent } from './components/array/clarity-table/clarity-table.component';
+import { ClarityButtonComponent } from './components/control/clarity-button/clarity-button.component';
 
 
 
@@ -25,7 +27,9 @@ import {MdDynamicFormsCoreModule} from 'md-dynamic-forms-core';
     ClarityRangeComponent,
     ClarityToggleComponent,
     ClarityRadioComponent,
-    ClarityGroupComponent
+    ClarityGroupComponent,
+    ClarityTableComponent,
+    ClarityButtonComponent
   ],
   imports: [
     CommonModule,
@@ -44,7 +48,9 @@ import {MdDynamicFormsCoreModule} from 'md-dynamic-forms-core';
     ClarityRangeComponent,
     ClarityToggleComponent,
     ClarityRadioComponent,
-    ClarityGroupComponent
+    ClarityGroupComponent,
+    ClarityTableComponent,
+    ClarityButtonComponent
   ]
 })
 export class MdDynamicFormsClarityModule { }
